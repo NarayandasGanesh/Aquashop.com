@@ -1,7 +1,4 @@
-import React from "react";
-import { Flex, Spacer, Text, Image,Card,CardBody, HStack } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import { AiFillDollarCircle } from "react-icons/ai";
+import React from 'react'
 
 const Homepage = () => {
   return (

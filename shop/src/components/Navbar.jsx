@@ -73,7 +73,7 @@ const Navbar = () => {
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
             <Box width={"90%"} border={"1px solid blue"} display={"flex"}>
-              {" "}
+           
               <Box width={"25%"}>
                 <Image
                   alt={"Logo"}
@@ -89,15 +89,15 @@ const Navbar = () => {
                 />
               </Box>
               <Box border={"1px solid black"} width="100%">
-                {" "}
+             
                 <Box width={{ base: "120%", md: "80%" }}>
-                  {" "}
+             
                   <InputGroup
                     // display={{ base: "1", md: "inline-flex" }}
 
                     justifyItems={"center"}
                   >
-                    {" "}
+            
                     <Input
                       placeholder="Search Here"
                       size="lg"
