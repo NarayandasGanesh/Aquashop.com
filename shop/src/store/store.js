@@ -4,12 +4,12 @@ import {
     compose,
     applyMiddleware,
   } from "redux";
-  import { reducer as appReducer } from "./Product/product.reducer";
+  import { Clothreducer } from "./Cloth/Cloth.reducer";
   import { reducer as authReducer } from "./Auth/auth.reducer";
   import thunk from "redux-thunk";
   
   const root_reducer = combineReducers({
-    app: appReducer,
+    ClothManger: Clothreducer ,
     auth: authReducer,
   });
   

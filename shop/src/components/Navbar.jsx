@@ -45,14 +45,7 @@ import {
   ChevronRightIcon,
   SearchIcon,
 } from "@chakra-ui/icons";
-import { BsCart } from "react-icons/bs";
-import {
-  FaUserCircle,
-  FaUser,
-  FaTruckMoving,
-  FaUserPlus,
-  FaRegUser,
-} from "react-icons/fa";
+
 import { useNavigate } from "react-router-dom";
 import { AiOutlineQuestionCircle, AiOutlineReload } from "react-icons/ai";
 import { HiCurrencyDollar } from "react-icons/hi";
@@ -119,6 +112,7 @@ const Navbar = () => {
               aria-label={"Toggle Navigation"}
             />
           </Flex>
+
           <Flex
             flex={{ base: 1 }}
             justify={{ base: "center", md: "start" }}
@@ -171,11 +165,35 @@ const Navbar = () => {
                   width={{ base: "100px", sm: "200px", md: "100%", lg: "100%" }}
                   pl={{ base: "0", md: "0", lg: "100px" }}
                 >
+
+          <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+            <Box width={"90%"} border={"1px solid blue"} display={"flex"}>
+           
+              <Box width={"25%"}>
+                <Image
+                  alt={"Logo"}
+                  objectFit={"cover"}
+                  // p={[4, 10]}
+                  // m={[4, 8, 16, 10]}
+
+                  // border={"1px solid black"}
+                  w={["50%", "50%"]}
+                  minH={["20px"]}
+                  ml={5}
+                  src={"./images/logo.jpeg"}
+                />
+              </Box>
+              <Box border={"1px solid black"} width="100%">
+             
+                <Box width={{ base: "120%", md: "80%" }}>
+             
+
                   <InputGroup
                     // display={{ base: "1", md: "inline-flex" }}
                     bgColor="#f0f1f7 "
                     justifyItems={"center"}
                   >
+
                     <Input
                       placeholder="Search Here"
                       size="lg"
