@@ -3,12 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import Clothes from "./Clothes";
 import Cosmetics from "./Cosmetics";
 import Electronics from "./Electronics";
-
 import Homepage from "./Homepage";
 import Jewelery from "./Jewelery";
 import ShopBuddy from "./ShopBuddy";
 import ShopLocal from "./ShopLocal";
-
 const AllRoutes = () => {
   return (
     <Routes>
@@ -22,6 +20,5 @@ const AllRoutes = () => {
     </Routes>
   );
 };
-
 export default AllRoutes;
 // <Route path="/singleproduct/:id"  element={<SingleProduct />} />
