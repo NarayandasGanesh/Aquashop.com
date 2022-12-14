@@ -28,7 +28,7 @@ import {
   ChevronRightIcon,
   SearchIcon,
 } from "@chakra-ui/icons";
-import { BsCart } from "react-icons/bs";
+import {BsCart} from "react-icons/bs"
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
