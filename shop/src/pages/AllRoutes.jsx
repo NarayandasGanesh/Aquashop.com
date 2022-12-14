@@ -1,7 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+
+import Cart from "./Cart";
+
 import AdminPage from "./AdminPage";
  
+
 
 import Clothes from "./Clothes";
 import Cosmetics from "./Cosmetics";
@@ -25,6 +29,8 @@ const AllRoutes = () => {
       <Route path="/cosmetic" element={<Cosmetics />} />
       <Route path="/shopbuddy" element={<ShopBuddy />} />
       <Route path="/shoplocal" element={<ShopLocal />} />
+
+      <Route path="/cart" element={<Cart />} />
 
     </Routes>
   );
