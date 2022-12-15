@@ -16,8 +16,8 @@ import {
 import { AiFillDollarCircle } from "react-icons/ai";
 const Homepage = () => {
   return (
-    < >
-      <Flex
+    < div style={{textAlign:"center"}}>
+      <Flex 
         backgroundColor="#f0f1f7"
         height="30px"
         alignItems="center"
@@ -53,6 +53,7 @@ const Homepage = () => {
 
       <Flex
         alignItems="center"
+        
         marginTop="10px"
         // fontSize={["xs", "xs", "xs", "xs"]}
       >
@@ -74,7 +75,7 @@ const Homepage = () => {
         src="https://img.shop.com/Image/homepage/shop-gbr-102789-holiday-hot-toys-banners-1600x300-img-min1669996056936.jpg"
       />
 
-      <HStack direction={["row", "row", "column", "column"]} marginTop="50px">
+      <HStack justifyContent={"space-evenly"} direction={["row", "row", "column", "column"]} marginTop="50px">
        <Box>
        <Card
           marginLeft="10px"
@@ -340,7 +341,7 @@ const Homepage = () => {
       </HStack>
 
 
-<HStack marginTop="50px">
+<HStack marginLeft="40px" marginTop="50px">
 <Link>
 <Box>
   <Image width="400px" height="420px" src="https://img.shop.com/Image/homepage/shop-usa-eng-96513-free-shipping-day-banners-600x600-img1670959530225.jpg" />
@@ -379,7 +380,7 @@ const Homepage = () => {
 </VStack>
   
 </HStack>
-</>
+</div>
   )
 
 
