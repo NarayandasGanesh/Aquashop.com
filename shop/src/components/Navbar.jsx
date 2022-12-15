@@ -1,22 +1,5 @@
 import React from "react";
 import {
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  Textarea,
-  FormLabel,
-  InputLeftAddon,
-  InputRightAddon,
-  Select,
-  Heading,
-  Container,
-} from "@chakra-ui/react";
-import { Show, Hide } from "@chakra-ui/react";
-import {
   Box,
   Flex,
   Text,
@@ -34,18 +17,16 @@ import {
   useDisclosure,
   Image,
   Input,
-  InputGroup,
-  CheckboxIcon,
   InputRightElement,
+  InputGroup,
 } from "@chakra-ui/react";
 import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-  SearchIcon,
-} from "@chakra-ui/icons";
-
+  FaUserCircle,
+  FaUser,
+  FaTruckMoving,
+  FaUserPlus,
+  FaRegUser,
+} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineQuestionCircle, AiOutlineReload } from "react-icons/ai";
 import { HiCurrencyDollar } from "react-icons/hi";
@@ -53,45 +34,55 @@ import { MdOutlineReorder } from "react-icons/md";
 import { BsGift, BsFillCartFill } from "react-icons/bs";
 import { RiPriceTagLine } from "react-icons/ri";
 import { TbJewishStar } from "react-icons/tb";
+
+import {
+  HamburgerIcon,
+  CloseIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+  SearchIcon,
+} from "@chakra-ui/icons";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Textarea,
+  FormLabel,
+  InputLeftAddon,
+  InputRightAddon,
+  Select,
+  Heading,
+  Container,
+} from "@chakra-ui/react";
 const Navbar = () => {
   const navigateTo = useNavigate();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const firstField = React.useRef();
-  const { onToggle } = useDisclosure();
   const GoTo = (path) => {
     console.log("path", path);
     navigateTo(path);
   };
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const firstField = React.useRef();
+  const { onToggle } = useDisclosure();
+
   return (
-    <>
-      <Box
-        w={"100%"}
-        //position={"fixed"}
-        position={"sticky"}
-        top={0}
-        zIndex={999}
-        bg={useColorModeValue("#f0f1f7 ")}
-        bgColor={{
-          base: "#f0f1f7 ",
-          sm: "#f0f1f7 ",
-          md: "#f0f1f7 ",
-          lg: "#f0f1f7 ",
-          xl: "#f0f1f7 ",
-        }}
-        px={4}
-        // border={"3px solid blue"}
-      >
-        <Box
-          bgColor={useColorModeValue("#f0f1f7 ", "gray.800")}
-          color={useColorModeValue("gray.600", "#f0f1f7 ")}
+    <div>
+      <Box w={"100%"} position={"fixed"} zIndex={999} top={0}>
+        <Flex
+          bg={useColorModeValue("white", "gray.800")}
+          color={useColorModeValue("gray.600", "white")}
           minH={"60px"}
+          w={"100%"}
           py={{ base: 2 }}
           px={{ base: 4 }}
           borderBottom={1}
-          display={"flex"}
           borderStyle={"solid"}
           borderColor={useColorModeValue("gray.200", "gray.900")}
           align={"center"}
+          bgColor="#f0f1f7 "
         >
           <Flex
             flex={{ base: 1, md: "auto" }}
@@ -112,111 +103,82 @@ const Navbar = () => {
               aria-label={"Toggle Navigation"}
             />
           </Flex>
-
           <Flex
             flex={{ base: 1 }}
             justify={{ base: "center", md: "start" }}
             bgColor="#f0f1f7 "
           >
             <Box
-              // border={"1px solid blue"}
-              display={"flex"}
-              justifyContent={"space-between"}
-              bgColor="#f0f1f7 "
+              textAlign={useBreakpointValue({ base: "center", md: "left" })}
+              fontFamily={"heading"}
+              color={useColorModeValue("gray.800", "white")}
+              //   border="1px solid blue"
+              mt={{ lg: "10px" }}
+              ml={{ lg: "10px" }}
+              w={{ lg: "120px", md: "120px", sm: "120px" }}
             >
-              <Box
-                // border={"1px solid grey"}
-                w={{ base: "100%", md: "200px" }}
-                textAlign={useBreakpointValue({ base: "center", md: "left" })}
-                fontFamily={"heading"}
-                color={useColorModeValue("gray.800", "#f0f1f7 ")}
-                bgColor="#f0f1f7 "
-              >
-                <Show above="md">
-                  <Box>
-                    {" "}
-                    <Image
-                      alt={"Logo"}
-                      objectFit={"cover"}
-                      onClick={() => GoTo("/")}
-                      w={{ lg: "100%", md: "600px", sm: "600px" }}
-                      pr={"10px"}
-                      src={"./images/Aqualogo.jpeg"}
-                      cursor="pointer"
-                    />
-                  </Box>
-                </Show>
-                <Show below="md">
-                  <Box
-                    fontStyle={"normal"}
-                    pt={3}
-                    color={"teal"}
-                    onClick={() => GoTo("/")}
-                    pr={"10px"}
-                    w={{ lg: "0", md: "0", sm: "100%", base: "100%" }}
-                    cursor="pointer"
-                  >
-                    <strong>AS</strong>
-                  </Box>
-                </Show>
-              </Box>
-              <Box width="100%">
-                <Box
-                  width={{ base: "100px", sm: "200px", md: "100%", lg: "100%" }}
-                  pl={{ base: "0", md: "0", lg: "100px" }}
+              <Image
+                alt={"Logo"}
+                objectFit={"cover"}
+                onClick={() => GoTo("/")}
+                pr={"10px"}
+                src={"./images/Aqualogo.jpeg"}
+                cursor="pointer"
+                w={"120px"}
+              />
+            </Box>
+
+            <Flex display={{ base: "none", md: "flex" }} ml={10}>
+              {/* <DesktopNav /> */}
+              <Box width={{ base: "0", md: "80%" }}>
+                <InputGroup
+                  // display={{ base: "1", md: "inline-flex" }}
+                  w={"800px"}
+                  justifyItems={"center"}
+                  width={{
+                    xl: "800px",
+                    lg: "500px",
+                    md: "300px",
+                    base: "100px",
+                  }}
                 >
+                  <Input
+                    placeholder="Search Here"
+                    size="lg"
+                    //
 
-          <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-            <Box width={"90%"} border={"1px solid blue"} display={"flex"}>
-           
-              <Box width={"25%"}>
-                <Image
-                  alt={"Logo"}
-                  objectFit={"cover"}
-                  // p={[4, 10]}
-                  // m={[4, 8, 16, 10]}
-
-                  // border={"1px solid black"}
-                  w={["50%", "50%"]}
-                  minH={["20px"]}
-                  ml={5}
-                  src={"./images/logo.jpeg"}
-                />
-              </Box>
-              <Box border={"1px solid black"} width="100%">
-             
-                <Box width={{ base: "120%", md: "80%" }}>
-             
-
-                  <InputGroup
-                    // display={{ base: "1", md: "inline-flex" }}
-                    bgColor="#f0f1f7 "
-                    justifyItems={"center"}
-                  >
-
-                    <Input
-                      placeholder="Search Here"
-                      size="lg"
-                      //
-                      borderRadius={50}
-                      bgColor="white"
-                    />
-                    <InputRightElement children={<SearchIcon />} />
-                  </InputGroup>
-                </Box>
+                    borderRadius={50}
+                    bgColor="white"
+                  />
+                  <InputRightElement children={<SearchIcon />} />
+                </InputGroup>
                 <Flex
                   display={{ base: "none", md: "flex" }}
                   ml={10}
-                  bgColor="#f0f1f7 "
+                  width={{
+                    xl: "800px",
+                    lg: "500px",
+                    md: "300px",
+                    base: "100px",
+                  }}
+                  fontSize={{ lg: "16px", md: "12px" }}
+                  //bgColor="#f0f1f7 "
                 >
                   <Box
+                    width={{
+                      xl: "800px",
+                      lg: "300px",
+                      md: "200px",
+                      base: "100px",
+                    }}
                     display={"flex"}
                     pt={5}
                     justifyContent={"space-evenly"}
                     pl={{ base: "0", md: "0", lg: "80px" }}
                     // border={"1px solid red"}
                     gap={10}
-                    bgColor="#f0f1f7 "
+
+                    // bgColor="#f0f1f7 "
                   >
                     <Box as="button" onClick={() => GoTo("/clothes")}>
                       Exclusive Clothes
@@ -239,61 +201,50 @@ const Navbar = () => {
                   </Box>
                 </Flex>
               </Box>
-            </Box>
-
-            {/* <Text
-              textAlign={useBreakpointValue({ base: "center", md: "left" })}
-              fontFamily={"heading"}
-              color={useColorModeValue("gray.800", "white")}
-            >
-              Logo
-            </Text> */}
+            </Flex>
           </Flex>
 
           <Stack
             flex={{ base: 1, md: 0 }}
             justify={"flex-end"}
             direction={"row"}
-            spacing={50}
+            spacing={6}
             bgColor="#f0f1f7 "
-            // border={"1px solid grey"}
-            width={{ lg: "1000px", md: "500px", sm: "200px" }}
-            pb={{ lg: "10px", md: "10px" }}
           >
             <Button
-              display={{ base: "flex", md: "inline-flex" }}
+              display={{ base: "none", md: "inline-flex" }}
               textAlign="center"
               fontWeight={"bold"}
               gap={2}
-              mt={{ base: "0", md: "40px", lg: "22px" }}
-              ml={{ base: "0", md: "0", lg: "35px" }}
-              bgColor="#f0f1f7 "
+              // mt={{ base: "0", md: "40px", lg: "22px" }}
+
+              bgColor="transparent"
               cursor="pointer"
-              fontSize={"25px"}
+              fontSize={{ xl: "25px", lg: "16px", md: "13px", base: "10px" }}
               onClick={() => GoTo("/cart")}
               color={"black"}
             >
               <BsFillCartFill color={"black"} />
               Cart
             </Button>
-
             <Button
-              display={{ base: "none", md: "inline-flex" }}
+              display={{ base: "flex", md: "inline-flex" }}
               color={"black"}
               //as={"a"}
               // fontSize={"sm"}
               // mt={{ base: "0", md: "33px", lg: "35px" }}
 
-              fontWeight={"bold"}
+              fontWeight={{ lg: "bold", md: "bold" }}
               variant={"link"}
               // href={"#"}
 
               onClick={onOpen}
               gap={2}
-              fontSize={"25px"}
-              bgColor="#f0f1f7 "
+              fontSize={{ xl: "25px", lg: "16px", md: "13px", base: "20px" }}
+              bgColor="transparent"
             >
-              <FaUserCircle color="black" /> Sign In
+              <FaUserCircle color="black" />
+              Sign In
             </Button>
             <Drawer
               isOpen={isOpen}
@@ -363,28 +314,27 @@ const Navbar = () => {
                 <DrawerFooter borderTopWidth="1px"></DrawerFooter>
               </DrawerContent>
             </Drawer>
-            {/* <Container></Container> */}
-            <Box mt={"5px"}>
-              {" "}
-              <Button
-                display={{ base: "none", md: "none", lg: "inline-flex" }}
-                fontSize={"sm"}
-                fontWeight={600}
-                color={"white"}
-                bg={"pink.400"}
-                // href={"#"}
-                marginTop="20px"
-                // _hover={{
-                //   bg: "pink.300",
-                // }}
-              >
-                Admin
-              </Button>
-            </Box>
+            <Button
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"pink.400"}
+              href={"#"}
+              _hover={{
+                bg: "pink.300",
+              }}
+            >
+              Admin
+            </Button>
           </Stack>
-        </Box>
+        </Flex>
+
+        {/* <Collapse in={isOpen} animateOpacity> */}
+        {/* <MobileNav /> */}
+        {/* </Collapse> */}
       </Box>
-    </>
+    </div>
   );
 };
 
