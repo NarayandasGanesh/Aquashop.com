@@ -16,13 +16,15 @@ import {
 import { AiFillDollarCircle } from "react-icons/ai";
 const Homepage = () => {
   return (
-    <>
+    < >
       <Flex
         backgroundColor="#f0f1f7"
         height="30px"
         alignItems="center"
-        direction={["column", "column", "row", "row"]}
-        h={["12vh", "12vh", "10vh", "10vh"]}
+        // direction={["column", "column", "row", "row"]}
+        // h={["12vh", "12vh", "10vh", "10vh"]}
+        marginTop="120px"
+
       >
         <Text
           style={{ color: "#202340", fontSize: ".75rem" }}
@@ -52,7 +54,7 @@ const Homepage = () => {
       <Flex
         alignItems="center"
         marginTop="10px"
-        fontSize={["xs", "xs", "xs", "xs"]}
+        // fontSize={["xs", "xs", "xs", "xs"]}
       >
         <Text margin="auto" display="flex" alignItems="center">
           <Text color="#545871" fontSize="3xl" marginRight="7px">
@@ -377,24 +379,10 @@ const Homepage = () => {
 </VStack>
   
 </HStack>
+</>
+  )
 
 
+}
 
-
-import React from "react";
-
-
-import React from 'react'
- import {Flex,Text,Spacer,HStack,Card,CardBody,Link,Image } from "@chakra-ui/react"
- import {AiFillDollarCircle} from "react-icons/ai"
-
-const Homepage = () => {
-  return (
-    <>
-      <h1>Homepage</h1>
-
-    </>
-  );
-};
-
-export default Homepage;
+export default Homepage
