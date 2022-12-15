@@ -14,6 +14,8 @@ import Homepage from "./Homepage";
 import Jewelery from "./Jewelery";
 import ShopBuddy from "./ShopBuddy";
 import ShopLocal from "./ShopLocal";
+import Singleproduct from "./Singleproduct"
+
 const AllRoutes = () => {
   return (
     <Routes>
@@ -29,11 +31,14 @@ const AllRoutes = () => {
       <Route path="/cosmetic" element={<Cosmetics />} />
       <Route path="/shopbuddy" element={<ShopBuddy />} />
       <Route path="/shoplocal" element={<ShopLocal />} />
+      <Route path="/clothes/singleproduct" element={<Singleproduct />} />
 
       <Route path="/cart" element={<Cart />} />
+
 
     </Routes>
   );
 };
 export default AllRoutes;
 // <Route path="/singleproduct/:id"  element={<SingleProduct />} />
+//check
