@@ -28,3 +28,4 @@ const AllRoutes = () => {
 
 export default AllRoutes;
 // <Route path="/singleproduct/:id"  element={<SingleProduct />} />
+//check
