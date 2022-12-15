@@ -3,10 +3,12 @@ import { Avatar, Box, Button, Card, CardBody, CardFooter, CardHeader, Drawer, Dr
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_Cloth_item, Get_cloth_item } from '../../store/Cloth/Cloth.action';
+import { ADD_Cloth_item, Get_cloth_item, REMOVE_Cloth_item, UPDATE_Cloth_item } from '../../store/Cloth/Cloth.action';
 import { store } from '../../store/store';
 import Pdoduct from './Clothe';
  
+
+
 
 
 
@@ -19,6 +21,7 @@ let getdata=async(setUser)=>{
 const Clothes = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [user,setUser]=useState([]) 
+    const [price,setPrice]=useState(0)
 
 
     
@@ -46,7 +49,7 @@ const Clothes = () => {
          console.log(men)
          },[filter]) 
 
-     const HandleFilterChang=(data)=>{
+       const HandleFilterChang=(data)=>{
         setFilter(data) 
 
      }
@@ -61,8 +64,22 @@ const Clothes = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(Creds)
-   // dispatch(ADD_Cloth_item(Creds));
+    dispatch(ADD_Cloth_item(Creds));
   };
+
+  const handleDelete=(id)=>{
+       
+    dispatch(REMOVE_Cloth_item(id))
+
+}
+
+const handleUpdate=(id)=>{
+  console.log(Creds,id)
+  dispatch(UPDATE_Cloth_item(id,Creds))
+
+
+}
+  
    
     
     return (
@@ -73,7 +90,7 @@ const Clothes = () => {
             <option value="KIDS">kid</option>
         </select>
         <Button onClick={onOpen}>Add Product</Button>
-        <TableContainer   w={{base:"100%"}}>
+        {/* <TableContainer   w={{base:"100%"}}>
                <Table variant='striped' colorScheme='teal' width="100%">
                         
                            <Thead>
@@ -86,12 +103,26 @@ const Clothes = () => {
                            </Thead>
                            Men
                            <Tbody>
-                           { men.map((user)=>{
-                              return (  <Pdoduct key={Math.random()} {...user} /> )})}   
+                           
                            </Tbody>
                          </Table>
-                       </TableContainer>
-          <>             
+                       </TableContainer> */}
+
+          <>    
+             <Stack>         { men.map((user)=>{
+                              return (  <>
+                                <Flex key={user.id}   >
+        <Text w={"30%"}  p="0"> {user.title}</Text>
+          <Input w={"30%"} name='price' onChange={hanldeChange} placeholder={user.price}></Input> 
+        
+        <Flex p="0" >
+        <Button   colorScheme='teal' onClick={()=>handleUpdate(user.id)} border="1px solid black " mr="2"><EditIcon /></Button> 
+        <Button onClick={()=>handleDelete(user.id)}  border="1px solid black ">  <DeleteIcon /></Button>  
+        
+        </Flex>
+      </Flex>
+                              
+                              </> )})}   </Stack>
 
                                <Modal
                                isOpen={isOpen}
@@ -137,7 +168,7 @@ const Clothes = () => {
                        
                                       
                 
-                                        <Button type='submit' colorScheme='blue' mr={3}>
+                                        <Button  type='submit' colorScheme='blue' mr={3}>
                                            Save
                                         </Button><Button onClick={onClose}>Cancel</Button>
                                          </form>
@@ -154,3 +185,5 @@ const Clothes = () => {
 };
 
 export default Clothes;
+
+ 
