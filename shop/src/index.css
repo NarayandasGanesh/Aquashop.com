@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+#select{
+  border-left-color: brown;
+  border: 1px solid;
+  width: 50%;
+}
+#select select{
+  width :100%;
+}
