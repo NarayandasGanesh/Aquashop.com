@@ -16,9 +16,7 @@ import {
   IconButton, useBreakpointValue 
 } from "@chakra-ui/react";
 import { AiFillDollarCircle } from "react-icons/ai";
-import  Slider from "react-slick"
-import 'slick-carousel/slick/slick.css'
-import "slick-carousel/slick/slick-theme.css";
+
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
