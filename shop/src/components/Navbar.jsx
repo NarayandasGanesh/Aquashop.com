@@ -336,6 +336,7 @@ const Navbar = () => {
               _hover={{
                 bg: "pink.300",
               }}
+              onClick={() => GoTo("/adminPage")}
             >
               Admin
             </Button>
