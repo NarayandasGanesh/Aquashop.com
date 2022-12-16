@@ -265,7 +265,13 @@ const Navbar = () => {
                     <Text fontWeight={"bold"}>
                       Your Consultant is AquaShop.COM
                     </Text>
-                    <Box display={"flex"} mt={2} gap={3} cursor="pointer">
+                    <Box
+                      display={"flex"}
+                      mt={2}
+                      gap={3}
+                      cursor="pointer"
+                      onClick={() => GoTo("/signin")}
+                    >
                       <FaUser />
                       Sign In
                     </Box>
@@ -285,7 +291,13 @@ const Navbar = () => {
                       <AiOutlineQuestionCircle />
                       Help
                     </Box>
-                    <Box display={"flex"} mt={2} gap={3} cursor="pointer">
+                    <Box
+                      display={"flex"}
+                      mt={2}
+                      gap={3}
+                      cursor="pointer"
+                      onClick={() => GoTo("/signup")}
+                    >
                       <FaUserPlus />
                       Create Account
                     </Box>
