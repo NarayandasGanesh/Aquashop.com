@@ -13,7 +13,7 @@ import {
   Button,
   Box,
   VStack,
-  Grid
+  IconButton, useBreakpointValue 
 } from "@chakra-ui/react";
 import { AiFillDollarCircle } from "react-icons/ai";
 import  Slider from "react-slick"
@@ -744,32 +744,10 @@ const Homepage = () => {
             </Text>
           </Box>
           <HStack>
-            {/* <Box><Image width="400px" height="400px"  src="https://img.shop.com/Image/homepage/layered-usa-can-106765-holiday-collection-22-edit-banner-BGSQ1671028134306.jpg" /></Box> */}
+            <Box><Image width="400px" height="400px"  src="https://img.shop.com/Image/homepage/layered-usa-can-106765-holiday-collection-22-edit-banner-BGSQ1671028134306.jpg" /></Box>
             <Box className="slider">
            
-            <Slider style={{marginTop:"100px"}}  {...settings} >
-     {data.map((el)=>{
-       return <Box  key={el.id}>
-        <Box textAlign={"left"}>
-        <img src={el.image1} alt="" />
-        <Text fontSize={17} >{el.title}</Text>
-        <Flex gap={2}>
-          <img  width={17} src="https://img.shop.com/Image/resources/images/onecart-icon.svg" alt="" />
-          <Text fontSize={13}>Sold by {el.soldby}</Text>
-
-        </Flex>
-        <p>{el.category}</p>
-        <Text fontWeight={"bold"}>{el.price}</Text>
-        <Text color={"teal"} fontSize={14}>Free shipping with $50.00 orders</Text>
-
-        <Button backgroundColor={"blue.300"}  borderRadius={25} width={85}>View</Button>
-on
-     
-        </Box>
-        
-      </Box>
-    })}
-</Slider>
+       
 
   </Box>
           </HStack>
