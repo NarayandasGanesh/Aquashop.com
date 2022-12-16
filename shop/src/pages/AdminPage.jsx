@@ -4,6 +4,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Clothes from '../components/AdminPage/Clothes';
 import Useres from '../components/AdminPage/Useres';
+import Jewelery from '../components/AdminPage/Jewelery'
+import Electronics  from '../components/AdminPage/Electronics'
+import  Dashbord from '../components/AdminPage/Dashbord'
+import Cosmetics from '../components/AdminPage/Cosmetics'
  
 
 
@@ -16,20 +20,68 @@ const AdminPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const firstField = React.useRef()
    
-    
-const[ userlist,setUserlist ]    =useState(true)
+const [dashbord,setDashbord]=useState(true)    
+const[ userlist,setUserlist ]    =useState(false)
 const[ Clothlist,setCloth ]    =useState(false)
 const[ jewllerylist,setJewllery ]    =useState(false)
 const[ Electrolist,setElectrolist ]    =useState(false)
+const [cosmetics,setCosmetics]=useState(false)
+
 
 
 
 const handleUser=()=>{
+  setDashbord(false)
   setUserlist(true)
+  setCloth(false)
+  setJewllery(false)
+  setElectrolist(false)
+  setCosmetics(false)
 }
 const handleCloth=()=>{
   setUserlist(false)
   setCloth(true)
+  setJewllery(false)
+  setElectrolist(false)
+  setCosmetics(false)
+  setDashbord(false)
+}
+const handlejewllery=()=>{
+  setUserlist(false)
+  setCloth(false)
+  setJewllery(true)
+  setElectrolist(false)
+  setCosmetics(false)
+  setDashbord(false)
+
+}
+const handleElectronics=()=>{
+  setUserlist(false)
+  setCloth(false)
+  setJewllery(false)
+  setElectrolist(true)
+  setCosmetics(false)
+  setDashbord(false)
+
+}
+
+const handleDashbord=()=>{
+  setDashbord(true)
+  setUserlist(false)
+  setCloth(false)
+  setJewllery(false)
+  setElectrolist(false)
+  setCosmetics(false)
+
+}
+const handleCosmetics=()=>{
+  setDashbord(false)
+  setUserlist(false)
+  setCloth(false)
+  setJewllery(false)
+  setElectrolist(false)
+  setCosmetics(true)
+
 }
 
    
@@ -39,13 +91,15 @@ const handleCloth=()=>{
           <Stack display="flex" flexDirection={{base:"column",  sm:"row"}} mt="100px">
                <Stack spacing='24px'   backgroundColor="#f0f1f7" px="5px" >
                  <Box display="flex" flexDirection={{base:"row",  sm:"column" }}>
-                 <Button  colorScheme='teal' mt='10' px='20' onClick={handleUser}> User</Button>
+                 <Button  colorScheme='teal'mt='10' px='16' mb='10' onClick={handleDashbord}>Dashbord</Button>
+                 <Button  colorScheme='teal' mt='10' px='16' mb='10' onClick={handleUser}> User</Button>
                  
                    <FormLabel  ></FormLabel>
                    
                    <Button  colorScheme='teal' mt='10' px='16' mb='10' onClick={handleCloth}> Cloth</Button>
-                   <Button  colorScheme='teal' mt='10' px='16' mb='10'  > jewllery</Button>
-                   <Button  colorScheme='teal' mt='10' px='16' mb='10' > Electronics</Button>
+                   <Button  colorScheme='teal' mt='10' px='16' mb='10' onClick={handlejewllery} > jewllery</Button>
+                   <Button  colorScheme='teal' mt='10' px='16' mb='10' onClick={handleElectronics} > Electronics</Button>
+                   <Button  colorScheme='teal' mt='10' px='16' mb='10' onClick={handleCosmetics} > Cosmetics</Button>
 
                  </Box>
    
@@ -53,8 +107,12 @@ const handleCloth=()=>{
                </Stack>
                 <Stack backgroundColor="white" w="100%">
                     <Heading> Admin Panel</Heading>
+                    {dashbord && <Dashbord/>}
                   {  userlist &&<Useres/>}
                   {Clothlist&&<Clothes/>}
+                  {jewllerylist&& <Jewelery/>}
+                  {Electrolist&& <Electronics/>}
+                  {cosmetics&&<Cosmetics/>}
 
                       
                         
