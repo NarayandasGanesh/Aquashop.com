@@ -4,11 +4,13 @@ import { Flex,Grid,Box ,Text, Button,Link} from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect , useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {setItem} from '../utility/localStorage'
 const Clothes = () => {
   const [data,setData]=useState([]);
   const navigate=useNavigate();
 
-  const handleClick=()=>{
+  const handleClick=(item)=>{
+      setItem("singleproduct",item)
     navigate("/clothes/singleproduct")
  }
  useEffect(() => {
@@ -26,7 +28,7 @@ const Clothes = () => {
      <Grid templateColumns='repeat(3, 1fr)' gap={6}>
      
        {data.map((el)=>{
-         return <Box key={el.id}>
+         return <Box  key={el.id}>
           <Box textAlign={"left"}>
           <img src={el.image1} alt="" />
           <Text fontSize={17} >{el.title}</Text>
@@ -39,7 +41,7 @@ const Clothes = () => {
           <Text fontWeight={"bold"}>{el.price}</Text>
           <Text color={"teal"} fontSize={14}>Free shipping with $50.00 orders</Text>
 
-          <Button onClick={handleClick} borderRadius={25} width={85}>View</Button>
+          <Button onClick={()=>handleClick(el)} borderRadius={25} width={85}>View</Button>
 
         
           
