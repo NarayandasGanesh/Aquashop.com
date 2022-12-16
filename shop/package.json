@@ -18,9 +18,14 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.5",
     "react-scripts": "^5.0.1",
+<<<<<<< HEAD
+    "react-slick": "^0.29.0",
+=======
+>>>>>>> 8f1c0423d2397e253cf6867d35b7f4e1c7acda46
     "recharts": "^2.2.0",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.2",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

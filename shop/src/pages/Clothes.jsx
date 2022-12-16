@@ -21,7 +21,7 @@ const Clothes = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{marginTop:"50px"}}>
       <h1>Clothes</h1>
       <Flex>
       <SimpleSidebar/>
