@@ -2,7 +2,7 @@ import React from 'react'
 import { Flex,Grid,Box ,Text, Button,Link,Image, Heading} from "@chakra-ui/react";
 import "../index.css";
 
-const Sidebar = () => {
+const Sidebar = (setFilter) => {
   return (
     <>
  <Box id='maindiv' border={"1px solid"} width={"20%"}>
@@ -10,16 +10,16 @@ const Sidebar = () => {
   <Box marginLeft={"40px"}   textAlign={"left"} marginTop={"15px"}>
 <Flex alignItems={"center"} gap={"15px"}> 
   <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaXelByMSTcBlhsGChcrAWlXVXNXxI53LxzirHbHwGJQ&s'></Image>
-  <Text className='menu'  fontWeight={"bold"}>Mens</Text></Flex>
+  <Text className='menu' onClick={()=>setFilter("Mens")}  fontWeight={"bold"}>Mens</Text></Flex>
 
   <Flex alignItems={"center"} gap={"15px"}> 
   <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROZH_L731sgBrBunH8f5lp6pLAhvehf2DuZJGjFeI&s'></Image>
-  <Text className='menu'  fontWeight={"bold"}>Womes</Text></Flex>
+  <Text className='menu'  onClick={()=>setFilter("womens")}   fontWeight={"bold"}>Womes</Text></Flex>
    
     
   <Flex alignItems={"center"} gap={"15px"}> 
   <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://img.icons8.com/color/2x/children.png'></Image>
-  <Text className='menu'  fontWeight={"bold"}>Kids</Text></Flex>
+  <Text className='menu'  onClick={()=>setFilter("KIDS")}   fontWeight={"bold"}>Kids</Text></Flex>
 
 
   </Box>

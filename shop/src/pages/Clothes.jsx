@@ -6,24 +6,47 @@ import { useEffect , useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {setItem} from '../utility/localStorage'
 import "../index.css"
+import { useDispatch, useSelector } from "react-redux";
+import { Get_cloth_item } from "../store/Cloth/Cloth.action";
 const Clothes = () => {
-  const [data,setData]=useState([]);
+const[filter,setFilter]=useState("Mens")
   const [loading ,setLoading]=useState(false);
+  const [order,setOrder]=useState("")
   const navigate=useNavigate();
 
   const handleClick=(item)=>{
       setItem("singleproduct",item)
     navigate("/clothes/singleproduct")
  }
- useEffect(() => {
-  setLoading(true)
-    axios.get("https://next-backend-orpin.vercel.app/cloths").then((response) => {
-     console.log("res",response.data)
-     setData(response.data)
-     setLoading(false)
-    });
-  }, []);
+  
 
+  const {cloth}=useSelector((store)=>store.ClothManger)
+  const dispatch=useDispatch()
+  useEffect(()=>{
+  
+    dispatch(Get_cloth_item())
+   },[cloth]) 
+
+   let  data=cloth.filter((item)=>item.category===filter)
+
+   useEffect(()=>{
+    data=cloth.filter((item)=>item.category===filter)
+   },[filter])
+
+   useEffect(()=>{
+    console.log(order,"1")
+    if(order=="high"){
+     console.log(order,"2")
+      data=data.sort((a,b)=>a.price-b.price )
+    }
+    if(order=="low"){
+      console.log(order,"3")
+      data=data.sort((a,b)=>b.price-a.price )
+    }
+
+   },[order])
+
+    // data=data.sort((a,b)=>a.price-b.price )
   
   {
     if(loading){
@@ -34,9 +57,54 @@ const Clothes = () => {
         <div style={{"marginTop":"100px"}}>
       
           <Flex>
-          <Sidebar/>
+          {/* <Sidebar setFilter={setFilter}/> */}
+          <Box id='maindiv' border={"1px solid"} width={"20%"}>
+  <Text marginTop={2} color={"teal"} id="clothe" fontSize={35} fontWeight={"bold"}>CLOTHES</Text>
+  <Box marginLeft={"40px"}   textAlign={"left"} marginTop={"15px"}>
+<Flex alignItems={"center"} gap={"15px"}> 
+  <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaXelByMSTcBlhsGChcrAWlXVXNXxI53LxzirHbHwGJQ&s'></Image>
+  <Text className='menu' onClick={()=>setFilter("Mens")}  fontWeight={"bold"}>Mens</Text></Flex>
 
-         <Grid marginLeft={"240px"} paddingLeft={"15px"} width={"80%"} templateColumns='repeat(3, 1fr)' gap={6}>
+  <Flex alignItems={"center"} gap={"15px"}> 
+  <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROZH_L731sgBrBunH8f5lp6pLAhvehf2DuZJGjFeI&s'></Image>
+  <Text className='menu'  onClick={()=>setFilter("Womens")}   fontWeight={"bold"}>Womes</Text></Flex>
+   
+    
+  <Flex alignItems={"center"} gap={"15px"}> 
+  <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://img.icons8.com/color/2x/children.png'></Image>
+  <Text className='menu'  onClick={()=>setFilter("KIDS")}   fontWeight={"bold"}>Kids</Text></Flex>
+
+
+  </Box>
+
+  <Box id="filter">
+  <select name="" id="" onChange={(e)=>setOrder(e.target.value)}>
+     <option value="reset">Filter by Price</option>
+      <option value="high">Low to high </option>
+      <option value="low">High to low</option>
+     </select>
+  </Box>
+ 
+ <Box id="add" marginLeft={"0px"} textAlign={"left"} marginTop={"50px"}>
+  <img src="https://img.shop.com/Image/topbrands/nmlogos_76181.gif" alt="" />
+  <Text> Up to 6.00% Cashback <br/>
+Store conditions </Text>
+<Button>partner Site 🤝</Button>
+ </Box>
+
+ <Box id="add" marginLeft={"0px"} textAlign={"left"} marginTop={"20px"}>
+  <img src="https://img.shop.com/Image/topbrands/nmlogos_98199.gif" alt="" />
+  <Text> Up to 6.00% Cashback <br/>
+Store conditions </Text>
+<Button>partner Site 🤝</Button>
+ </Box>
+  </Box>
+
+     
+
+
+
+         <Grid mt={"30px"} marginLeft={"240px"} paddingLeft={"15px"} width={"80%"} templateColumns='repeat(3, 1fr)' gap={6}>
          
            {data.map((el)=>{
              return <Box id='probox' key={el.id}>
