@@ -14,8 +14,13 @@ code {
 #select{
   border-left-color: brown;
   border: 1px solid;
-  width: 50%;
+  width: 80%;
+  height: 80px;
+ 
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 #select select{
-  width :100%;
+  width: 65px;
+  margin-left: 10px;
 }

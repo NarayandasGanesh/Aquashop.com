@@ -63,23 +63,38 @@ const Singleproduct = () => {
        
         h={{ base: '100%', sm: '400px', lg: '500px' }}
         />
-        <Box textAlign={"left"}>
+        <Box marginTop={-8} textAlign={"left"}>
             <Text fontSize={24}>{data.soldby}</Text>
             <Text  color={"teal"} fontSize={32}
             >{data.title}</Text>
             <Text fontSize={14}>Sold by {data.soldby}</Text>
             <Text cursor={"pointer"} marginTop={3} fontSize={12}>Write a review</Text>
-            <Text marginTop={10} fontWeight={"bold"} fontSize={31} >{data.price}</Text>
-              <Box id="select" marginTop={5}><select >
+            <Flex textAlign={"center"} width={"auto"} backgroundColor={"gray.100"} marginTop={3}>
+              <Box  marginLeft={35} padding={1,1,1,1}>
+              <img width={210} src="https://bitpay.com/cdn/merchant-resources/bitpay-accepted-card-group.svg" alt="" />
+              </Box>
+            
+              <Text marginTop={1} fontStyle={"revert-layer"} marginLeft={"100px"} fontSize={21}>Now accepting Crypto at Checkout!</Text>
+            </Flex>
+            <Text marginTop={5} fontWeight={"bold"} fontSize={31} >${data.price}</Text>
+              <Flex id="select" marginTop={5}><select >
               <option value="reset">Quantity</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
-            </select><br/></Box>
-           
-            <Button backgroundColor={"pink.400"} width={"190px"} marginRight={1} marginTop={14}>Add to cart</Button>
+            </select>
+            
+            <Button height={50} backgroundColor={"blue.300"} width={"390px"}  marginLeft={100} marginTop={3}>Add to cart</Button>
+            </Flex>
+            <Text  color={"teal"} fontSize={19} marginTop={10}>Style and color that stand the test of time. Our top-selling polo is now available with long-sleeves.  The Long Sleeve Spin Lady Pique Polo is made with spin dye technology for long lasting color that never fade. The eco-friendly production process...</Text>
+          
+          <Flex textAlign={"center"}>
+          <Button height={"auto"} width={50} marginTop={2} backgroundColor={"blue.300"}>like 👍</Button>
+          <Text marginLeft={7} marginTop={2} ><a href='./signup'>Sign Up</a> to see your friends like.</Text>
+          </Flex>
+            
         </Box>
      </Flex>
      </SimpleGrid>
