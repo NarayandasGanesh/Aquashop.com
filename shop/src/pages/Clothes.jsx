@@ -44,9 +44,10 @@ const[filter,setFilter]=useState("Mens")
       data=data.sort((a,b)=>b.price-a.price )
     }
 
+    
    },[order])
 
-    // data=data.sort((a,b)=>a.price-b.price )
+   
   
   {
     if(loading){
