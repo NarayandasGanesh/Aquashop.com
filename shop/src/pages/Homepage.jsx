@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect } from "react";
+import axios from "axios"
 import {
   Flex,
   Text,
@@ -11,11 +13,84 @@ import {
   Button,
   Box,
   VStack,
+  IconButton, useBreakpointValue 
 } from "@chakra-ui/react";
 import { AiFillDollarCircle } from "react-icons/ai";
-const Homepage = () => {
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
   return (
-    <div style={{ textAlign: "center" }}>
+    <div
+      className={className}
+      style={{ ...style,display:"block", background: "black" ,borderRadius:"50%", margin:"auto" ,width:"50px" ,height:"50px",position:"absolute" ,zIndex:"1"   }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, background: "black" ,borderRadius:"50%", margin:"auto" ,width:"50px" ,height:"50px",position:"absolute" ,zIndex:"1" }}
+      onClick={onClick}
+    />
+  );
+}
+
+const Homepage = () => {
+  const [data,setData] = React.useState([])
+  useEffect(() => {
+    axios.get("https://next-backend-orpin.vercel.app/cloths").then((response) => {
+     console.log("res",response.data)
+     setData(response.data)
+    });
+  }, []);
+   const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    initialSlide: 0,
+    nextArrow :  <SampleNextArrow /> ,
+    prevArrow : <SamplePrevArrow /> ,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+          nextArrow : <SampleNextArrow />,
+          prevArrow : <SamplePrevArrow />,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          nextArrow : <SampleNextArrow />,
+          prevArrow : <SamplePrevArrow />,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          nextArrow : <SampleNextArrow />,
+          prevArrow : <SamplePrevArrow />,
+        }
+      }
+    ]
+  };
+  return (
+    <div  style={{ textAlign: "center" }}>
       <Flex
         backgroundColor="#f0f1f7"
         height="30px"
@@ -76,6 +151,7 @@ const Homepage = () => {
         justifyContent={"space-evenly"}
         direction={["row", "row", "column", "column"]}
         marginTop="50px"
+        backgroundColor="#f0f1f7"
       >
         <Box>
           <Card
@@ -150,7 +226,6 @@ const Homepage = () => {
                 </CardBody>
               </Link>
               <Link>
-                {" "}
                 <CardBody height="170px" width="150px" background="#545871">
                   <Image
                     height="100px"
@@ -343,7 +418,7 @@ const Homepage = () => {
         </Box>
       </HStack>
 
-      <HStack marginLeft="40px" marginTop="50px">
+      <HStack backgroundColor="#f0f1f7" marginLeft="40px" marginTop="50px">
         <Link>
           <Box>
             <Image
@@ -419,8 +494,279 @@ const Homepage = () => {
           </Link>
         </VStack>
       </HStack>
+
+      <Box marginTop="50px">
+        <Box>
+          <Image
+            width="200px"
+            margin="auto"
+            src="https://img.shop.com/Image/resources/homepage/shop-homepage-icon.svg"
+          />
+        </Box>
+      </Box>
+
+      <HStack background="#f0f1f7" mt="50px" justifyContent="space-evenly">
+        <Box background="#F0F1F7" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+          <VStack>
+            <Box>
+              {" "}
+              <Image src="https://img.shop.com/Image/homepage/us-eng-bbb-memorialday-media-may211670870263691.jpg" />
+            </Box>
+            <Text fontWeight={700}>25% off any Order</Text>
+          </VStack>
+        </Box>
+        <Box boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+          <VStack>
+            <Box>
+              <Image src="https://img.shop.com/Image/homepage/us-eng-oerstock-hp-media-dec221670968240105.png" />
+            </Box>
+            <HStack>
+              <Text fontWeight={700}>2.00% </Text>
+              <AiFillDollarCircle color="teal" />
+              <Text fontWeight={700}> Cashback</Text>
+            </HStack>
+          </VStack>
+        </Box>
+        <Box boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+          <VStack>
+            <Box>
+              <Image src="https://img.shop.com/Image/homepage/shop-en-us-Marshalls-FreeShip-300x2501668727246227-img.jpg" />
+            </Box>
+            <Text fontWeight={700}>25% off any Order</Text>
+          </VStack>
+        </Box>
+      </HStack>
+      <HStack mt="50px" justifyContent="space-evenly">
+        <Box>
+          <Image src="https://img.shop.com/Image/homepage/giftsforher-media1664553609405.jpg" />
+        </Box>
+        <Box>
+          <Image src="https://img.shop.com/Image/homepage/giftsforhim-media1664553622036.jpg" />
+        </Box>
+        <Box>
+          <Image src="https://img.shop.com/Image/homepage/giftsforteens-media1664553627912.jpg" />
+        </Box>
+      </HStack>
+
+      <VStack backgroundColor="f0f1f7" mt="70px">
+        <Box>
+          <Text
+            mb="50px"
+            fontFamily="oswald, serif"
+            fontSize="38px"
+            fontWeight="normal"
+            color="#2e2c38"
+          >
+            Gift Ideas
+          </Text>
+        </Box>
+        <HStack justifyContent="space-evenly">
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="33px"
+                marginTop="22px"
+                height="135px"
+                width="125px"
+                src="https://img.shop.com/Image/240000/243400/243406/products/1947692115.jpg?plain&size=400x400"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+              ELECTRONIC GIFTS
+            </Text>
+          </VStack>
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="50px"
+                marginTop="30px"
+                height="125px"
+                width="105px"
+                src="https://img.shop.com/Image/240000/243300/243380/products/1869987733.jpg?plain&size=300x300"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+              GIFTS UNDER $25
+            </Text>
+          </VStack>
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="36px"
+                marginTop="25px"
+                height="135px"
+                width="115px"
+                src="https://img.shop.com/Image/260000/266700/266794/products/1920614672.jpg?plain&size=300x300"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+              GIFTS UNDER $50
+            </Text>
+          </VStack>
+
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="40px"
+                marginTop="30px"
+                height="125px"
+                width="110px"
+                src="https://img.shop.com/Image/240000/243300/243380/products/1942133519.jpg?plain&size=1600x1600"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+              GIFTS UNDER $100
+            </Text>
+          </VStack>
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="37px"
+                marginTop="35px"
+                height="125px"
+                width="115px"
+                src="https://img.shop.com/Image/240000/248600/248698/products/1766653370.jpg?plain&size=300x300"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+              STOCKING STUFFERS
+            </Text>
+          </VStack>
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="43px"
+                marginTop="30px"
+                height="125px"
+                width="115px"
+                src="https://img.shop.com/Image/280000/287000/287062/products/1942108864.jpg?plain&size=300x300"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+              GIFTS FOR THE FAMILY
+            </Text>
+          </VStack>
+        </HStack>
+      </VStack>
+
+      <HStack mt="70px" justifyContent="space-evenly">
+        <Box>
+          <Image src="https://img.shop.com/Image/homepage/shop-usa-100086-gift-wrapping-media1669930199153.jpg" />
+        </Box>
+        <Box>
+          <Image src="https://img.shop.com/Image/homepage/shop-usa-105054-Holiday-egift-banners-social-media-assets-media1665596337501.jpg" />
+        </Box>
+        <Box>
+          <Image src="https://img.shop.com/Image/homepage/shop-usa-105045-Holiday-Curbside-Pickup-Banners-Social-Media-min1666128402917.jpg" />
+        </Box>
+        <Box>
+          <Image src="https://img.shop.com/Image/homepage/shop_usa_100094_eng_2022_holiday_buy_online_pickup_in_store_banner_-min1667575563985.jpg" />
+        </Box>
+      </HStack>
+
+      <Box mt="70px">
+        <VStack>
+          <Box>
+            <Text marginRight="800px"  mb="50px"
+            fontFamily="oswald, serif"
+            fontSize="33px"
+            fontWeight="normal"
+            color="#2e2c38">
+            NEW Layered Holiday Collection
+            </Text>
+          </Box>
+          <HStack>
+            <Box><Image width="400px" height="400px"  src="https://img.shop.com/Image/homepage/layered-usa-can-106765-holiday-collection-22-edit-banner-BGSQ1671028134306.jpg" /></Box>
+            <Box className="slider">
+           
+       
+
+  </Box>
+          </HStack>
+        </VStack>
+      </Box>
     </div>
   );
 };
 
 export default Homepage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
