@@ -33,7 +33,7 @@ const Clothes = () => {
           <img src={el.image1} alt="" />
           <Text fontSize={17} >{el.title}</Text>
           <Flex gap={2}>
-            <img width={17} src="https://img.shop.com/Image/resources/images/onecart-icon.svg" alt="" />
+            <img  width={17} src="https://img.shop.com/Image/resources/images/onecart-icon.svg" alt="" />
             <Text fontSize={13}>Sold by {el.soldby}</Text>
 
           </Flex>
@@ -41,10 +41,9 @@ const Clothes = () => {
           <Text fontWeight={"bold"}>{el.price}</Text>
           <Text color={"teal"} fontSize={14}>Free shipping with $50.00 orders</Text>
 
-          <Button onClick={()=>handleClick(el)} borderRadius={25} width={85}>View</Button>
+          <Button backgroundColor={"blue.300"} onClick={()=>handleClick(el)} borderRadius={25} width={85}>View</Button>
 
-        
-          
+       
           </Box>
           
         </Box>
