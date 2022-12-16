@@ -36,7 +36,7 @@ const handleCloth=()=>{
      return (
        <>
  
-          <Stack display="flex" flexDirection={{base:"column",  sm:"row"}}>
+          <Stack display="flex" flexDirection={{base:"column",  sm:"row"}} mt="100px">
                <Stack spacing='24px'   backgroundColor="#f0f1f7" px="5px" >
                  <Box display="flex" flexDirection={{base:"row",  sm:"column" }}>
                  <Button  colorScheme='teal' mt='10' px='20' onClick={handleUser}> User</Button>
