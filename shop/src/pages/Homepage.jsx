@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
-import axios from "axios"
+import axios from "axios";
+
 import {
   Flex,
   Text,
@@ -13,16 +14,28 @@ import {
   Button,
   Box,
   VStack,
-  IconButton, useBreakpointValue 
 } from "@chakra-ui/react";
+
+
 import { AiFillDollarCircle } from "react-icons/ai";
+import Carousel from "../components/Carousel";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style,display:"block", background: "black" ,borderRadius:"50%", margin:"auto" ,width:"50px" ,height:"50px",position:"absolute" ,zIndex:"1"   }}
+      style={{
+        ...style,
+        display: "block",
+        background: "black",
+        borderRadius: "50%",
+        margin: "auto",
+        width: "50px",
+        height: "50px",
+        position: "absolute",
+        zIndex: "1",
+      }}
       onClick={onClick}
     />
   );
@@ -33,29 +46,40 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, background: "black" ,borderRadius:"50%", margin:"auto" ,width:"50px" ,height:"50px",position:"absolute" ,zIndex:"1" }}
+      style={{
+        ...style,
+        background: "black",
+        borderRadius: "50%",
+        margin: "auto",
+        width: "50px",
+        height: "50px",
+        position: "absolute",
+        zIndex: "1",
+      }}
       onClick={onClick}
     />
   );
 }
 
 const Homepage = () => {
-  const [data,setData] = React.useState([])
+  const [data, setData] = React.useState([]);
   useEffect(() => {
-    axios.get("https://next-backend-orpin.vercel.app/cloths").then((response) => {
-     console.log("res",response.data)
-     setData(response.data)
-    });
+    axios
+      .get("https://next-backend-orpin.vercel.app/jewelery")
+      .then((response) => {
+        console.log("res", response.data);
+        setData(response.data);
+      });
   }, []);
-   const settings = {
+  const settings = {
     dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
-    nextArrow :  <SampleNextArrow /> ,
-    prevArrow : <SamplePrevArrow /> ,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -64,9 +88,9 @@ const Homepage = () => {
           slidesToScroll: 3,
           infinite: true,
           dots: true,
-          nextArrow : <SampleNextArrow />,
-          prevArrow : <SamplePrevArrow />,
-        }
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
       },
       {
         breakpoint: 600,
@@ -74,23 +98,23 @@ const Homepage = () => {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
-          nextArrow : <SampleNextArrow />,
-          prevArrow : <SamplePrevArrow />,
-        }
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          nextArrow : <SampleNextArrow />,
-          prevArrow : <SamplePrevArrow />,
-        }
-      }
-    ]
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
+      },
+    ],
   };
   return (
-    <div  style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center" }}>
       <Flex
         backgroundColor="#f0f1f7"
         height="30px"
@@ -731,42 +755,39 @@ const Homepage = () => {
       </HStack>
 
       <Box mt="70px">
-        <VStack>
+      
           <Box>
-            <Text marginRight="800px"  mb="50px"
-            fontFamily="oswald, serif"
-            fontSize="33px"
-            fontWeight="normal"
-            color="#2e2c38">
-            NEW Layered Holiday Collection
+            <Text
+              marginRight="800px"
+              mb="50px"
+              fontFamily="oswald, serif"
+              fontSize="33px"
+              fontWeight="normal"
+              color="#2e2c38"
+            >
+              NEW Layered Holiday Collection
             </Text>
           </Box>
-          <HStack>
-            <Box><Image width="400px" height="400px"  src="https://img.shop.com/Image/homepage/layered-usa-can-106765-holiday-collection-22-edit-banner-BGSQ1671028134306.jpg" /></Box>
-            <Box className="slider">
+       <HStack>
+            <Box>
+     
+              <Image
+              mb="200px"
+                width="400px"
+                height="400px"
+                src="https://img.shop.com/Image/homepage/layered-usa-can-106765-holiday-collection-22-edit-banner-BGSQ1671028134306.jpg"
+              />
            
+            </Box>
+            <Carousel />
        
+            </HStack>
 
-  </Box>
-          </HStack>
-        </VStack>
+  
+     
       </Box>
     </div>
   );
 };
 
 export default Homepage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
