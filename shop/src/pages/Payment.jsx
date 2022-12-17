@@ -9,18 +9,12 @@ function PaymentPage(){
 
 setTimeout(()=>{
     setOpn(!opn)
-//    return <Navigate to="/" />
 
 },2000)}
 const handleClose=()=>{
     setOpn(false);
     onClose();
 }
-// if(opn===true){
-   
-//     <Navigate to="/" />
-  
-// }
 
     console.log(opn)
     const handleInputChange = (e) => setInput(e.target.value)

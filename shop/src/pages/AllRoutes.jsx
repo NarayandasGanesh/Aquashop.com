@@ -16,7 +16,8 @@ import Singleproduct from "./Singleproduct";
 import SignIn from "./SignIn";
 import Signup from "./Signup";
 import Address from "./AddressPage";
-import Payment from "./Payment";
+import PaymentPage from "./Payment";
+
 
 const AllRoutes = () => {
   return (
@@ -36,7 +37,7 @@ const AllRoutes = () => {
 
       <Route path="/cart" element={<Cart />} />
       <Route path="/address" element={<Address />} />
-      <Route path="/payment"  element={<Payment />}/>
+      <Route path="/payment"  element={<PaymentPage />}/>
     </Routes>
   );
 };
