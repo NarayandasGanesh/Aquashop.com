@@ -19,6 +19,7 @@ import {
   Input,
   InputRightElement,
   InputGroup,
+  useToast,
 } from "@chakra-ui/react";
 import {
   FaUserCircle,
@@ -58,6 +59,9 @@ import {
   Heading,
   Container,
 } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 const Navbar = () => {
   const navigateTo = useNavigate();
   const GoTo = (path) => {
@@ -67,6 +71,13 @@ const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const firstField = React.useRef();
   const { onToggle } = useDisclosure();
+  const [Data, SetData] = useState({});
+  const { userData } = useSelector((store) => store.auth);
+
+  useEffect(() => {
+    console.log("userdata", userData);
+    SetData(userData);
+  }, [userData]);
 
   return (
     <div>
@@ -193,10 +204,8 @@ const Navbar = () => {
                       Cosmetics
                     </Box>
                     <Box as="button" onClick={() => GoTo("/health")}>
-                     Health & Nutrition
+                      Health & Nutrition
                     </Box>
-               
-                 
                   </Box>
                 </Flex>
               </Box>
@@ -243,7 +252,7 @@ const Navbar = () => {
               bgColor="transparent"
             >
               <FaUserCircle color="black" />
-              Sign In
+              {Data && Data.firstName ? `Hi ${Data.firstName}` : "Sign In"}
             </Button>
             <Drawer
               isOpen={isOpen}
