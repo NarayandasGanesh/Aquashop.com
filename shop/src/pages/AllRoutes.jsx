@@ -15,6 +15,9 @@ import ShopLocal from "./ShopLocal";
 import Singleproduct from "./Singleproduct";
 import SignIn from "./SignIn";
 import Signup from "./Signup";
+import Address from "./AddressPage";
+import PaymentPage from "./Payment";
+
 
 const AllRoutes = () => {
   return (
@@ -33,6 +36,8 @@ const AllRoutes = () => {
       <Route path="/clothes/singleproduct" element={<Singleproduct />} />
 
       <Route path="/cart" element={<Cart />} />
+      <Route path="/address" element={<Address />} />
+      <Route path="/payment"  element={<PaymentPage />}/>
     </Routes>
   );
 };
