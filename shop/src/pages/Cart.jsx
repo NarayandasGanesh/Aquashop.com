@@ -72,7 +72,7 @@ function CartPage(){
                   <AlertTitle>Success!</AlertTitle>
                   <AlertDescription>
                     Congrats! coupan Applied!
-                    Your Applacable for free Home Delivary
+                    Your Applicable for free Home Delivary
                   </AlertDescription>
                 </Box>
                 <CloseButton
@@ -92,7 +92,7 @@ function CartPage(){
 
 
          
-          <Link  to={``}>
+          <Link  to={`/address`}>
           <Button w="50%" mt={10} colorScheme='pink' variant='solid'>
           Buy Now!
         </Button>
@@ -111,7 +111,7 @@ function CartPage(){
 <Flex>
 
 <Image w="50%" mr={5} h="70%" src={makeup.image_link} />
-<Box mt={10}> 
+{/* <Box mt={10}> 
   <Heading size="md">{makeup.name}</Heading>
   <Heading mt={5} size="lg">Total Amount:{makeup.price}</Heading>
   {
@@ -122,7 +122,7 @@ function CartPage(){
           <AlertTitle>Success!</AlertTitle>
           <AlertDescription>
             Congrats! coupan Applied!
-            Your Applacable for free Home Delivary
+            Your Applicable for free Home Delivary
           </AlertDescription>
         </Box>
         <CloseButton
@@ -149,8 +149,8 @@ function CartPage(){
     Go Back!
   </Button>
   </Link>
-  
-  </Box>
+
+</Box> */}
  
 
 </Flex> 
