@@ -1,6 +1,7 @@
 import { Button, Center, FormControl, FormErrorMessage, FormHelperText, FormLabel, Heading, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 function Address(){
     const [input, setInput] = useState('')
 
