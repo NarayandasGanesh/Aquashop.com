@@ -36,6 +36,7 @@ const Singleproduct = () => {
     setData(getItem("singleproduct"))
    },[])
    console.log(data)
+   
    useEffect(()=>{
      setImg(data.image4)
    },[data])
@@ -53,19 +54,22 @@ const Singleproduct = () => {
     
      >
           <Box>
-          <img onClick={()=>setImg(data.image1)}  width={140}  src={data.image1} alt="" /><br />
+          <img onClick={()=>setImg(data.image1)}  width={"370px"}  src={data.image1} alt="" /><br />
           <img onClick={()=>setImg(data.image2)}  width={140}  src={data.image2} alt="" /><br />
           <img  onClick={()=>setImg(data.image3)} width={140}  src={data.image3} alt="" /><br />
           </Box>
-        <Image  width={655} src={curimg} alt=""
+          <Box marginLeft={"70px"} >
+          <Image  width={755} src={curimg} alt=""
         fit={'cover'}
         align={'center'}
        
         h={{ base: '100%', sm: '400px', lg: '500px' }}
         />
-        <Box marginTop={-8} textAlign={"left"}>
-            <Text fontSize={24}>{data.soldby}</Text>
-            <Text  color={"teal"} fontSize={32}
+          </Box>
+      
+        <Box marginLeft={"40px"} width={"100%"} marginTop={-8} textAlign={"left"}>
+            <Text fontSize={20}>{data.soldby}</Text>
+            <Text  color={"teal"} fontSize={27}
             >{data.title}</Text>
             <Text fontSize={14}>Sold by {data.soldby}</Text>
             <Text cursor={"pointer"} marginTop={3} fontSize={12}>Write a review</Text>
@@ -74,7 +78,7 @@ const Singleproduct = () => {
               <img width={210} src="https://bitpay.com/cdn/merchant-resources/bitpay-accepted-card-group.svg" alt="" />
               </Box>
             
-              <Text marginTop={1} fontStyle={"revert-layer"} marginLeft={"100px"} fontSize={21}>Now accepting Crypto at Checkout!</Text>
+              <Text marginTop={1} marginLeft={"20px"} fontSize={21}>Now accepting Crypto at Checkout!</Text>
             </Flex>
             <Text marginTop={5} fontWeight={"bold"} fontSize={31} >${data.price}</Text>
               <Flex id="select" marginTop={5}><select >
@@ -86,13 +90,13 @@ const Singleproduct = () => {
               <option value="5">5</option>
             </select>
             
-            <Button height={50} backgroundColor={"blue.300"} width={"390px"}  marginLeft={100} marginTop={3}>Add to cart</Button>
+            <Button height={50} backgroundColor={"blue.300"} width={"340px"}  marginLeft={18} marginTop={3}>Add to cart</Button>
             </Flex>
             <Text  color={"teal"} fontSize={19} marginTop={10}>Style and color that stand the test of time. Our top-selling polo is now available with long-sleeves.  The Long Sleeve Spin Lady Pique Polo is made with spin dye technology for long lasting color that never fade. The eco-friendly production process...</Text>
           
           <Flex textAlign={"center"}>
           <Button height={"auto"} width={50} marginTop={2} backgroundColor={"blue.300"}>like 👍</Button>
-          <Text marginLeft={7} marginTop={2} ><a href='./signup'>Sign Up</a> to see your friends like.</Text>
+          <Text marginLeft={7} marginTop={2} ><a href='#'>Sign Up</a> to see your friends like.</Text>
           </Flex>
             
         </Box>
