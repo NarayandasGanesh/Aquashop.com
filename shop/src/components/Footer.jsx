@@ -7,6 +7,7 @@ import { Image } from "@chakra-ui/react";
 
 const Footer = () => {
   return (
+
     <Box borderTop="1px solid grey" width={"100%"}>
       <Box justifyContent={"space-between"} backgroundColor={"#545871"}>
         <Flex
@@ -15,7 +16,7 @@ const Footer = () => {
           p={2}
         >
           <Box display={"flex"} w={"60%"}>
-            {" "}
+        
             <Text
               color={"white"}
               fontSize={{ xl: "20", lg: "15", sm: "12", base: "8" }}

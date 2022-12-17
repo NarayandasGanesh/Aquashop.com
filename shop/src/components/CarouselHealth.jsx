@@ -31,14 +31,14 @@ const settings = {
   initialSlide: 0,
 };
 
-export default function Carousel() {
+export default function CarouselHealth() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState(1);
   const navigate=useNavigate();
   const handleClick=(item)=>{
     setItem("singleproduct",item)
-  navigate("/jewelery/singleproduct")
+  navigate("/health/singleproduct")
 }
 
   // These are the breakpoints which changes the position of the
@@ -56,7 +56,7 @@ export default function Carousel() {
   //  }
   useEffect(() => {
     axios
-      .get("https://next-backend-orpin.vercel.app/jewelery")
+      .get("https://shop-api-lp09.onrender.com/health")
       .then((response) => {
         console.log("res", response.data);
         setData(response.data);

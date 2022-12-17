@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import {setItem} from '../utility/localStorage'
 import "../index.css"
 import { useDispatch, useSelector } from "react-redux";
-import { Get_Cosmetics_item } from "../store/Cosmetics/Cosmetics.action";
-const Cosmetics = () => {
+import { Get_Health_item } from "../store/Health/Health.action";
+const Health = () => {
 const[filter,setFilter]=useState("Mens")
   const [loading ,setLoading]=useState(false);
   const [order,setOrder]=useState("")
@@ -16,21 +16,21 @@ const[filter,setFilter]=useState("Mens")
 
   const handleClick=(item)=>{
       setItem("singleproduct",item)
-    navigate("/Cosmetics/singleproduct")
+    navigate("/health/singleproduct")
  }
   
 
-  const {Cosmetics}=useSelector((store)=>store.CosmeticsManger)
+  const {Health}=useSelector((store)=>store.HealthManger)
   const dispatch=useDispatch()
   useEffect(()=>{
   
-    dispatch(Get_Cosmetics_item())
-   },[Cosmetics]) 
+    dispatch(Get_Health_item())
+   },[Health]) 
 
-   let  data=Cosmetics.filter((item)=>item.category===filter)
+   let  data=Health.filter((item)=>item.category===filter)
 
    useEffect(()=>{
-    data=Cosmetics.filter((item)=>item.category===filter)
+    data=Health.filter((item)=>item.category===filter)
    },[filter])
 
    useEffect(()=>{
@@ -60,7 +60,7 @@ const[filter,setFilter]=useState("Mens")
           <Flex>
           {/* <Sidebar setFilter={setFilter}/> */}
           <Box id='maindiv' border={"1px solid"} width={"20%"}>
-  <Text marginTop={2} color={"teal"} id="Cosmeticse" fontSize={35} fontWeight={"bold"}>Cosmetics</Text>
+  <Text marginTop={2} color={"teal"} id="Healthe" fontSize={35} fontWeight={"bold"}>Health</Text>
   <Box marginLeft={"40px"}   textAlign={"left"} marginTop={"15px"}>
 <Flex alignItems={"center"} gap={"15px"}> 
   <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaXelByMSTcBlhsGChcrAWlXVXNXxI53LxzirHbHwGJQ&s'></Image>
@@ -105,9 +105,9 @@ Store conditions </Text>
 
 
 
-         <Grid mt={"30px"} marginLeft={"240px"} paddingLeft={"15px"} width={"80%"} templateColumns='repeat(2, 1fr)' gap={6}>
+         <Grid mt={"30px"} marginLeft={"240px"} paddingLeft={"15px"} width={"80%"} templateColumns='repeat(3, 1fr)' gap={6}>
          
-           {Cosmetics.map((el)=>{
+           {Health.map((el)=>{
              return <Box id='probox' key={el.id}>
               <Box textAlign={"left"}>
               <img id="hov" src={el.image1} alt="" />
@@ -143,4 +143,4 @@ Store conditions </Text>
  
 };
 
-export default Cosmetics;
+export default Health;

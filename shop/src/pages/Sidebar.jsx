@@ -5,7 +5,7 @@ import "../index.css";
 const Sidebar = (setFilter) => {
   return (
     <>
- <Box id='maindiv' border={"1px solid"} width={"20%"}>
+ <Box  id='maindiv' border={"1px solid"} width={"20%"}>
   <Text marginTop={2} color={"teal"} id="clothe" fontSize={35} fontWeight={"bold"}>CLOTHES</Text>
   <Box marginLeft={"40px"}   textAlign={"left"} marginTop={"15px"}>
 <Flex alignItems={"center"} gap={"15px"}> 
