@@ -20,7 +20,8 @@ const[filter,setFilter]=useState("Mens")
  }
   
 
-  const {cloth}=useSelector((store)=>store.ClothManger)
+  // const { isLoading , cloth }=useSelector((store)=>store.ClothManger)
+  const {isLoading ,cloth}=useSelector((store)=>store.ClothManger)
   const dispatch=useDispatch()
   useEffect(()=>{
   
@@ -28,9 +29,10 @@ const[filter,setFilter]=useState("Mens")
    },[cloth]) 
 
    let  data=cloth.filter((item)=>item.category===filter)
-
+         
    useEffect(()=>{
     data=cloth.filter((item)=>item.category===filter)
+  
    },[filter])
 
    useEffect(()=>{
@@ -102,9 +104,6 @@ Store conditions </Text>
   </Box>
 
      
-
-
-
          <Grid mt={"30px"} marginLeft={"240px"} paddingLeft={"15px"} width={"80%"} templateColumns='repeat(3, 1fr)' gap={6}>
          
            {data.map((el)=>{
