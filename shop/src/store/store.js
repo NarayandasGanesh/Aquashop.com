@@ -10,12 +10,15 @@ import {
 import { Jeweleryreducer } from "./Jewelery/Jewelery.reducer";
 import { Electronicsreducer } from "./Electronics/Electronics.reducer";
 import { Cosmeticsreducer } from "./Cosmetics/Cosmetics.reducer";
+import { Healthreducer } from "./Health/Health.reducer"
+
   
   const root_reducer = combineReducers({
     ClothManger: Clothreducer ,
     JeweleryManger:Jeweleryreducer,
     ElectronicsManger:Electronicsreducer,
     CosmeticsManger:Cosmeticsreducer,
+    HealthManger:Healthreducer,
     auth: authReducer,
   });
   

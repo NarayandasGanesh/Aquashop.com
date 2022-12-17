@@ -74,7 +74,7 @@ const Singleproduct = () => {
             <Text fontSize={14}>Sold by {data.soldby}</Text>
             <Text cursor={"pointer"} marginTop={3} fontSize={12}>Write a review</Text>
             <Flex textAlign={"center"} width={"auto"} backgroundColor={"gray.100"} marginTop={3}>
-              <Box  marginLeft={35} padding={1,1,1,1}>
+              <Box  marginLeft={35} padding="1px, 1px,1px,1px">
               <img width={210} src="https://bitpay.com/cdn/merchant-resources/bitpay-accepted-card-group.svg" alt="" />
               </Box>
             

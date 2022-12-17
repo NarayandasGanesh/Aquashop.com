@@ -10,8 +10,7 @@ import Cosmetics from "./Cosmetics";
 import Electronics from "./Electronics";
 import Homepage from "./Homepage";
 import Jewelery from "./Jewelery";
-import ShopBuddy from "./ShopBuddy";
-import ShopLocal from "./ShopLocal";
+import Health from "./Health";
 import Singleproduct from "./Singleproduct";
 import SignIn from "./SignIn";
 import Signup from "./Signup";
@@ -29,11 +28,16 @@ const AllRoutes = () => {
       <Route path="/electronics" element={<Electronics />} />
       <Route path="/jewelery" element={<Jewelery />} />
       <Route path="/cosmetic" element={<Cosmetics />} />
-      <Route path="/shopbuddy" element={<ShopBuddy />} />
-      <Route path="/shoplocal" element={<ShopLocal />} />
+      <Route path="/health" element={<Health />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/clothes/singleproduct" element={<Singleproduct />} />
+      <Route path="/jewelery/singleproduct" element={<Singleproduct />} />
+      <Route path="/electronics/singleproduct" element={<Singleproduct />} />
+      <Route path="/cosmetics/singleproduct" element={<Singleproduct />} />
+      <Route path="/health/singleproduct" element={<Singleproduct />} />
+
+
 
       <Route path="/cart" element={<Cart />} />
       <Route path="/address" element={<Address />} />

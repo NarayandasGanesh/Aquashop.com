@@ -192,12 +192,11 @@ const Navbar = () => {
                     <Box as="button" onClick={() => GoTo("/cosmetic")}>
                       Cosmetics
                     </Box>
-                    <Box as="button" onClick={() => GoTo("/shopbuddy")}>
-                      Shop Buddy
+                    <Box as="button" onClick={() => GoTo("/health")}>
+                     Health & Nutrition
                     </Box>
-                    <Box as="button" onClick={() => GoTo("/shoplocal")}>
-                      Shop Local
-                    </Box>
+               
+                 
                   </Box>
                 </Flex>
               </Box>

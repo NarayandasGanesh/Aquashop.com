@@ -26,19 +26,19 @@ const settings = {
   dots: true,
   infinite: false,
   speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 3,
+  slidesToShow: 5,
+  slidesToScroll: 2,
   initialSlide: 0,
 };
 
-export default function Carousel() {
+export default function CarouselElectronics() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState(1);
   const navigate=useNavigate();
   const handleClick=(item)=>{
     setItem("singleproduct",item)
-  navigate("/jewelery/singleproduct")
+  navigate("/electronics/singleproduct")
 }
 
   // These are the breakpoints which changes the position of the
@@ -56,7 +56,7 @@ export default function Carousel() {
   //  }
   useEffect(() => {
     axios
-      .get("https://next-backend-orpin.vercel.app/jewelery")
+      .get("https://next-backend-orpin.vercel.app/Electronics")
       .then((response) => {
         console.log("res", response.data);
         setData(response.data);
@@ -65,9 +65,10 @@ export default function Carousel() {
 
   return (
     <Box
+  
       position={"relative"}
       height={"600px"}
-      width={"80%"}
+      width={"90%"}
       overflow={"hidden"}
     >
       {/* CSS files for react-slick */}
@@ -113,10 +114,10 @@ export default function Carousel() {
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {data.map((el, index) => (
-          <Card cursor="pointer" onClick={()=>handleClick(el)} height="420px"  maxW="sm">
+          <Card cursor="pointer" onClick={()=>handleClick(el)} height="440px"  maxW="sm">
             <CardBody>
               <Image
-                ml="20px"
+                // ml="20px"
                 width="250px"
                 height="200px"
                 src={el.image1}
@@ -131,14 +132,14 @@ export default function Carousel() {
                   ${el.price}
                 </Text>
 
-                <Text ml="30px" textAlign="center" fontSize="lg">
-                  <Flex ml="80px">
-                    sold-by - <Text fontWeight="bold">{el.soldby}</Text>
+                <Text ml="30px" textAlign="center" fontSize="sm">
+                  <Flex ml="20px">
+                    <Text>Sold-by -</Text><Text fontWeight="bold">{el.soldby}</Text>
                   </Flex>
                 </Text>
                 <Box>
              
-                  <Flex marginLeft="80px" textAlign="bottom">
+                  <Flex marginLeft="30px" textAlign="bottom">
                     <Text mr="5px">$1.00/2</Text>
                     <AiFillDollarCircle
                       mr="5px"
@@ -160,10 +161,3 @@ export default function Carousel() {
   );
 }
 
-// display: -webkit-box;
-// -webkit-line-clamp: 2;
-// -webkit-box-orient: vertical;
-// overflow: hidden;
-// text-overflow: ellipsis;
-// text-align: left;
-// margin: 0px;

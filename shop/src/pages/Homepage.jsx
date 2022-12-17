@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 import {
   Flex,
   Text,
@@ -16,9 +16,11 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-
 import { AiFillDollarCircle } from "react-icons/ai";
 import Carousel from "../components/Carousel";
+import CarouselCosmetics from "../components/CarouselCosmetics";
+import CarouselHealth from "../components/CarouselHealth";
+import CarouselElectronics from "../components/CarouselElectronics";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -62,6 +64,11 @@ function SamplePrevArrow(props) {
 }
 
 const Homepage = () => {
+  const navigateTo = useNavigate();
+  const GoTo = (path) => {
+    console.log("path", path);
+    navigateTo(path);
+  };
   const [data, setData] = React.useState([]);
   useEffect(() => {
     axios
@@ -754,38 +761,435 @@ const Homepage = () => {
         </Box>
       </HStack>
 
-      <Box mt="70px">
-      
+      <Box backgroundColor="#f0f1f7" mt="20px">
+        <Box>
+          <Text
+            marginRight="800px"
+            mb="50px"
+            fontFamily="oswald, serif"
+            fontSize="33px"
+            fontWeight="normal"
+            color="#2e2c38"
+          >
+            NEW Layered Holiday Collection
+          </Text>
+        </Box>
+        <HStack>
           <Box>
-            <Text
-              marginRight="800px"
-              mb="50px"
-              fontFamily="oswald, serif"
-              fontSize="33px"
-              fontWeight="normal"
-              color="#2e2c38"
-            >
-              NEW Layered Holiday Collection
-            </Text>
-          </Box>
-       <HStack>
-            <Box>
-     
-              <Image
+            <Image
               mb="200px"
-                width="400px"
-                height="400px"
-                src="https://img.shop.com/Image/homepage/layered-usa-can-106765-holiday-collection-22-edit-banner-BGSQ1671028134306.jpg"
+              width="400px"
+              height="400px"
+              src="https://img.shop.com/Image/homepage/layered-usa-can-106765-holiday-collection-22-edit-banner-BGSQ1671028134306.jpg"
+            />
+          </Box>
+          <Carousel />
+        </HStack>
+      </Box>
+
+      <Box backgroundColor="#f0f1f7" mt="50px" mb="100px">
+        <HStack justifyContent="space-evenly">
+          <Box width="300px" height="250px">
+            <VStack>
+              <Image mb="15px"
+                boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
+                src="https://img.shop.com/Image/homepage/us-eng-shopbop-ny-medi-fillin-hp-jan211671032078319.jpg"
               />
+              <Text>
            
-            </Box>
-            <Carousel />
+                <Flex  mt="5px">
+                  <Text mr="5px">2% </Text> <AiFillDollarCircle color="teal" />
+                  <Text ml="5px">Cashback</Text>
+                </Flex>
+              </Text>
+              <Text fontSize="14px" >
+                Shop up to 70% OFF 1000s of new styles and must-have gifts!
+              </Text>
+            </VStack>
+          </Box>
+          <Box width="300px" height="250px">
+            <VStack>
+              <Image mb="15px"
+                boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
+                src="https://img.shop.com/Image/homepage/us-mk-media-dec221670445967935.jpg"
+              />
+              <Flex  mt="5px">
+              <Text mr="5px">2% </Text> <AiFillDollarCircle color="teal" />
+                  <Text ml="5px">Cashback</Text>
+              </Flex>
+                 <Text fontSize="14px" >
+                The Holiday Event: Enjoy 25% Off Your Full Price Purchase! Plus,
+                Up To 60%
+              </Text>
+            </VStack>
+          </Box>
+          <Box width="300px" height="250px">
+            <VStack>
+              <Image mb="15px"
+                boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
+                src="https://img.shop.com/Image/homepage/us-eng-3rdlove-media-hp-dec221669846216726.jpg"
+              />
+              <Flex  mt="5px">
+              <Text mr="5px">2% </Text> <AiFillDollarCircle color="teal" />
+                  <Text ml="5px">Cashback</Text>
+              </Flex>
+            </VStack>
+          </Box>
+          <Box
+            width="300px"
+            height="250px"
+            boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
+          >
+            <VStack>
+              <Image mb="20px" src="https://img.shop.com/Image/homepage/athelta-media-hp5556-14898061669846349406.jpg" />
+              <Flex  >
+              <Text mr="5px">2% </Text> <AiFillDollarCircle color="teal" />
+                  <Text ml="5px">Cashback</Text>
+              </Flex>
+            </VStack>
+          </Box>
+        </HStack>
+      </Box>
+
+
+      
+      <Box  backgroundColor="#f0f1f7" mt="50px">
+        <Box>
+          <Text
+            marginRight="800px"
+            mb="50px"
+            fontFamily="oswald, serif"
+            fontSize="33px"
+            fontWeight="normal"
+            color="#2e2c38"
+          >
+           Luxury Beauty Gifts from Motives
+          </Text>
+        </Box>
+        <HStack>
+          <Box>
+            <Image
+              mb="200px"
+              width="400px"
+              height="400px"
+              src="https://img.shop.com/Image/homepage/motives-usa-can-eng-105076-2022-holiday-banner-600x600-img-min1666019864593.jpg"
+            />
+          </Box>
        
+         <CarouselCosmetics mt="50px" />
+        </HStack>
+      </Box>
+
+
+
+
+
+            
+      <Box  backgroundColor="#f0f1f7" mt="50px">
+     
+        <Box>
+          <Text
+            marginRight="800px"
+            mb="50px"
+            fontFamily="oswald, serif"
+            fontSize="33px"
+            fontWeight="normal"
+            color="#2e2c38"
+          >
+      Lumière de Vie
+          </Text>
+        </Box>
+        <HStack>
+        
+          <CarouselHealth />
+       
+          <Box>
+            <Image
+              mb="200px"
+              width="400px"
+              height="400px"
+              src="https://img.shop.com/Image/homepage/motives-usa-can-eng-105076-2022-holiday-banner-600x600-img-min1666019864593.jpg"
+            />
+          </Box>
+       
+      
+        </HStack>
+      </Box>
+
+
+
+
+
+
+
+
+      
+      <VStack   mt="70px">
+        <Box  >
+          <Text
+            mb="50px"
+            fontFamily="oswald, serif"
+            fontSize="38px"
+            fontWeight="normal"
+            color="#2e2c38"
+          >
+          Holiday Specials
+          </Text>
+        </Box>
+        <HStack justifyContent="space-evenly">
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="33px"
+                marginTop="22px"
+                height="135px"
+                width="125px"
+                src="https://img.shop.com/Image/240000/248600/248698/products/925887691.jpg?plain&size=750x750"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+            BEAUTY
+            </Text>
+          </VStack>
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="50px"
+                marginTop="30px"
+                height="125px"
+                width="105px"
+                src="https://img.shop.com/Image/280000/282000/282022/products/1875095140.jpg?plain&size=750x750"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+           JEWELRY
+            </Text>
+          </VStack>
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="36px"
+                marginTop="25px"
+                height="135px"
+                width="115px"
+                src="https://img.shop.com/Image/210000/214100/214196/products/701199621.jpg?plain&size=750x750"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+         HEALTH & NUTRITION
+            </Text>
+          </VStack>
+
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="40px"
+                marginTop="30px"
+                height="125px"
+                width="110px"
+                src="https://img.shop.com/Image/240000/243300/243390/products/1954251885.jpg?plain&size=1600x1600"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+            CLEANING
+
+
+            </Text>
+          </VStack>
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="37px"
+                marginTop="35px"
+                height="125px"
+                width="115px"
+                src="https://img.shop.com/Image/240000/243300/243380/products/1788447992.jpg?plain&size=750x750"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+           BEAUTY GIFT SETS
+
+            </Text>
+          </VStack>
+          <VStack>
+            <Box
+              borderRadius="50%"
+              border="10px solid #1a202c82"
+              justifyItems="center"
+              height="200px"
+              width="210px"
+            >
+              <Image
+                marginLeft="43px"
+                marginTop="30px"
+                height="125px"
+                width="115px"
+                src="https://img.shop.com/Image/240000/248600/248698/products/1849034699.jpg?plain&size=750x750"
+              />
+            </Box>
+            <Text
+              fontSize="1rem"
+              color="#202340"
+              fontWeight="700"
+              textShadow="0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff"
+            >
+              SEE ALL
+            </Text>
+          </VStack>
+        </HStack>
+      </VStack>
+
+
+
+
+      <Box  backgroundColor="#f0f1f7" mt="50px">
+        <HStack  justifyContent="space-evenly">
+        <Box>
+          <Image boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" src="https://img.shop.com/Image/homepage/ix-us-eng-105233-digestive-health-packets-holiday-banner-med1667506965936.jpg" />
+        </Box>
+        <Box>
+          <Image boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" src="https://img.shop.com/Image/homepage/royal-spa-usa-engsmall1666034758440.jpg" />
+        </Box>
+        <Box>
+          <Image boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" src="https://img.shop.com/Image/homepage/isotonix-usa-105568-opc3-beauty-blend-banner-media1671109554812.jpeg" />
+        </Box>
+        </HStack>
+      </Box>
+
+
+      <Box bgColor="#f0f1f7" mt="50px">
+        <VStack>
+          <Text       mb="50px"
+            fontFamily="oswald, serif"
+            fontSize="38px"
+            fontWeight="normal"
+            color="#2e2c38">
+          ELECTRONICS PRODUCTS 
+          </Text>
+          <CarouselElectronics />
+        </VStack>
+      </Box>
+
+<Box backgroundColor="#f0f1f7" mt="50px" mb="50px" >
+  <vStack>
+    <Text  mb="50px"
+            fontFamily="oswald, serif"
+            fontSize="38px"
+            fontWeight="normal"
+            color="#2e2c38"> OUR BRANDS</Text>
+
+            <HStack justifyContent="space-evenly">
+                <Box  cursor="pointer" onClick={()=>GoTo("/health")}  _hover={{color:"blue.300"}}>
+              <VStack>
+                <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
+                  HEALTH AND NUTRITIONS
+                </Text>
+                <Image width="350px" height="250px" src="https://img.shop.com/Image/homepage/healthnutirtion1572880380738.jpg" />
+              </VStack>
+                </Box>
+
+               <Box  cursor="pointer" onClick={()=>GoTo("/cosmetics")}  _hover={{color:"blue.300"}}>
+              <VStack>
+               <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
+                BEAUTY
+                </Text>
+                <Image width="350px" height="250px"  src="https://img.shop.com/Image/homepage/lipstick1572880828301.jpg" />
+              </VStack>
+               </Box>
+
+             <Box  cursor="pointer" onClick={()=>GoTo("/jewelery")}  _hover={{color:"blue.300"}}>
+              <VStack>
+             <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
+              JEWELRY
+                </Text>
+                <Image width="350px" height="250px"  src="https://img.shop.com/Image/280000/282000/282022/products/1954593896.jpg?plain&size=1600x1600" />
+              </VStack>
+             </Box>
+
+            <Box cursor="pointer" onClick={()=>GoTo("/clothes")} _hover={{color:"blue.300"}}>
+              <VStack fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
+            <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
+            CLOTHINGS
+                </Text>
+                <Image width="350px" height="250px"  src="https://img.shop.com/Image/290000/291600/291696/products/1943601116__800x800__.jpg" />
+              </VStack >
+            </Box>
+
+              <Box cursor="pointer"  onClick={()=>GoTo("/electronics")} _hover={{color:"blue.300"}}>
+              <VStack>
+              <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
+          ELECTRONICS
+                </Text>
+                <Image width="350px" height="250px"  src="https://img.shop.com/Image/280000/281900/281909/products/1935336852__800x800__.jpg" />
+              </VStack>
+              </Box>
             </HStack>
 
-  
-     
-      </Box>
+  </vStack>
+</Box>
+{/* 
+font-size: 1rem;
+    text-align: center;
+    line-height: 1.625rem;
+    font-weight: 700;
+    text-transform: uppercase; */}
+
+
     </div>
   );
 };
