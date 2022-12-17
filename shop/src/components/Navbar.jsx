@@ -331,11 +331,12 @@ const Navbar = () => {
               fontSize={"sm"}
               fontWeight={600}
               color={"white"}
-              bg={"pink.400"}
+              backgroundColor={"blue.300"}
               href={"#"}
               _hover={{
                 bg: "pink.300",
               }}
+              onClick={() => GoTo("/adminPage")}
             >
               Admin
             </Button>

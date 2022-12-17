@@ -3,9 +3,10 @@ import { Avatar, Box, Button, Card, CardBody, CardFooter, CardHeader, Drawer, Dr
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_Cloth_item, Get_cloth_item, REMOVE_Cloth_item, UPDATE_Cloth_item } from '../../store/Cloth/Cloth.action';
+ 
+import { ADD_Cosmetics_item, Get_Cosmetics_item, REMOVE_Cosmetics_item, UPDATE_Cosmetics_item } from '../../store/Cosmetics/Cosmetics.action';
 import { store } from '../../store/store';
-import Pdoduct from './Jewelery';
+import Pdoduct from './Cosmetics';
  
 
 
@@ -15,12 +16,12 @@ import Pdoduct from './Jewelery';
 
 const Clothes = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-  
+    const [user,setUser]=useState([]) 
     const [price,setPrice]=useState(0)
 
 
     
-    const {cloth}=useSelector((store)=>store.ClothManger)
+    const {Cosmetics}=useSelector((store)=>store.CosmeticsManger)
     const dispatch=useDispatch()
 
 
@@ -31,18 +32,18 @@ const Clothes = () => {
   
 
     useEffect(()=>{
-        
-        dispatch(Get_cloth_item())
-       },[cloth]) 
+       
+        dispatch(Get_Cosmetics_item())
+       },[Cosmetics]) 
 
 
-       let men = cloth.filter((item)=>item.category==filter)
+      //  let men = cloth.filter((item)=>item.category==filter)
 
 
-       useEffect(()=>{
-         men= cloth.filter((item)=>item.category==filter)
-         console.log(men)
-         },[filter]) 
+      //  useEffect(()=>{
+      //    men= cloth.filter((item)=>item.category==filter)
+      //    console.log(men)
+      //    },[filter]) 
 
        const HandleFilterChang=(data)=>{
         setFilter(data) 
@@ -59,18 +60,18 @@ const Clothes = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(Creds)
-    dispatch(ADD_Cloth_item(Creds));
+    dispatch(ADD_Cosmetics_item(Creds));
   };
 
   const handleDelete=(id)=>{
        
-    dispatch(REMOVE_Cloth_item(id))
+    dispatch(REMOVE_Cosmetics_item(id))
 
 }
 
 const handleUpdate=(id)=>{
   console.log(Creds,id)
-  dispatch(UPDATE_Cloth_item(id,Creds))
+  dispatch(UPDATE_Cosmetics_item(id,Creds))
 
 
 }
@@ -79,18 +80,14 @@ const handleUpdate=(id)=>{
     
     return (
         <>
-        <select onChange={(e)=>HandleFilterChang(e.target.value)} style={{border:"1px solid black"}} >
-            <option value="Mens">Men</option>
-            <option value="Womens">wommen</option>
-            <option value="KIDS">kid</option>
-        </select>
+        
         <Button onClick={onOpen}>Add Product</Button>
        
 
           <>    
-             <Stack>         { men.map((user)=>{
+             <Stack>         { Cosmetics.map((user)=>{
                               return (  <>
-                                <Flex key={user.id}   >
+                                <Flex key={Math.random()}   >
         <Text w={"30%"}  p="0"> {user.title}</Text>
           <Input w={"30%"} name='price' onChange={hanldeChange} placeholder={user.price}></Input> 
         
@@ -114,9 +111,6 @@ const handleUpdate=(id)=>{
                                   <ModalBody pb={6}>
                         
                                     <form  onSubmit={handleSubmit}>
-                                        <Stack>
-                                        <input type="text" name='category' style={{border:"1px solid black"}} placeholder="categery Mens ,Womens , input"  onChange={hanldeChange} />
-                                        </Stack>
                                          <Stack>
                                          <input type="text" name='title' style={{border:"1px solid black"}} placeholder="title..........."  onChange={hanldeChange} />
                                          </Stack>
@@ -164,5 +158,3 @@ const handleUpdate=(id)=>{
 };
 
 export default Clothes;
-
- 

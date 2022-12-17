@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
@@ -14,8 +15,74 @@ code {
 #select{
   border-left-color: brown;
   border: 1px solid;
-  width: 50%;
+  width: 80%;
+  height: 80px;
+ 
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 #select select{
-  width :100%;
+  width: 65px;
+  margin-left: 10px;
+}
+
+#probox{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding-left: 8px;
+  padding-bottom: 10px;
+  border-radius: 7px;
+
+}
+#probox:hover{
+ 
+}
+ #hov{
+  transition: 0.5s all ease-in-out;
+
+}
+#hov:hover{
+  transform: scale(1.1);
+  border-radius: 25px;
+}
+#clothe{
+  letter-spacing: 4px;
+}
+
+#maindiv{
+  position: fixed;
+  height: 100%;
+  width: 15%;
+}
+.menu{
+  color: cornflowerblue;
+  margin-top: 15px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  font-size: 17px;
+}
+.menu:hover{
+  color: rgb(17, 17, 17);
+}
+
+#filter{
+  margin-top: 25px;
+  width: 92%;
+  border: 1px solid;
+  margin-left: 10px;
+  font-size: large;
+ border: 0px;
+ border-radius: 20px;
+}
+#add{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding-left: 27px;
+  padding-bottom: 7px;
+}
+
+#filter select{
+  width: 100%;
+  text-align: center;
+background-color: teal;
+color: white;
+letter-spacing: 2px;
 }
