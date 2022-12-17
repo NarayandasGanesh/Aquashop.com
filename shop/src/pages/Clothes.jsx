@@ -18,30 +18,7 @@ const[filter,setFilter]=useState("Mens")
       setItem("singleproduct",item)
     navigate("/clothes/singleproduct")
  }
-
- useEffect(() => {
-    axios.get("https://next-backend-orpin.vercel.app/cloths").then((response) => {
-     console.log("res",response.data)
-     setData(response.data)
-    });
-  }, []);
-
-  return (
-    <div style={{marginTop:"50px"}}>
-      <h1>Clothes</h1>
-      <Flex>
-      <SimpleSidebar/>
-     <Grid templateColumns='repeat(3, 1fr)' gap={6}>
-     
-       {data.map((el)=>{
-         return <Box  key={el.id}>
-          <Box textAlign={"left"}>
-          <img src={el.image1} alt="" />
-          <Text fontSize={17} >{el.title}</Text>
-          <Flex gap={2}>
-            <img  width={17} src="https://img.shop.com/Image/resources/images/onecart-icon.svg" alt="" />
-            <Text fontSize={13}>Sold by {el.soldby}</Text>
-
+  
 
   const {cloth}=useSelector((store)=>store.ClothManger)
   const dispatch=useDispatch()
