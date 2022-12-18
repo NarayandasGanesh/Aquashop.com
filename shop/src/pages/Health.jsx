@@ -31,23 +31,8 @@ const[filter,setFilter]=useState("Mens")
 
    let  data=Health.filter((item)=>item.category===filter)
 
-   useEffect(()=>{
-    data=Health.filter((item)=>item.category===filter)
-   },[filter])
+ 
 
-   useEffect(()=>{
-    console.log(order,"1")
-    if(order=="high"){
-     console.log(order,"2")
-      data=data.sort((a,b)=>a.price-b.price )
-    }
-    if(order=="low"){
-      console.log(order,"3")
-      data=data.sort((a,b)=>b.price-a.price )
-    }
-
-    
-   },[order])
 
    
   

@@ -9,101 +9,60 @@ import { useNavigate } from "react-router-dom";
 import { setItem } from '../utility/localStorage'
 import "../index.css"
 import { useDispatch, useSelector } from "react-redux";
-import { Get_Electronics_item } from "../store/Electronics/Electronics.action";
-
-// import Loading from "./Loading";
-
+import { Get_Electronics_item, sortMyElectronics } from "../store/Electronics/Electronics.action";
 import Loading from "./Loading";
 
+// import Loading from "./Loading";
 const Electronics = () => {
-  const [filter, setFilter] = useState("Mens")
-  const [loading, setLoading] = useState(false);
-  const [order, setOrder] = useState("")
+
+  const [reset,setReset ]=useState(false)
+
+  const dispatch = useDispatch()
+
   const navigate = useNavigate();
 
   // const [data,setData] = useState([])
+
+  const Electronics = useSelector((state) => state.ElectronicsManger.Electronics);
   const handleClick = (item) => {
     setItem("singleproduct", item)
     navigate("/electronics/singleproduct")
   }
+  const handleChange = (e) => {
+    const { value } = e.target;
+    console.log(value)
+    if(value=="reset"){
 
+      setReset((previous)=>!previous)
+      return 
+    }
+    dispatch(sortMyElectronics(value))
 
-  const { Electronics } = useSelector((store) => store.ElectronicsManger)
-  const dispatch = useDispatch()
+  }
+
   useEffect(() => {
 
     dispatch(Get_Electronics_item())
-  }, [])
+  }, [reset])
 
-  let data = Electronics.filter((item) => item.category === filter)
-
-  useEffect(() => {
-    data = Electronics.filter((item) => item.category === filter)
-  }, [filter])
-
-  useEffect(() => {
-    console.log(order, "1")
-    if (order == "high") {
-      console.log(order, "2")
-      data = data.sort((a, b) => a.price - b.price)
-    }
-    if (order == "low") {
-      console.log(order, "3")
-      data = data.sort((a, b) => b.price - a.price)
-    }
-
-
-
-  }, [order])
-
-
-
-  if (Electronics.length === 0) return 
+  if (Electronics.length === 0) return <Loading />
+  
   return (
     <div style={{ "marginTop": "100px" }}>
 
       <Flex>
-        {/* <Sidebar setFilter={setFilter}/> */}
+      
         <Box id='maindiv' border={"1px solid"} width={"20%"}>
           <Text marginTop={2} color={"teal"} id="Electronicse" fontSize={35} fontWeight={"bold"}>Electronics</Text>
           <Box marginLeft={"40px"} textAlign={"left"} marginTop={"15px"}>
-            {/* <Flex alignItems={"center"} gap={"15px"}> 
-
-    
-   },[order])
-
-   
-   
-   if(Electronics.length===0) return  <Loading/>
-      return (
-        <div style={{"marginTop":"100px"}}>
-      
-          <Flex>
-          {/* <Sidebar setFilter={setFilter}/> */}
-          <Box id='maindiv' border={"1px solid"} width={"20%"}>
-  <Text marginTop={2} color={"teal"} id="Electronicse" fontSize={35} fontWeight={"bold"}>Electronics</Text>
-  <Box marginLeft={"40px"}   textAlign={"left"} marginTop={"15px"}>
-{/* <Flex alignItems={"center"} gap={"15px"}> 
-
-  <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaXelByMSTcBlhsGChcrAWlXVXNXxI53LxzirHbHwGJQ&s'></Image>
-  <Text className='menu' onClick={()=>setFilter("Mens")}  fontWeight={"bold"}>Mens</Text>
-  </Flex> */}
-
-            {/* <Flex alignItems={"center"} gap={"15px"}> 
-  <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROZH_L731sgBrBunH8f5lp6pLAhvehf2DuZJGjFeI&s'></Image>
-  <Text className='menu'  onClick={()=>setFilter("Womens")}   fontWeight={"bold"}>Womes</Text></Flex> */}
-
-
-            {/* <Flex alignItems={"center"} gap={"15px"}> 
-  <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://img.icons8.com/color/2x/children.png'></Image>
-  <Text className='menu'  onClick={()=>setFilter("KIDS")}   fontWeight={"bold"}>Kids</Text></Flex> */}
+            
 
 
           </Box>
 
           <Box id="filter">
-            <select name="" id="" onChange={(e) => setOrder(e.target.value)}>
-              <option value="reset">Filter by Price</option>
+            <select  name="" id="" onChange={(e) => handleChange(e)}>
+             <option value="reset" >sort-by-price</option>
               <option value="high">Low to high </option>
               <option value="low">High to low</option>
             </select>
@@ -166,7 +125,6 @@ const Electronics = () => {
           })}
 
         </Grid>
-
       </Flex>
 
 
@@ -174,15 +132,6 @@ const Electronics = () => {
     </div>
   );
 
-
-
-          </Flex>
-          
-    
-         
-        </div>
-      );
-     
 
 
 

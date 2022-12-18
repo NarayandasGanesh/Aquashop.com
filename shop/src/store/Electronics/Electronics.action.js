@@ -57,3 +57,6 @@ export const REMOVE_Electronics_item=(id)=>async(dispatch)=>{
 
     
 }
+export const sortMyElectronics = (how) => (dispatch) => {
+    dispatch({ type: types.SORT_ELECTRONICS, payload: how });
+  };

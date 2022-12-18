@@ -24,72 +24,23 @@ const Clothes = () => {
   };
   
 
-  const {isLoading, cloth } = useSelector((store) => store.ClothManger);
+  const { cloth } = useSelector((store) => store.ClothManger);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(Get_cloth_item());
-
   }, []);
 let data;
    data = cloth.filter((item) => item.category === filter);
    
 
-  }, [cloth,isLoading
-]);
-
-  let data = cloth.filter((item) => item.category === filter);
-
-
-  
-
-  useEffect(() => {
-    console.log(order, "1");
-    if (order == "high") {
-      console.log(order, "2");
-      data = data.sort((a, b) => a.price - b.price);
-      console.log(data)
-  
-        // dispatch(Get_cloth_item(data));
-   
-    
-    }
-    if (order == "low") {
-      console.log(order, "3");
-      data = data.sort((a, b) => b.price - a.price);
-      console.log(data)
-      // dispatch(Get_cloth_item(data));
-    
-    }
-  }, [order]);
 
 
 
 
   {
-    if (loading) {
-      return (
-        <Image
-          marginLeft={635}
-          src={
-            "https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif?20170503175831"
-          }
-          fontSize={27}
-          style={{ marginTop: "200px" }}
-        ></Image>
-      );
+    if (data.length==0) {
+      return <Loading/>;
     } else {
-
-//   useEffect(()=>{
-//  if (isLoading) {
-//      
-    
-//     }  
-//   },[isLoading])
-  
-   
-   
- if(cloth.length===0) return  <Loading/>
-
       return (
         <div style={{ marginTop: "100px" }}>
           <Flex>
@@ -265,7 +216,8 @@ let data;
           </Flex>
         </div>
       );
-    
+    }
+  }
 };
 
 export default Clothes;

@@ -123,6 +123,21 @@ export const Electronicsreducer = (state = initialState, { type, payload }) => {
 
       }
      }
+     case types.SORT_ELECTRONICS: {
+      if (payload == "high") {
+    
+        let sorted = state.Electronics.sort(
+          (a, b) => Number(a.price) - Number(b.price)
+        );
+    
+        return { ...state, Electronics: [...sorted] };
+      } else if (payload == "low") {
+        let sorted = state.Electronics.sort(
+          (a, b) => Number(b.price) - Number(a.price)
+        );
+        return { ...state, Electronics: [...sorted] };
+      }
+    }
 
 
 

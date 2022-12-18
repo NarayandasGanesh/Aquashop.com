@@ -5,13 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Get_Cart_item, REMOVE_Cart_item } from "../store/Cart/Cart.action";
-import { DeleteIcon } from "@chakra-ui/icons";
+import { DeleteIcon ,Icon} from "@chakra-ui/icons";
+import { AiFillStar } from 'react-icons/ai'
+
+
  
 function CartPage(){
-   let quantity =1
+
    
-    const [err,setErr]=useState("");
-    const { id } = useParams();
+
     const {
       isOpen: isVisible,
       onClose,
@@ -39,7 +41,7 @@ function CartPage(){
     
      dispatch(Get_Cart_item())
       },[Cart])
-      console.log(Cart)
+      // console.log(Cart)
       let totel=0
       Cart.forEach(el => {
         totel+=Number(el.price)
@@ -77,19 +79,26 @@ function CartPage(){
             <VStack>
            <Heading size="md">{item.title}</Heading>
             <Text fontWeight="500"> Price: ${item.price }</Text>
-            </VStack>
+            <Box mb="15px">
+                  {Array(5)
+                    .fill("")
+                    .map((_, i) => {
+                      let rating = Math.ceil(Math.random() * 3);
+
+                      return <Icon
+                        as={AiFillStar}
+                        key={i}
+                        color={i <= 2 ? "gold" : "gray.300"}
+                      />
+                    })}
+                </Box>
             
             <button onClick={()=>{handleDelete(item.id)}}>
-               <DeleteIcon   />
+               <DeleteIcon width="40px"  height="40px" />
             </button>
-            <select >
-              <option value="reset">quantity</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
+            </VStack>
+            
+        
 
            
 
@@ -99,7 +108,7 @@ function CartPage(){
         })
       }</Box>
         <Image w="50%" h="70%" src={Cart.image4} />
-       <Box mt={10}> 
+       <Box position="fixed" top="30%" left="75%" zIndex="-10" mt={10}> 
        <Heading size="md">{Cart.title}</Heading>
           <Heading mt={5} size="lg">Total Amount:${totel}</Heading>
           {

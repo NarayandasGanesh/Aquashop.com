@@ -11,8 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Get_Jewelery_item } from "../store/Jewelery/Jewelery.action";
 import Loading from "./Loading";
 const Jewelery = () => {
-const[filter,setFilter]=useState("Mens")
-  const [loading ,setLoading]=useState(false);
+
   const [order,setOrder]=useState("")
   const navigate=useNavigate();
 
@@ -29,25 +28,11 @@ const[filter,setFilter]=useState("Mens")
     dispatch(Get_Jewelery_item())
    },[]) 
 
-   let  data=Jewelery.filter((item)=>item.category===filter)
 
-   useEffect(()=>{
-    data=Jewelery.filter((item)=>item.category===filter)
-   },[filter])
 
-   useEffect(()=>{
-    console.log(order,"1")
-    if(order=="high"){
-     console.log(order,"2")
-      data=data.sort((a,b)=>a.price-b.price )
-    }
-    if(order=="low"){
-      console.log(order,"3")
-      data=data.sort((a,b)=>b.price-a.price )
-    }
+   
 
-    
-   },[order])
+  
 
    
   
@@ -56,23 +41,10 @@ const[filter,setFilter]=useState("Mens")
         <div style={{"marginTop":"100px"}}>
       
           <Flex>
-          {/* <Sidebar setFilter={setFilter}/> */}
+       
           <Box id='maindiv' border={"1px solid"} width={"20%"}>
   <Text marginTop={2} color={"teal"} id="Jewelerye" fontSize={35} fontWeight={"bold"}>Jewelery</Text>
   <Box marginLeft={"40px"}   textAlign={"left"} marginTop={"15px"}>
-{/* <Flex alignItems={"center"} gap={"15px"}> 
-  <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaXelByMSTcBlhsGChcrAWlXVXNXxI53LxzirHbHwGJQ&s'></Image>
-  <Text className='menu' onClick={()=>setFilter("Mens")}  fontWeight={"bold"}>Mens</Text>
-  </Flex> */}
-
-  {/* <Flex alignItems={"center"} gap={"15px"}> 
-  <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROZH_L731sgBrBunH8f5lp6pLAhvehf2DuZJGjFeI&s'></Image>
-  <Text className='menu'  onClick={()=>setFilter("Womens")}   fontWeight={"bold"}>Womes</Text></Flex> */}
-   
-    
-  {/* <Flex alignItems={"center"} gap={"15px"}> 
-  <Image marginTop={"8px"} borderRadius={"50%"} height={"25px"} width={"25px"} src='https://img.icons8.com/color/2x/children.png'></Image>
-  <Text className='menu'  onClick={()=>setFilter("KIDS")}   fontWeight={"bold"}>Kids</Text></Flex> */}
 
 
   </Box>
