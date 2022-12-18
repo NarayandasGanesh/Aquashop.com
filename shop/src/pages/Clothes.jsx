@@ -9,6 +9,7 @@ import { setItem } from "../utility/localStorage";
 import "../index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Get_cloth_item } from "../store/Cloth/Cloth.action";
+import Loading from "./Loading";
 const Clothes = () => {
   const [filter, setFilter] = useState("Mens");
   const [loading, setLoading] = useState(false);
@@ -23,14 +24,21 @@ const Clothes = () => {
   };
   
 
-  const { cloth } = useSelector((store) => store.ClothManger);
+  const {isLoading, cloth } = useSelector((store) => store.ClothManger);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(Get_cloth_item());
+
   }, []);
 let data;
    data = cloth.filter((item) => item.category === filter);
    
+
+  }, [cloth,isLoading
+]);
+
+  let data = cloth.filter((item) => item.category === filter);
+
 
   
 
@@ -56,6 +64,7 @@ let data;
 
 
 
+
   {
     if (loading) {
       return (
@@ -69,6 +78,18 @@ let data;
         ></Image>
       );
     } else {
+
+//   useEffect(()=>{
+//  if (isLoading) {
+//      
+    
+//     }  
+//   },[isLoading])
+  
+   
+   
+ if(cloth.length===0) return  <Loading/>
+
       return (
         <div style={{ marginTop: "100px" }}>
           <Flex>
@@ -244,8 +265,7 @@ let data;
           </Flex>
         </div>
       );
-    }
-  }
+    
 };
 
 export default Clothes;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // import { Flex,Box,Text } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -29,6 +29,8 @@ import {
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { MdLocalShipping } from 'react-icons/md';
 import "../index.css";
+import { useDispatch } from 'react-redux';
+import { ADD_Cart_item } from '../store/Cart/Cart.action';
 
 const Singleproduct = () => {
    const [data,setData]=useState({})
@@ -43,6 +45,13 @@ const Singleproduct = () => {
    useEffect(()=>{
      setImg(data.image4)
    },[data])
+
+const navigate=useNavigate()
+   const dispatch = useDispatch()
+   const handleClick=(item)=>{
+    dispatch(ADD_Cart_item(item))
+    navigate("/cart")
+}
 
   return (
   <SimpleGrid 
@@ -84,6 +93,7 @@ const Singleproduct = () => {
               <Text marginTop={1} marginLeft={"20px"} fontSize={21}>Now accepting Crypto at Checkout!</Text>
             </Flex>
             <Text marginTop={5} fontWeight={"bold"} fontSize={31} >${data.price}</Text>
+
             <Box mb="15px">
                   {Array(5)
                     .fill("")
@@ -98,9 +108,11 @@ const Singleproduct = () => {
                     })}
                 </Box>
             
+
+
               <Flex id="select" marginTop={5}>
             
-            <Button height={50} backgroundColor={"blue.300"} width={"340px"}  marginLeft={18} marginTop={3}>Add to cart</Button>
+            <Button height={50} backgroundColor={"blue.300"} width={"340px"}  marginLeft={18} marginTop={3} onClick={()=>handleClick(data)}  >Add to cart</Button>
             </Flex>
             <Text  color={"teal"} fontSize={19} marginTop={10}>Style and color that stand the test of time. Our top-selling polo is now available with long-sleeves.  The Long Sleeve Spin Lady Pique Polo is made with spin dye technology for long lasting color that never fade. The eco-friendly production process...</Text>
           

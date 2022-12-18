@@ -1,4 +1,4 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -15,7 +15,9 @@ root.render(
   <Provider store={store} >
    <ChakraProvider >
     <BrowserRouter>
+    <StrictMode>
       <App />
+      </StrictMode>
     </BrowserRouter>
     </ChakraProvider> 
   </Provider>
