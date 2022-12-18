@@ -1,177 +1,156 @@
 import React from "react";
-import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
-  Avatar,
-  Box,
-  Button,
-  Center,
-  CloseButton,
-  Flex,
-  Heading,
-  Image,
-  Tag,
-  TagLabel,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Avatar, Box, Button, Center, CloseButton, Flex, Heading, Image, Tag, TagLabel, Text, useDisclosure, VStack } from "@chakra-ui/react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useToast } from "@chakra-ui/react";
-const GetClothesById = (id) => {
-  return axios(`https://next-backend-orpin.vercel.app/cloths/${id}`);
-};
-const MakeupProduct = (id) => {
-  return axios(`https://next-backend-orpin.vercel.app/cloths/${id}`);
-};
-function CartPage() {
-  const [mdata, setMdata] = useState([]);
-  const [makeup, setMakeup] = useState("");
-  const [err, setErr] = useState("");
-  const { id } = useParams();
-  const {
-    isOpen: isVisible,
-    onClose,
-    onOpen,
-  } = useDisclosure({ defaultIsOpen: false });
-  useEffect(() => {
-    GetClothesById(id)
-      .then((res) => {
-        setMdata(res.data);
-        console.log("ganesh", res.data);
-      })
-      .catch((err) => {
-        console.log("virat", err.message);
-        setErr(err.message);
-      });
-  }, [id]);
+import { Get_Cart_item, REMOVE_Cart_item } from "../store/Cart/Cart.action";
+import { DeleteIcon } from "@chakra-ui/icons";
+ 
+function CartPage(){
+   let quantity =1
+   
+    const [err,setErr]=useState("");
+    const { id } = useParams();
+    const {
+      isOpen: isVisible,
+      onClose,
+      onOpen,
+    } = useDisclosure({ defaultIsOpen: false });
+   
+        
+       
+      
+      const { userData } = useSelector((store) => store.auth);
+      const {Cart } = useSelector((store) => store.CartManger)
+      const navigateTo = useNavigate();
+      const dispatch=useDispatch()
 
-  useEffect(() => {
-    MakeupProduct(id)
-      .then((res) => {
-        setMakeup(res.data);
-        console.log("ss", res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        setErr(err.message);
-      });
-  }, [id]);
-  let price = mdata.price;
-  const toast = useToast();
-  const { userData } = useSelector((store) => store.auth);
-  const navigateTo = useNavigate();
-  useEffect(() => {
-    console.log("userdata", userData);
-    if (!userData || JSON.stringify(userData) === "{}") {
-      navigateTo("/signin");
-      toast({
-        title: "Please SignIn First.",
+      useEffect(() => {
+        console.log("userdata", userData);
+        if (!userData || JSON.stringify(userData) === "{}") {
+          alert("please login");
+          navigateTo("/signin");
+          return;
+        }
+      }, [userData]);
 
-        status: "success",
-        duration: 6000,
-        isClosable: true,
+      useEffect(()=>{
+    
+     dispatch(Get_Cart_item())
+      },[Cart])
+      console.log(Cart)
+      let totel=0
+      Cart.forEach(el => {
+        totel+=Number(el.price)
       });
-      return;
-    }
-  }, [userData]);
-  return (
+
+      const handleDelete=(id)=>{
+        dispatch(REMOVE_Cart_item(id))
+      }
+
+    return(
     <>
-      <div>
-        <h1>Cart</h1>
-      </div>
-      <Center>
-        <Heading mt={5} marginTop={"150px"}>
-          Cart
-        </Heading>
-      </Center>
-      <Box m="auto" mt={5} w="50%" h="550px">
-        {/* <Alert status='error'>
+     
+     <div>
+      <h1>Cart</h1>
+    </div>
+       <Center><Heading mt={5}  marginTop={"150px"}>Cart</Heading></Center>
+        <Box m="auto" mt={5} w="100%"  >   
+      {/* <Alert status='error'>
         {err?<AlertTitle>{err}</AlertTitle>:"Avoid Fake Payments!"}  
       </Alert> */}
-        <Center>
-          <Heading mt={2} mb={2} size="md">
-            Order Summary
-          </Heading>
-        </Center>
-        <hr />
+<Center><Heading mt={2} mb={2} size="md" >Order Summary</Heading></Center>
 
-        {makeup === "" ? (
-          <Flex>
-            <Image w="50%" h="70%" src={mdata.main_image} />
-            <Box mt={10}>
-              <Heading size="md">{mdata.title}</Heading>
-              <Heading mt={5} size="lg">
-                Total Amount:{price}
-              </Heading>
-              {isVisible ? (
-                <Alert mt={3} status="success">
-                  <AlertIcon />
-                  <Box>
-                    <AlertTitle>Success!</AlertTitle>
-                    <AlertDescription>
-                      Congrats! coupan Applied! Your Applicable for free Home
-                      Delivary
-                    </AlertDescription>
-                  </Box>
-                  <CloseButton
-                    alignSelf="flex-start"
-                    position="relative"
-                    right={-1}
-                    top={-1}
-                    onClick={onClose}
-                  />
-                </Alert>
-              ) : (
-                <Button
-                  borderRadius={2}
-                  mt={5}
-                  w="80%"
-                  bg="blue"
-                  color="white"
-                  onClick={onOpen}
-                  leftIcon={
-                    <Avatar
-                      size="sm"
-                      src="https://img.icons8.com/external-those-icons-flat-those-icons/344/external-Flash-weather-those-icons-flat-those-icons.png"
-                    />
-                  }
-                >
-                  {" "}
-                  Click and Get Free Delivery!{" "}
-                </Button>
-              )}
+<hr />
 
-              <Link to={`/address`}>
-                <Button w="50%" mt={10} colorScheme="pink" variant="solid">
-                  Buy Now!
-                </Button>
-              </Link>
 
-              <Link to={`/`}>
-                <Button
-                  ml={1}
-                  w="50%"
-                  mt={10}
-                  colorScheme="green"
-                  variant="solid"
-                >
-                  Go Back!
-                </Button>
-              </Link>
-            </Box>
+       {
+       <Flex w={"100%"}>
+      <Box gap="10px" >    
+      {
+        Cart.map((item)=>{
+          return <Flex key={item.id} justifyContent="center" align={"center"}
+          borderWidth='1px' borderRadius='lg'  mt={"20px"}
+          >
+            <Image w="50%"  src={item.image4} />
+            <VStack>
+           <Heading size="md">{item.title}</Heading>
+            <Text fontWeight="500"> Price: ${item.price }</Text>
+            </VStack>
+            
+            <button onClick={()=>{handleDelete(item.id)}}>
+               <DeleteIcon   />
+            </button>
+            <select >
+              <option value="reset">quantity</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+
+           
+
+
           </Flex>
-        ) : (
-          <Flex>
-            <Image w="50%" mr={5} h="70%" src={makeup.image_link} />
-          </Flex>
-        )}
-      </Box>
-    </>
-  );
+          
+        })
+      }</Box>
+        <Image w="50%" h="70%" src={Cart.image4} />
+       <Box mt={10}> 
+       <Heading size="md">{Cart.title}</Heading>
+          <Heading mt={5} size="lg">Total Amount:${totel}</Heading>
+          {
+            isVisible ? (
+              <Alert mt={3} status='success'>
+                <AlertIcon />
+                <Box>
+                  <AlertTitle>Success!</AlertTitle>
+                  <AlertDescription>
+                    Congrats! coupan Applied!
+                    Your Applicable for free Home Delivary
+                  </AlertDescription>
+                </Box>
+                <CloseButton
+                  alignSelf='flex-start'
+                  position='relative'
+                  right={-1}
+                  top={-1}
+                  onClick={onClose}
+                />
+              </Alert>
+            ) : (
+              <Button borderRadius={2} mt={5} w="80%" bg="blue" color="white" onClick={onOpen} leftIcon={<Avatar size='sm' src="https://img.icons8.com/external-those-icons-flat-those-icons/344/external-Flash-weather-those-icons-flat-those-icons.png" />}> Click and Get Free Delivery! </Button>
+            )
+          }
+
+
+
+
+         
+          <Link  to={`/address`}>
+          <Button w="50%" mt={10} colorScheme='pink' variant='solid'>
+          Buy Now!
+        </Button>
+        </Link>
+
+        <Link  to={`/`}>
+          <Button ml={1} w="50%" mt={10} colorScheme='green' variant='solid'>
+          Go Back!
+        </Button>
+        </Link>
+          
+          </Box>
+         
+
+        </Flex> 
+ 
+    }
+
+    </Box>
+   </>
+  )
 }
 export default CartPage;

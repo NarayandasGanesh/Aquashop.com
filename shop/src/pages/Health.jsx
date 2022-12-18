@@ -9,6 +9,7 @@ import {setItem} from '../utility/localStorage'
 import "../index.css"
 import { useDispatch, useSelector } from "react-redux";
 import { Get_Health_item } from "../store/Health/Health.action";
+import Loading from "./Loading";
 const Health = () => {
 const[filter,setFilter]=useState("Mens")
   const [loading ,setLoading]=useState(false);
@@ -50,10 +51,7 @@ const[filter,setFilter]=useState("Mens")
 
    
   
-  {
-    if(loading){
-      return <Image marginLeft={635} src={"https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif?20170503175831"} fontSize={27} style={{"marginTop":"200px"}}></Image>
-    }else{
+   if(Health.length===0) return  <Loading/>
     
       return (
         <div style={{"marginTop":"100px"}}>
@@ -151,9 +149,7 @@ Store conditions </Text>
          
         </div>
       );
-    }
-  }
-
+    
 
  
 };

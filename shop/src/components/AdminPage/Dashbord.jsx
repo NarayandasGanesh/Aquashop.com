@@ -5,6 +5,7 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 import { Get_cloth_item } from '../../store/Cloth/Cloth.action';
 import { Get_Cosmetics_item } from '../../store/Cosmetics/Cosmetics.action';
 import { Get_Electronics_item } from '../../store/Electronics/Electronics.action';
+import { Get_Health_item } from '../../store/Health/Health.action';
 import { Get_Jewelery_item } from '../../store/Jewelery/Jewelery.action';
 import { store } from '../../store/store';
 
@@ -18,6 +19,7 @@ const Dashbord = () => {
 
     const {Jewelery}=useSelector((store)=>store.JeweleryManger)
     const {Cosmetics} =useSelector((store)=>store.CosmeticsManger)
+    const {Health} =useSelector((store)=>store.HealthManger)
 
     const dispatch=useDispatch()
 
@@ -26,6 +28,7 @@ const Dashbord = () => {
     dispatch(Get_Jewelery_item())
     dispatch(Get_cloth_item())
     dispatch(Get_Cosmetics_item())
+    dispatch(Get_Health_item())
 
   },[])
     
@@ -52,6 +55,12 @@ const Dashbord = () => {
           {
             name: 'Cosmetics',
             PRODUCT_COUNT: Cosmetics.length,
+            CL:"blue"
+            
+          },
+          {
+            name: 'Health',
+            PRODUCT_COUNT: Health.length,
             CL:"blue"
             
           }
