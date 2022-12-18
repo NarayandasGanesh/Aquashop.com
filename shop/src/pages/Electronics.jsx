@@ -10,6 +10,7 @@ import { setItem } from '../utility/localStorage'
 import "../index.css"
 import { useDispatch, useSelector } from "react-redux";
 import { Get_Electronics_item } from "../store/Electronics/Electronics.action";
+import Loading from "./Loading";
 // import Loading from "./Loading";
 const Electronics = () => {
   const [filter, setFilter] = useState("Mens")
@@ -53,7 +54,8 @@ const Electronics = () => {
 
 
 
-  if (Electronics.length === 0) return 
+  if (Electronics.length === 0) return <Loading />
+  
   return (
     <div style={{ "marginTop": "100px" }}>
 
