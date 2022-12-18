@@ -16,3 +16,5 @@ export const UPDATE_Electronics_ERROR = "Electronics/update/error";
 export const REMOVE_Electronics_LOADING = "Electronics/remove/laoding";
 export const REMOVE_Electronics_SUCCESS = "Electronics/remove/success";
 export const REMOVE_Electronics_ERROR = "Electronics/remove/error";
+
+export const SORT_ELECTRONICS="Electronics/sort"

@@ -6,15 +6,14 @@ import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Get_Cart_item, REMOVE_Cart_item } from "../store/Cart/Cart.action";
 import { DeleteIcon ,Icon} from "@chakra-ui/icons";
-// import { AiFillStar } from 'react-icons/ai'
+import { AiFillStar } from 'react-icons/ai'
 
 
  
 function CartPage(){
-   let quantity =1
+
    
-    const [err,setErr]=useState("");
-    const { id } = useParams();
+
     const {
       isOpen: isVisible,
       onClose,
@@ -80,7 +79,7 @@ function CartPage(){
             <VStack>
            <Heading size="md">{item.title}</Heading>
             <Text fontWeight="500"> Price: ${item.price }</Text>
-            {/* <Box mb="15px">
+            <Box mb="15px">
                   {Array(5)
                     .fill("")
                     .map((_, i) => {
@@ -92,21 +91,14 @@ function CartPage(){
                         color={i <= 2 ? "gold" : "gray.300"}
                       />
                     })}
-                </Box> */}
+                </Box>
             
             <button onClick={()=>{handleDelete(item.id)}}>
                <DeleteIcon width="40px"  height="40px" />
             </button>
             </VStack>
             
-            {/* <select >
-              <option value="reset">quantity</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select> */}
+        
 
            
 

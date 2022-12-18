@@ -33,27 +33,7 @@ let data;
    data = cloth.filter((item) => item.category === filter);
    
 
-  
 
-  useEffect(() => {
-    console.log(order, "1");
-    if (order == "high") {
-      console.log(order, "2");
-      data = data.sort((a, b) => a.price - b.price);
-      console.log(data)
-  
-        // dispatch(Get_cloth_item(data));
-   
-    
-    }
-    if (order == "low") {
-      console.log(order, "3");
-      data = data.sort((a, b) => b.price - a.price);
-      console.log(data)
-      // dispatch(Get_cloth_item(data));
-    
-    }
-  }, [order]);
 
 
 
