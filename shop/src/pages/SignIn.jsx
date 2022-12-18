@@ -50,7 +50,12 @@ const SignIn = () => {
             );
           });
           console.log("login in user", login, response.data);
-          if (login) {
+          if (
+            formData.email === "admin@admin.com" &&
+            formData.password === "123456"
+          ) {
+            navigateTo("/adminPage");
+          } else if (login) {
             dispatch(SetUserDataAfterLogin(login));
             toast({
               title: "Welcome to Our AquaShop.",
@@ -62,6 +67,13 @@ const SignIn = () => {
             navigateTo("/");
           } else {
             console.log("login creds invalid");
+            toast({
+              title: "Credential Invalid.",
+              description: "",
+              status: "error",
+              duration: 4000,
+              isClosable: true,
+            });
           }
         });
     } catch (error) {
@@ -79,7 +91,6 @@ const SignIn = () => {
 
   return (
     <Flex
-    mt={"50px"}
       minH={"100vh"}
       align={"center"}
       justify={"center"}
