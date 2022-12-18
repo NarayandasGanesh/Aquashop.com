@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { getItem } from '../utility/localStorage';
+import { AiFillStar } from 'react-icons/ai'
+
 import {
   Box,
   chakra,
@@ -21,6 +23,7 @@ import {
   VisuallyHidden,
   List,
   ListItem,
+  Icon
  
 } from '@chakra-ui/react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
@@ -81,6 +84,20 @@ const Singleproduct = () => {
               <Text marginTop={1} marginLeft={"20px"} fontSize={21}>Now accepting Crypto at Checkout!</Text>
             </Flex>
             <Text marginTop={5} fontWeight={"bold"} fontSize={31} >${data.price}</Text>
+            <Box mb="15px">
+                  {Array(5)
+                    .fill("")
+                    .map((_, i) => {
+                      let rating = Math.ceil(Math.random() * 3);
+
+                      return <Icon
+                        as={AiFillStar}
+                        key={i}
+                        color={i <= rating ? "gold" : "gray.300"}
+                      />
+                    })}
+                </Box>
+            
               <Flex id="select" marginTop={5}>
             
             <Button height={50} backgroundColor={"blue.300"} width={"340px"}  marginLeft={18} marginTop={3}>Add to cart</Button>
