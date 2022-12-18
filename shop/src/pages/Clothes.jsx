@@ -8,6 +8,7 @@ import { setItem } from "../utility/localStorage";
 import "../index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Get_cloth_item } from "../store/Cloth/Cloth.action";
+import Loading from "./Loading";
 const Clothes = () => {
   const [filter, setFilter] = useState("Mens");
   const [loading, setLoading] = useState(false);
@@ -19,11 +20,12 @@ const Clothes = () => {
     navigate("/clothes/singleproduct");
   };
 
-  const { cloth } = useSelector((store) => store.ClothManger);
+  const {isLoading, cloth } = useSelector((store) => store.ClothManger);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(Get_cloth_item());
-  }, [cloth]);
+  }, [cloth,isLoading
+]);
 
   let data = cloth.filter((item) => item.category === filter);
 
@@ -42,20 +44,16 @@ const Clothes = () => {
       data = data.sort((a, b) => b.price - a.price);
     }
   }, [order]);
-
-  {
-    if (loading) {
-      return (
-        <Image
-          marginLeft={635}
-          src={
-            "https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif?20170503175831"
-          }
-          fontSize={27}
-          style={{ marginTop: "200px" }}
-        ></Image>
-      );
-    } else {
+//   useEffect(()=>{
+//  if (isLoading) {
+//      
+    
+//     }  
+//   },[isLoading])
+  
+   
+   
+ if(cloth.length===0) return  <Loading/>
       return (
         <div style={{ marginTop: "100px" }}>
           <Flex>
@@ -218,8 +216,7 @@ const Clothes = () => {
           </Flex>
         </div>
       );
-    }
-  }
+    
 };
 
 export default Clothes;

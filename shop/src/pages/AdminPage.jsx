@@ -8,6 +8,7 @@ import Jewelery from '../components/AdminPage/Jewelery'
 import Electronics  from '../components/AdminPage/Electronics'
 import  Dashbord from '../components/AdminPage/Dashbord'
 import Cosmetics from '../components/AdminPage/Cosmetics'
+import Health from '../components/AdminPage/Health';
  
 
 
@@ -26,6 +27,7 @@ const[ Clothlist,setCloth ]    =useState(false)
 const[ jewllerylist,setJewllery ]    =useState(false)
 const[ Electrolist,setElectrolist ]    =useState(false)
 const [cosmetics,setCosmetics]=useState(false)
+const [health,setHealth]=useState(false)
 
 
 
@@ -37,6 +39,7 @@ const handleUser=()=>{
   setJewllery(false)
   setElectrolist(false)
   setCosmetics(false)
+  setHealth(false)
 }
 const handleCloth=()=>{
   setUserlist(false)
@@ -45,6 +48,7 @@ const handleCloth=()=>{
   setElectrolist(false)
   setCosmetics(false)
   setDashbord(false)
+  setHealth(false)
 }
 const handlejewllery=()=>{
   setUserlist(false)
@@ -53,6 +57,7 @@ const handlejewllery=()=>{
   setElectrolist(false)
   setCosmetics(false)
   setDashbord(false)
+  setHealth(false)
 
 }
 const handleElectronics=()=>{
@@ -62,6 +67,7 @@ const handleElectronics=()=>{
   setElectrolist(true)
   setCosmetics(false)
   setDashbord(false)
+  setHealth(false)
 
 }
 
@@ -72,6 +78,7 @@ const handleDashbord=()=>{
   setJewllery(false)
   setElectrolist(false)
   setCosmetics(false)
+  setHealth(false)
 
 }
 const handleCosmetics=()=>{
@@ -81,6 +88,17 @@ const handleCosmetics=()=>{
   setJewllery(false)
   setElectrolist(false)
   setCosmetics(true)
+  setHealth(false)
+
+}
+const handleHealth=()=>{
+  setUserlist(false)
+  setCloth(false)
+  setJewllery(false)
+  setElectrolist(false)
+  setCosmetics(false)
+  setDashbord(false)
+  setHealth(true)
 
 }
 
@@ -91,15 +109,16 @@ const handleCosmetics=()=>{
           <Stack display="flex" flexDirection={{base:"column",  sm:"row"}} mt="100px">
                <Stack spacing='24px'   backgroundColor="#f0f1f7" px="5px" >
                  <Box display="flex" flexDirection={{base:"row",  sm:"column" }}>
-                 <Button  colorScheme='teal'mt='10' px='16' mb='10' onClick={handleDashbord}>Dashbord</Button>
-                 <Button  colorScheme='teal' mt='10' px='16' mb='10' onClick={handleUser}> User</Button>
+                 <Button  colorScheme='teal'mt='2' px='16' mb='10' onClick={handleDashbord}>Dashbord</Button>
+                 <Button  colorScheme='teal' mt='2' px='16' mb='10' onClick={handleUser}> User</Button>
                  
                    <FormLabel  ></FormLabel>
                    
-                   <Button  colorScheme='teal' mt='10' px='16' mb='10' onClick={handleCloth}> Cloth</Button>
-                   <Button  colorScheme='teal' mt='10' px='16' mb='10' onClick={handlejewllery} > jewllery</Button>
-                   <Button  colorScheme='teal' mt='10' px='16' mb='10' onClick={handleElectronics} > Electronics</Button>
-                   <Button  colorScheme='teal' mt='10' px='16' mb='10' onClick={handleCosmetics} > Cosmetics</Button>
+                   <Button  colorScheme='teal' mt='2' px='16' mb='10' onClick={handleCloth}> Cloth</Button>
+                   <Button  colorScheme='teal' mt='2' px='16' mb='10' onClick={handlejewllery} > jewllery</Button>
+                   <Button  colorScheme='teal' mt='2' px='16' mb='10' onClick={handleElectronics} > Electronics</Button>
+                   <Button  colorScheme='teal' mt='2' px='16' mb='10' onClick={handleCosmetics} > Cosmetics</Button>
+                   <Button  colorScheme='teal' mt='2' px='16' mb='10' onClick={handleHealth} > Helth & Neutrition</Button>
 
                  </Box>
    
@@ -113,6 +132,8 @@ const handleCosmetics=()=>{
                   {jewllerylist&& <Jewelery/>}
                   {Electrolist&& <Electronics/>}
                   {cosmetics&&<Cosmetics/>}
+                  {health&&<Health/>}
+                  
 
                       
                         
