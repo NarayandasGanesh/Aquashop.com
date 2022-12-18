@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert, AlertDescription, AlertIcon, AlertTitle, Avatar, Box, Button, Center, CloseButton, Flex, Heading, Image, Tag, TagLabel, Text, useDisclosure } from "@chakra-ui/react";
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Avatar, Box, Button, Center, CloseButton, Flex, Heading, Image, Tag, TagLabel, Text, useDisclosure, VStack } from "@chakra-ui/react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ import { Get_Cart_item, REMOVE_Cart_item } from "../store/Cart/Cart.action";
 import { DeleteIcon } from "@chakra-ui/icons";
  
 function CartPage(){
-   
+   let quantity =1
    
     const [err,setErr]=useState("");
     const { id } = useParams();
@@ -56,7 +56,7 @@ function CartPage(){
       <h1>Cart</h1>
     </div>
        <Center><Heading mt={5}  marginTop={"150px"}>Cart</Heading></Center>
-        <Box m="auto" mt={5} w="100%" h="550px">   
+        <Box m="auto" mt={5} w="100%"  >   
       {/* <Alert status='error'>
         {err?<AlertTitle>{err}</AlertTitle>:"Avoid Fake Payments!"}  
       </Alert> */}
@@ -67,16 +67,30 @@ function CartPage(){
 
        {
        <Flex w={"100%"}>
-      <Box>    
+      <Box gap="10px" >    
       {
         Cart.map((item)=>{
-          return <Flex key={item.id} justifyContent="center" align={"center"} gap="10px">
-            <Image w="50%" h="70%" src={item.image4} />
-            <Heading size="md">{item.title}</Heading>
-            <h3>{item.price}</h3>
+          return <Flex key={item.id} justifyContent="center" align={"center"}
+          borderWidth='1px' borderRadius='lg'  mt={"20px"}
+          >
+            <Image w="50%"  src={item.image4} />
+            <VStack>
+           <Heading size="md">{item.title}</Heading>
+            <Text fontWeight="500"> Price: ${item.price }</Text>
+            </VStack>
+            
             <button onClick={()=>{handleDelete(item.id)}}>
                <DeleteIcon   />
             </button>
+            <select >
+              <option value="reset">quantity</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+
            
 
 
@@ -87,7 +101,7 @@ function CartPage(){
         <Image w="50%" h="70%" src={Cart.image4} />
        <Box mt={10}> 
        <Heading size="md">{Cart.title}</Heading>
-          <Heading mt={5} size="lg">Total Amount:{totel}</Heading>
+          <Heading mt={5} size="lg">Total Amount:${totel}</Heading>
           {
             isVisible ? (
               <Alert mt={3} status='success'>
