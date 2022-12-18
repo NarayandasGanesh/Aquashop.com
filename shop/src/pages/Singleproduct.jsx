@@ -90,14 +90,7 @@ const navigate=useNavigate()
               <Text marginTop={1} marginLeft={"20px"} fontSize={21}>Now accepting Crypto at Checkout!</Text>
             </Flex>
             <Text marginTop={5} fontWeight={"bold"} fontSize={31} >${data.price}</Text>
-              <Flex id="select" marginTop={5}><select >
-              <option value="reset">Quantity</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
+              <Flex id="select" marginTop={5}>
             
             <Button height={50} backgroundColor={"blue.300"} width={"340px"}  marginLeft={18} marginTop={3} onClick={()=>handleClick(data)}  >Add to cart</Button>
             </Flex>
