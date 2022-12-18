@@ -15,3 +15,4 @@ export const REMOVE_USER_ERROR = "user/remove/error";
 // set user data after login
 export const LOGIN_SET_USER_DATA = "login/userdata/set";
 export const LOGIN_GET_USER_DATA = "login/userdata/get";
+export const LOGIN_REMOVE_USER_DATA = "login/userdata/remove";

@@ -1,51 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Flex,
   Box,
   FormControl,
   FormLabel,
   Input,
-  InputGroup,
-  HStack,
-  InputRightElement,
+  Checkbox,
   Stack,
+  Link,
   Button,
   Heading,
   Text,
   useColorModeValue,
-  Link,
-} from "@chakra-ui/react";
-import {
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
   useToast,
 } from "@chakra-ui/react";
-import { useState } from "react";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { SetUserDataAfterLogin } from "../store/Auth/auth.action";
 import { useDispatch } from "react-redux";
-import { AddUser } from "../store/Auth/auth.action";
-
-const SignUp = () => {
+const SignIn = () => {
   const toast = useToast();
-  const [showPassword, setShowPassword] = useState(false);
+
+  const dispatch = useDispatch();
+  const navigateTo = useNavigate();
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
-    mobile: "",
     password: "",
   });
-  //
-  const dispatch = useDispatch();
-  //
-  const navigateTo = useNavigate();
-  const GoTo = (path) => {
-    console.log("path", path);
-    navigateTo(path);
+  const signUppage = () => {
+    toast({
+      position: "bottom-left",
+      title: "Welcome to SignUp.",
+      description: "Here You can Create Your Account.",
+      status: "success",
+      duration: 4000,
+      isClosable: true,
+    });
+    navigateTo("/signup");
   };
+  const Login = () => {
+    try {
+      let users = axios
+        .get("https://next-backend-orpin.vercel.app/user")
+        .then((response) => {
+          let login = response.data.find((item) => {
+            return (
+              item.email === formData.email &&
+              item.password === formData.password
+            );
+          });
+          console.log("login in user", login, response.data);
+          if (
+            formData.email === "admin@admin.com" &&
+            formData.password === "123456"
+          ) {
+            navigateTo("/adminPage");
+          } else if (login) {
+            dispatch(SetUserDataAfterLogin(login));
+            toast({
+              title: "Welcome to Our AquaShop.",
+              description: "We are Happy To serve you.",
+              status: "success",
+              duration: 6000,
+              isClosable: true,
+            });
+            navigateTo("/");
+          } else {
+            console.log("login creds invalid");
+            toast({
+              title: "Credential Invalid.",
+              description: "",
+              status: "error",
+              duration: 4000,
+              isClosable: true,
+            });
+          }
+        });
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   const HandleChange = (evt) => {
     let { name, value } = evt.target;
     setFormData({
@@ -54,40 +89,17 @@ const SignUp = () => {
     });
   };
 
-  const SignupUser = () => {
-    try {
-      console.log("add", formData);
-      dispatch(AddUser(formData));
-      toast({
-        title: "Welcome to SignIn-Page.",
-        description: "To Move Ahead You Have To SignIn First .",
-        status: "success",
-        duration: 6000,
-        isClosable: true,
-      });
-      navigateTo("/signin");
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
-
   return (
-    <Flex 
-
+    <Flex
       minH={"100vh"}
       align={"center"}
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
-      mt={70}
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
-          <Heading fontSize={"4xl"} textAlign={"center"}>
-            Sign up
-          </Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            🙏Our AquaShop Team welcomes you🙏
-          </Text>
+          <Heading fontSize={"4xl"}>Sign In</Heading>
+          <Text fontSize={"lg"} color={"gray.600"}></Text>
         </Stack>
         <Box
           rounded={"lg"}
@@ -97,98 +109,51 @@ const SignUp = () => {
           bgColor="#f0f1f7 "
         >
           <Stack spacing={4}>
-            <HStack>
-              <Box>
-                <FormControl id="firstName" isRequired>
-                  <FormLabel>First Name</FormLabel>
-                  <Input
-                    borderColor={"grey"}
-                    name="firstName"
-                    type="text"
-                    placeholder="Enter Firstname"
-                    value={formData.firstName}
-                    onChange={HandleChange}
-                  />
-                </FormControl>
-              </Box>
-              <Box>
-                <FormControl id="lastName">
-                  <FormLabel>Last Name</FormLabel>
-                  <Input
-                    name="lastName"
-                    type="text"
-                    placeholder="Enter LastName"
-                    value={formData.lastName}
-                    onChange={HandleChange}
-                    borderColor={"grey"}
-                  />
-                </FormControl>
-              </Box>
-            </HStack>
-            <FormControl id="email" isRequired>
+            <FormControl id="email">
               <FormLabel>Email address</FormLabel>
               <Input
-                name="email"
                 type="email"
-                placeholder="Email"
+                name="email"
+                borderColor={"grey"}
                 value={formData.email}
                 onChange={HandleChange}
-                borderColor={"grey"}
               />
             </FormControl>
-            <FormControl id="Contact" isRequired>
-              <FormLabel>Mobile No</FormLabel>
-              <Input
-                name="mobile"
-                type="number"
-                placeholder="Enter your mobile number"
-                value={formData.mobile}
-                onChange={HandleChange}
-                borderColor={"grey"}
-              />
-            </FormControl>
-            <FormControl id="password" isRequired>
+            <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <InputGroup>
-                <Input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  placeholder="Enter Password Here"
-                  value={formData.password}
-                  onChange={HandleChange}
-                  borderColor={"grey"}
-                />
-                <InputRightElement h={"full"}>
-                  <Button
-                    variant={"ghost"}
-                    onClick={() =>
-                      setShowPassword((showPassword) => !showPassword)
-                    }
-                  >
-                    {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
+              <Input
+                type="password"
+                name="password"
+                borderColor={"grey"}
+                value={formData.password}
+                onChange={HandleChange}
+              />
             </FormControl>
-            <Stack spacing={10} pt={2}>
+            <Stack spacing={10}>
+              <Stack
+                direction={{ base: "column", sm: "row" }}
+                align={"start"}
+                justify={"space-between"}
+              >
+                <Checkbox borderColor={"grey"}>Remember me</Checkbox>
+                <Link color={"blue.400"}>Forgot password?</Link>
+              </Stack>
               <Button
-                loadingText="Submitting"
-                size="lg"
                 bg={"blue.400"}
                 color={"white"}
                 _hover={{
                   bg: "blue.500",
                 }}
-                onClick={SignupUser}
+                onClick={Login}
               >
-                Sign up
+                Sign in
               </Button>
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                Already a user?{" "}
-                <Link color={"blue.400"} onClick={() => GoTo("/signin")}>
-                  SignIn
+                Don't have a account?{" "}
+                <Link color={"blue.400"} onClick={signUppage}>
+                  SignUp
                 </Link>
               </Text>
             </Stack>
@@ -199,4 +164,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;

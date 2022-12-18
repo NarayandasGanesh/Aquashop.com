@@ -5,7 +5,6 @@ const initialState = {
   isError: false,
   userData: {},
   isAuth: false,
-  userlist:[]
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -21,6 +20,12 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isAuth: true,
+      };
+    }
+    case types.LOGIN_REMOVE_USER_DATA: {
+      return {
+        ...state,
+        userData: {},
       };
     }
     // user login cases end
@@ -55,7 +60,6 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        userlist:payload
       };
     }
     case types.GET_USER_ERROR: {
