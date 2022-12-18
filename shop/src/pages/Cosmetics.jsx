@@ -1,7 +1,8 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import { Flex,Grid,Box ,Text, Button,Link,Image} from "@chakra-ui/react";
+import { Flex,Grid,Box ,Text, Button,Icon,Image} from "@chakra-ui/react";
 import axios from "axios";
+import { AiFillStar } from 'react-icons/ai'
 import { useEffect , useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {setItem} from '../utility/localStorage'
@@ -25,7 +26,7 @@ const[filter,setFilter]=useState("Mens")
   useEffect(()=>{
   
     dispatch(Get_Cosmetics_item())
-   },[Cosmetics]) 
+   },[]) 
 
    let  data=Cosmetics.filter((item)=>item.category===filter)
 
@@ -111,14 +112,27 @@ Store conditions </Text>
              return <Box id='probox' key={el.id}>
               <Box textAlign={"left"}>
               <img id="hov" src={el.image1} alt="" />
-              <Text fontSize={17} >{el.title}</Text>
+              <Text noOfLines={[1]} fontSize={17} >{el.title}</Text>
               <Flex gap={2}>
                 <img  width={17} src="https://img.shop.com/Image/resources/images/onecart-icon.svg" alt="" />
                 <Text fontSize={13}>Sold by {el.soldby}</Text>
     
               </Flex>
               <p>{el.category}</p>
-              <Text fontWeight={"bold"}>{el.price}</Text>
+              <Text fontWeight={"bold"}> $ {el.price}</Text>
+              <Box mb="15px">
+                  {Array(5)
+                    .fill("")
+                    .map((_, i) => {
+                      let rating = Math.ceil(Math.random() * 3);
+
+                      return <Icon
+                        as={AiFillStar}
+                        key={i}
+                        color={i <= rating ? "gold" : "gray.300"}
+                      />
+                    })}
+                </Box>
               <Text color={"teal"} fontSize={14}>Free shipping with $50.00 orders</Text>
     
               <Button backgroundColor={"blue.300"} onClick={()=>handleClick(el)} marginTop={"-65px"} borderRadius={25} width={85} marginLeft={"70%"}>View</Button>

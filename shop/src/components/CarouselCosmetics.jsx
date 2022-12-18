@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, IconButton, useBreakpointValue,Button } from "@chakra-ui/react";
+import { Box, IconButton, useBreakpointValue,Button ,Icon } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
 import {  BiRightArrowAlt } from "react-icons/bi";
 import {  AiFillCaretLeft,AiFillCaretRight } from "react-icons/ai";
+import { AiFillStar } from 'react-icons/ai'
 
 // And react-slick as our Carousel Lib
 import { useState, useEffect } from "react";
@@ -114,7 +115,7 @@ export default function CarouselCosmetics() {
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {data.map((el, index) => (
-          <Card cursor="pointer" onClick={()=>handleClick(el)} height="420px"  maxW="sm">
+          <Card cursor="pointer" onClick={()=>handleClick(el)} height="460px"  maxW="sm">
             <CardBody>
               <Image
                 ml="20px"
@@ -131,6 +132,19 @@ export default function CarouselCosmetics() {
                 <Text fontWeight="bold" fontSize="lg">
                   ${el.price}
                 </Text>
+                <Box mb="15px">
+                  {Array(5)
+                    .fill("")
+                    .map((_, i) => {
+                      let rating = Math.ceil(Math.random() * 3);
+
+                      return <Icon
+                        as={AiFillStar}
+                        key={i}
+                        color={i <= rating ? "gold" : "gray.300"}
+                      />
+                    })}
+                </Box>
 
                 <Text ml="30px" textAlign="center" fontSize="sm">
                   <Flex ml="60px">

@@ -195,8 +195,11 @@ const Homepage = () => {
             <Text fontWeight="500">Your Favourite Department</Text>
 
             <Card display="grid" gridTemplateColumns="repeat(2,1fr)" gap="5px">
-              <Link>
-                <CardBody
+             
+                <CardBody 
+                cursor="pointer"  
+                _hover={{color:"black"}}
+                onClick={()=>GoTo("/cosmetic")}
                   height="170px"
                   width="150px"
                   backgroundColor="#545871"
@@ -216,11 +219,10 @@ const Homepage = () => {
                   >
                     Beauty
                   </Text>
-                </CardBody>{" "}
-              </Link>
-              <Link>
-                {" "}
-                <CardBody height="170px" width="150px" background="#545871">
+                </CardBody>
+            
+              
+                <CardBody   cursor="pointer"  onClick={()=>GoTo("/health")} height="170px" width="150px" background="#545871">
                   <Image
                     height="100px"
                     width="100px"
@@ -233,13 +235,11 @@ const Homepage = () => {
                     color="white"
                     _hover={{ color: "black" }}
                   >
-                    Health{" "}
+                    Health
                   </Text>
                 </CardBody>
-              </Link>
-              <Link>
-                {" "}
-                <CardBody height="170px" width="150px" background="#545871">
+           
+                <CardBody   cursor="pointer"  onClick={()=>GoTo("/clothes")} height="170px" width="150px" background="#545871">
                   <Image
                     height="100px"
                     width="100px"
@@ -247,7 +247,7 @@ const Homepage = () => {
                     alt="Clothes"
                     borderRadius="lg"
                   />
-                  <Text
+                  <Text   
                     marginTop="10px"
                     color="white"
                     _hover={{ color: "black" }}
@@ -255,9 +255,8 @@ const Homepage = () => {
                     Clothes
                   </Text>
                 </CardBody>
-              </Link>
-              <Link>
-                <CardBody height="170px" width="150px" background="#545871">
+          
+                <CardBody   cursor="pointer"  onClick={()=>GoTo("/electronics")} height="170px" width="150px" background="#545871">
                   <Image
                     height="100px"
                     width="100px"
@@ -273,7 +272,7 @@ const Homepage = () => {
                     Electronics
                   </Text>
                 </CardBody>
-              </Link>
+             
             </Card>
           </Card>
         </Box>
@@ -291,9 +290,9 @@ const Homepage = () => {
             </Text>
 
             <Card>
-              <Link>
-                <CardBody backgroundColor="#545871">
-                  <Image
+          
+                <CardBody   cursor="pointer"  onClick={()=>GoTo("/health")} backgroundColor="#545871">
+                  <Image 
                     height="247px"
                     backgroundColor="rgba(0,0,0,.5)"
                     src="https://img.shop.com/Image/homepage/us-eng-toryburch-hp-winter-dec221669836193393.jpeg"
@@ -308,7 +307,7 @@ const Homepage = () => {
                     Shop Now
                   </Text>
                 </CardBody>{" "}
-              </Link>
+           
             </Card>
           </Card>
         </Box>
@@ -418,7 +417,7 @@ const Homepage = () => {
             </Card>
           </Card>
         </Box>
-        <Box>
+        <Box onClick={()=>GoTo("/signin")}>
           <Card
             marginLeft="10px"
             backgroundColor="#f0f1f7"
@@ -580,7 +579,7 @@ const Homepage = () => {
       </HStack>
 
       <VStack backgroundColor="f0f1f7" mt="70px">
-        <Box>
+        <Box >
           <Text
             mb="50px"
             fontFamily="oswald, serif"
@@ -593,7 +592,7 @@ const Homepage = () => {
         </Box>
         <HStack justifyContent="space-evenly">
           <VStack>
-            <Box
+            <Box   cursor="pointer"  onClick={()=>GoTo("/electronics")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -608,7 +607,7 @@ const Homepage = () => {
                 src="https://img.shop.com/Image/240000/243400/243406/products/1947692115.jpg?plain&size=400x400"
               />
             </Box>
-            <Text
+            <Text 
               fontSize="1rem"
               color="#202340"
               fontWeight="700"
@@ -618,7 +617,7 @@ const Homepage = () => {
             </Text>
           </VStack>
           <VStack>
-            <Box
+            <Box   cursor="pointer"  onClick={()=>GoTo("/cosmetic")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -643,7 +642,7 @@ const Homepage = () => {
             </Text>
           </VStack>
           <VStack>
-            <Box
+            <Box  cursor="pointer"  onClick={()=>GoTo("/health")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -669,7 +668,7 @@ const Homepage = () => {
           </VStack>
 
           <VStack>
-            <Box
+            <Box  cursor="pointer"  onClick={()=>GoTo("/cosmetic")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -694,7 +693,7 @@ const Homepage = () => {
             </Text>
           </VStack>
           <VStack>
-            <Box
+            <Box  cursor="pointer"  onClick={()=>GoTo("/clothes")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -719,7 +718,7 @@ const Homepage = () => {
             </Text>
           </VStack>
           <VStack>
-            <Box
+            <Box  cursor="pointer"  onClick={()=>GoTo("/health")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -746,7 +745,7 @@ const Homepage = () => {
         </HStack>
       </VStack>
 
-      <HStack mt="70px" justifyContent="space-evenly">
+      <HStack mt="90px" justifyContent="space-evenly">
         <Box>
           <Image src="https://img.shop.com/Image/homepage/shop-usa-100086-gift-wrapping-media1669930199153.jpg" />
         </Box>
@@ -761,7 +760,7 @@ const Homepage = () => {
         </Box>
       </HStack>
 
-      <Box backgroundColor="#f0f1f7" mt="20px">
+      <Box backgroundColor="#f0f1f7" mt="70px">
         <Box>
           <Text
             marginRight="800px"
@@ -787,7 +786,7 @@ const Homepage = () => {
         </HStack>
       </Box>
 
-      <Box backgroundColor="#f0f1f7" mt="50px" mb="100px">
+      <Box backgroundColor="#f0f1f7" mt="70px" mb="100px">
         <HStack justifyContent="space-evenly">
           <Box width="300px" height="250px">
             <VStack>
@@ -852,12 +851,14 @@ const Homepage = () => {
       </Box>
 
 
-      
+      <br />
+      <br />
       <Box  backgroundColor="#f0f1f7" mt="50px">
-        <Box>
+        <Box marginTop='50px'>
           <Text
             marginRight="800px"
             mb="50px"
+           
             fontFamily="oswald, serif"
             fontSize="33px"
             fontWeight="normal"
@@ -885,7 +886,7 @@ const Homepage = () => {
 
 
             
-      <Box  backgroundColor="#f0f1f7" mt="50px">
+      <Box  backgroundColor="#f0f1f7" mt="70px">
      
         <Box>
           <Text
@@ -938,7 +939,7 @@ const Homepage = () => {
         </Box>
         <HStack justifyContent="space-evenly">
           <VStack>
-            <Box
+            <Box  cursor="pointer"  onClick={()=>GoTo("/cosmetic")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -963,7 +964,7 @@ const Homepage = () => {
             </Text>
           </VStack>
           <VStack>
-            <Box
+            <Box  cursor="pointer"  onClick={()=>GoTo("/jewelery")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -988,7 +989,7 @@ const Homepage = () => {
             </Text>
           </VStack>
           <VStack>
-            <Box
+            <Box  cursor="pointer"  onClick={()=>GoTo("/health")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -1014,7 +1015,7 @@ const Homepage = () => {
           </VStack>
 
           <VStack>
-            <Box
+            <Box  cursor="pointer"  onClick={()=>GoTo("/")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -1041,7 +1042,7 @@ const Homepage = () => {
             </Text>
           </VStack>
           <VStack>
-            <Box
+            <Box  cursor="pointer"  onClick={()=>GoTo("/cosmetic")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -1067,7 +1068,7 @@ const Homepage = () => {
             </Text>
           </VStack>
           <VStack>
-            <Box
+            <Box  cursor="pointer"  onClick={()=>GoTo("/cosmetic")}
               borderRadius="50%"
               border="10px solid #1a202c82"
               justifyItems="center"
@@ -1097,7 +1098,7 @@ const Homepage = () => {
 
 
 
-      <Box  backgroundColor="#f0f1f7" mt="50px">
+      <Box  backgroundColor="#f0f1f7" mt="70px">
         <HStack  justifyContent="space-evenly">
         <Box>
           <Image boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" src="https://img.shop.com/Image/homepage/ix-us-eng-105233-digestive-health-packets-holiday-banner-med1667506965936.jpg" />
@@ -1112,7 +1113,7 @@ const Homepage = () => {
       </Box>
 
 
-      <Box bgColor="#f0f1f7" mt="50px">
+      <Box bgColor="#f0f1f7" mt="70px">
         <VStack>
           <Text       mb="50px"
             fontFamily="oswald, serif"
@@ -1125,7 +1126,7 @@ const Homepage = () => {
         </VStack>
       </Box>
 
-<Box backgroundColor="#f0f1f7" mt="50px" mb="50px" >
+<Box backgroundColor="#f0f1f7" mt="70px" mb="100px" >
   <vStack>
     <Text  mb="50px"
             fontFamily="oswald, serif"

@@ -1,4 +1,5 @@
 import React from "react";
+// import logo from "../Assets/logo.jpeg"
 import {
   Box,
   Flex,
@@ -68,6 +69,12 @@ const Navbar = () => {
     console.log("path", path);
     navigateTo(path);
   };
+const fun=()=>{
+  
+    GoTo("/clothes")
+  
+
+}
   const { isOpen, onOpen, onClose } = useDisclosure();
   const firstField = React.useRef();
   const { onToggle } = useDisclosure();
@@ -124,18 +131,21 @@ const Navbar = () => {
               fontFamily={"heading"}
               color={useColorModeValue("gray.800", "white")}
               //   border="1px solid blue"
-              mt={{ lg: "10px" }}
-              ml={{ lg: "10px" }}
-              w={{ lg: "120px", md: "120px", sm: "120px" }}
+              // mt={{ lg: "10px" }}
+              // mb="60px"
+              // ml={{ lg: "5px" }}
+              height="100px"
+              w={{ lg: "150px", md: "120px", sm: "120px" }}
             >
               <Image
                 alt={"Logo"}
                 objectFit={"cover"}
                 onClick={() => GoTo("/")}
-                pr={"10px"}
-                src={"./images/Aqualogo.jpeg"}
+                height="100px"
+                // pr={"10px"}
+                src={"./images/Aqualogo.png"}
                 cursor="pointer"
-                w={"120px"}
+                w={"150px"}
               />
             </Box>
 
@@ -156,8 +166,9 @@ const Navbar = () => {
                   <Input
                     placeholder="Search Here"
                     size="lg"
-                    //
-
+                    type="text"
+                    // value={ {value }}
+                    onChange={()=>fun()}
                     borderRadius={50}
                     bgColor="white"
                   />
@@ -188,6 +199,7 @@ const Navbar = () => {
                     pl={{ base: "0", md: "0", lg: "80px" }}
                     // border={"1px solid red"}
                     gap={10}
+                    mr={20}
 
                     // bgColor="#f0f1f7 "
                   >

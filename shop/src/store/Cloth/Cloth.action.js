@@ -57,3 +57,8 @@ export const REMOVE_Cloth_item=(id)=>async(dispatch)=>{
 
     
 }
+
+// export const SORT_CLOTH_ITEM=(order)=>(dispatch)=>{
+//     let data =
+
+// }
