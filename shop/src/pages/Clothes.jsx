@@ -1,7 +1,8 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import { Flex, Grid, Box, Text, Button, Link, Image } from "@chakra-ui/react";
+import { Flex, Grid, Box, Text, Button, Icon, Image } from "@chakra-ui/react";
 import axios from "axios";
+import { AiFillStar } from 'react-icons/ai'
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setItem } from "../utility/localStorage";
@@ -14,36 +15,70 @@ const Clothes = () => {
   const [loading, setLoading] = useState(false);
   const [order, setOrder] = useState("");
   const navigate = useNavigate();
+  
+
 
   const handleClick = (item) => {
     setItem("singleproduct", item);
     navigate("/clothes/singleproduct");
   };
+  
 
   const {isLoading, cloth } = useSelector((store) => store.ClothManger);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(Get_cloth_item());
+
+  }, []);
+let data;
+   data = cloth.filter((item) => item.category === filter);
+   
+
   }, [cloth,isLoading
 ]);
 
   let data = cloth.filter((item) => item.category === filter);
 
-  useEffect(() => {
-    data = cloth.filter((item) => item.category === filter);
-  }, [filter]);
+
+  
 
   useEffect(() => {
     console.log(order, "1");
     if (order == "high") {
       console.log(order, "2");
       data = data.sort((a, b) => a.price - b.price);
+      console.log(data)
+  
+        // dispatch(Get_cloth_item(data));
+   
+    
     }
     if (order == "low") {
       console.log(order, "3");
       data = data.sort((a, b) => b.price - a.price);
+      console.log(data)
+      // dispatch(Get_cloth_item(data));
+    
     }
   }, [order]);
+
+
+
+
+  {
+    if (loading) {
+      return (
+        <Image
+          marginLeft={635}
+          src={
+            "https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif?20170503175831"
+          }
+          fontSize={27}
+          style={{ marginTop: "200px" }}
+        ></Image>
+      );
+    } else {
+
 //   useEffect(()=>{
 //  if (isLoading) {
 //      
@@ -54,6 +89,7 @@ const Clothes = () => {
    
    
  if(cloth.length===0) return  <Loading/>
+
       return (
         <div style={{ marginTop: "100px" }}>
           <Flex>
@@ -127,7 +163,7 @@ const Clothes = () => {
                   id=""
                   onChange={(e) => setOrder(e.target.value)}
                 >
-                  <option value="reset">Filter by Price</option>
+                  <option  value="reset">Filter by Price</option>
                   <option value="high">Low to high </option>
                   <option value="low">High to low</option>
                 </select>
@@ -144,9 +180,9 @@ const Clothes = () => {
                   alt=""
                 />
                 <Text>
-                  {" "}
+               
                   Up to 6.00% Cashback <br />
-                  Store conditions{" "}
+                  Store conditions
                 </Text>
                 <Button>partner Site 🤝</Button>
               </Box>
@@ -162,9 +198,9 @@ const Clothes = () => {
                   alt=""
                 />
                 <Text>
-                  {" "}
+                  
                   Up to 6.00% Cashback <br />
-                  Store conditions{" "}
+                  Store conditions
                 </Text>
                 <Button>partner Site 🤝</Button>
               </Box>
@@ -183,7 +219,7 @@ const Clothes = () => {
                   <Box id="probox" key={Math.random()}>
                     <Box textAlign={"left"}>
                       <img id="hov" src={el.image1} alt="" />
-                      <Text fontSize={17}>{el.title}</Text>
+                      <Text noOfLines={[1]} fontSize={17}>{el.title}</Text>
                       <Flex gap={2}>
                         <img
                           width={17}
@@ -193,7 +229,20 @@ const Clothes = () => {
                         <Text fontSize={13}>Sold by {el.soldby}</Text>
                       </Flex>
                       <p>{el.category}</p>
-                      <Text fontWeight={"bold"}>{el.price}</Text>
+                      <Text fontWeight={"bold"}>$ {el.price}</Text>
+                      <Box mb="15px">
+                  {Array(5)
+                    .fill("")
+                    .map((_, i) => {
+                      let rating = Math.ceil(Math.random() * 3);
+
+                      return <Icon
+                        as={AiFillStar}
+                        key={i}
+                        color={i <= rating ? "gold" : "gray.300"}
+                      />
+                    })}
+                </Box>
                       <Text color={"teal"} fontSize={14}>
                         Free shipping with $50.00 orders
                       </Text>
