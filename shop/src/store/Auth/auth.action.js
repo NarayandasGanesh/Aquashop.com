@@ -52,14 +52,14 @@ export const Get_USER_item = () => async (dispatch) => {
   }
 };
 export const REMOVE_USER_item = (id) => async (dispatch) => {
-  dispatch({ type: types.REMOVE_USER_LOADING });
+  dispatch({ type: types.REMOVE_USERAdmin_LOADING });
   try {
     let res = await axios.delete(
       `https://next-backend-orpin.vercel.app/user/${id}`
     );
 
-    dispatch({ type: types.REMOVE_USER_SUCCESS, payload: id });
+    dispatch({ type: types.REMOVE_USERAdmin_SUCCESS, payload: id });
   } catch (error) {
-    dispatch({ type: types.REMOVE_USER_ERROR });
+    dispatch({ type: types.REMOVE_USERAdmin_ERROR });
   }
 };
