@@ -1,5 +1,4 @@
 import React from "react";
-// import logo from "../Assets/logo.jpeg"
 import {
   Box,
   Flex,
@@ -28,6 +27,7 @@ import {
   FaTruckMoving,
   FaUserPlus,
   FaRegUser,
+  FaSignOutAlt,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineQuestionCircle, AiOutlineReload } from "react-icons/ai";
@@ -61,20 +61,27 @@ import {
   Container,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { RemoveUserDataAfter } from "../store/Auth/auth.action";
 const Navbar = () => {
+  const toast = useToast();
   const navigateTo = useNavigate();
+  const dispatch = useDispatch();
   const GoTo = (path) => {
     console.log("path", path);
     navigateTo(path);
   };
-const fun=()=>{
-  
-    GoTo("/clothes")
-  
-
-}
+  const admin = () => {
+    toast({
+      title: "Welcome Admin.",
+      description: "please provide your Credential Here .",
+      status: "success",
+      duration: 6000,
+      isClosable: true,
+    });
+    GoTo("/signin");
+  };
   const { isOpen, onOpen, onClose } = useDisclosure();
   const firstField = React.useRef();
   const { onToggle } = useDisclosure();
@@ -131,11 +138,9 @@ const fun=()=>{
               fontFamily={"heading"}
               color={useColorModeValue("gray.800", "white")}
               //   border="1px solid blue"
-              // mt={{ lg: "10px" }}
-              // mb="60px"
-              // ml={{ lg: "5px" }}
-              height="100px"
-              w={{ lg: "150px", md: "120px", sm: "120px" }}
+              mt={{ lg: "10px" }}
+              ml={{ lg: "10px" }}
+              w={{ lg: "120px", md: "120px", sm: "120px" }}
             >
               <Image
                 alt={"Logo"}
@@ -166,9 +171,8 @@ const fun=()=>{
                   <Input
                     placeholder="Search Here"
                     size="lg"
-                    type="text"
-                    // value={ {value }}
-                    onChange={()=>fun()}
+                    //
+
                     borderRadius={50}
                     bgColor="white"
                   />
@@ -199,7 +203,6 @@ const fun=()=>{
                     pl={{ base: "0", md: "0", lg: "80px" }}
                     // border={"1px solid red"}
                     gap={10}
-                    mr={20}
 
                     // bgColor="#f0f1f7 "
                   >
@@ -285,16 +288,32 @@ const fun=()=>{
                     <Text fontWeight={"bold"}>
                       Your Consultant is AquaShop.COM
                     </Text>
-                    <Box
-                      display={"flex"}
-                      mt={2}
-                      gap={3}
-                      cursor="pointer"
-                      onClick={() => GoTo("/signin")}
-                    >
-                      <FaUser />
-                      Sign In
-                    </Box>
+                    {Data && Data.firstName ? (
+                      <Box
+                        display={"flex"}
+                        mt={2}
+                        gap={3}
+                        cursor="pointer"
+                        onClick={() => {
+                          dispatch(RemoveUserDataAfter());
+                          GoTo("/");
+                        }}
+                      >
+                        <FaSignOutAlt />
+                        Sign Out
+                      </Box>
+                    ) : (
+                      <Box
+                        display={"flex"}
+                        mt={2}
+                        gap={3}
+                        cursor="pointer"
+                        onClick={() => GoTo("/signin")}
+                      >
+                        <FaUser />
+                        Sign In
+                      </Box>
+                    )}
                     <Box display={"flex"} mt={2} gap={3} cursor="pointer">
                       <FaTruckMoving />
                       Track Orders
@@ -356,7 +375,7 @@ const fun=()=>{
               _hover={{
                 bg: "pink.300",
               }}
-              onClick={() => GoTo("/adminPage")}
+              onClick={admin}
             >
               Admin
             </Button>
