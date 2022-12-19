@@ -52,7 +52,7 @@ function CartPage(){
       }
 
     return(
-    <>
+    <div style={{minHeight:"1000px"}}>
      
      <div>
       <h1>Cart</h1>
@@ -108,7 +108,7 @@ function CartPage(){
         })
       }</Box>
         <Image w="50%" h="70%" src={Cart.image4} />
-       <Box position="fixed" top="30%" left="75%" zIndex="-10" mt={10}> 
+       <Box  mt={10}> 
        <Heading size="md">{Cart.title}</Heading>
           <Heading mt={5} size="lg">Total Amount:${totel}</Heading>
           {
@@ -159,7 +159,7 @@ function CartPage(){
     }
 
     </Box>
-   </>
+   </div>
   )
 }
 export default CartPage;
