@@ -1,10 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-
 import Cart from "./Cart";
-
 import AdminPage from "./AdminPage";
-
 import Clothes from "./Clothes";
 import Cosmetics from "./Cosmetics";
 import Electronics from "./Electronics";
@@ -16,7 +13,6 @@ import SignIn from "./SignIn";
 import Signup from "./Signup";
 import Address from "./AddressPage";
 import PaymentPage from "./Payment";
-
 
 const AllRoutes = () => {
   return (
@@ -37,11 +33,9 @@ const AllRoutes = () => {
       <Route path="/cosmetics/singleproduct" element={<Singleproduct />} />
       <Route path="/health/singleproduct" element={<Singleproduct />} />
 
-
-
       <Route path="/cart" element={<Cart />} />
       <Route path="/address" element={<Address />} />
-      <Route path="/payment"  element={<PaymentPage />}/>
+      <Route path="/payment" element={<PaymentPage />} />
     </Routes>
   );
 };
