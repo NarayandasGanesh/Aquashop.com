@@ -57,6 +57,9 @@ export const REMOVE_Cloth_item=(id)=>async(dispatch)=>{
 
     
 }
+// export const sortCLOTHES = (how) => (dispatch) => {
+//     dispatch({ type: types.sortCLOTHES, payload: how });
+//   };
 
 // export const SORT_CLOTH_ITEM=(order)=>(dispatch)=>{
 //     let data =
