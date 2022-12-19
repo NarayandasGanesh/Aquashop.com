@@ -5,6 +5,7 @@ const initialState = {
   isError: false,
   userData: {},
   isAuth: false,
+  userlist: [],
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -60,6 +61,7 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
+        userlist: payload,
       };
     }
     case types.GET_USER_ERROR: {
@@ -88,6 +90,28 @@ export const reducer = (state = initialState, { type, payload }) => {
         isError: true,
       };
     }
+    case types.REMOVE_USERAdmin_LOADING: {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }
+    case types.REMOVE_USERAdmin_SUCCESS: {
+      let removed = state.userlist.filter((cloth) => cloth.id != payload);
+      return {
+        ...state,
+        isLoading: true,
+        userlist: removed,
+      };
+    }
+    case types.REMOVE_USERAdmin_ERROR: {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+      };
+    }
+
     default:
       return state;
   }
