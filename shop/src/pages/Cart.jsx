@@ -136,7 +136,7 @@ function CartPage() {
               })}
             </Box>
             <Image w="50%" h="70%" src={Cart.image4} />
-            <Box position="fixed" top="30%" left="75%" mt={10}>
+            <Box position="fixed" top="30%" left="75%"  mt={10}>
               <Heading size="md">{Cart.title}</Heading>
               <Heading mt={5} size="lg">
                 Total Amount:${totel}
