@@ -8,7 +8,6 @@ const initialState = {
 
   userlist: [],
 
-  userlist:[]
 
 };
 
@@ -65,8 +64,6 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-
-        userlist: payload,
 
         userlist:payload
         

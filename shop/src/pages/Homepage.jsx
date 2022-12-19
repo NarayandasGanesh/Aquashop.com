@@ -14,6 +14,8 @@ import {
   Button,
   Box,
   VStack,
+  Stack,
+  Grid,
 } from "@chakra-ui/react";
 
 import { AiFillDollarCircle } from "react-icons/ai";
@@ -74,7 +76,7 @@ const Homepage = () => {
     axios
       .get("https://next-backend-orpin.vercel.app/jewelery")
       .then((response) => {
-        console.log("res", response.data);
+       
         setData(response.data);
       });
   }, []);
@@ -178,11 +180,15 @@ const Homepage = () => {
         src="https://img.shop.com/Image/homepage/shop-gbr-102789-holiday-hot-toys-banners-1600x300-img-min1669996056936.jpg"
       />
 
-      <HStack
-        justifyContent={"space-evenly"}
-        direction={["row", "row", "column", "column"]}
+      <Stack
+        display={"flex"}
+        justifyContent={{base:"center", md:"space-evenly"}}
+        direction={{base:"column"  ,md:"row"}}
+        align="center"
+
         marginTop="50px"
         backgroundColor="#f0f1f7"
+       
       >
         <Box>
           <Card
@@ -446,9 +452,14 @@ const Homepage = () => {
             </Link>
           </Card>
         </Box>
-      </HStack>
+      </Stack>
 
-      <HStack backgroundColor="#f0f1f7" marginLeft="40px" marginTop="50px">
+      <Stack backgroundColor="#f0f1f7" marginLeft="40px" marginTop="50px"
+      display={"flex"}
+      flexDirection={{base:"column",md:"row"}}
+      justifyContent="center"
+      align={"center"}
+      >
         <Link>
           <Box>
             <Image
@@ -461,7 +472,7 @@ const Homepage = () => {
         <VStack>
           <Text fontSize="4xl">Popular Brands</Text>
           <Link>
-            <HStack gap="20px">
+            <Grid templateColumns={{base:'repeat(2, 1fr)',md:'repeat(4, 1fr)'}} gap="20px">
               <Image
                 width="160px"
                 boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
@@ -492,7 +503,7 @@ const Homepage = () => {
                 backgroundColor="#f0f1f7"
                 src="https://img.shop.com/Image/homepage/cuisinart.gif"
               />
-            </HStack>
+            </Grid>
           </Link>
           <Link>
             <HStack>
@@ -523,7 +534,7 @@ const Homepage = () => {
             </HStack>
           </Link>
         </VStack>
-      </HStack>
+      </Stack>
 
       <Box marginTop="50px">
         <Box>
@@ -590,7 +601,11 @@ const Homepage = () => {
             Gift Ideas
           </Text>
         </Box>
-        <HStack justifyContent="space-evenly">
+        <Grid
+        templateColumns={{base:'repeat(2, 1fr)',md:'repeat(6, 1fr)'}}
+         justifyContent="space-evenly"
+        
+        >
           <VStack>
             <Box   cursor="pointer"  onClick={()=>GoTo("/electronics")}
               borderRadius="50%"
@@ -742,7 +757,7 @@ const Homepage = () => {
               GIFTS FOR THE FAMILY
             </Text>
           </VStack>
-        </HStack>
+        </Grid>
       </VStack>
 
       <HStack mt="90px" justifyContent="space-evenly">
@@ -761,7 +776,11 @@ const Homepage = () => {
       </HStack>
 
       <Box backgroundColor="#f0f1f7" mt="70px">
-        <Box>
+        <Box
+         width={"100%"}
+         display={"flex"}
+         justifyContent="center"
+        >
           <Text
             marginRight="800px"
             mb="50px"
@@ -769,11 +788,17 @@ const Homepage = () => {
             fontSize="33px"
             fontWeight="normal"
             color="#2e2c38"
+            display="flex"
+            margin={"auto"}
           >
             NEW Layered Holiday Collection
           </Text>
         </Box>
-        <HStack>
+        <Stack
+        display={"flex"}
+        flexDirection={{base:"column",md:"row"}}
+        align="center"
+        >
           <Box>
             <Image
               mb="200px"
@@ -783,7 +808,7 @@ const Homepage = () => {
             />
           </Box>
           <Carousel />
-        </HStack>
+        </Stack>
       </Box>
 
       <Box backgroundColor="#f0f1f7" mt="70px" mb="100px">
@@ -854,15 +879,21 @@ const Homepage = () => {
       <br />
       <br />
       <Box  backgroundColor="#f0f1f7" mt="50px">
-        <Box marginTop='50px'>
+        <Box marginTop='50px'
+         width={"100%"}
+         display={"flex"}
+         justifyContent="center"
+        
+        >
           <Text
             marginRight="800px"
             mb="50px"
-           
             fontFamily="oswald, serif"
-            fontSize="33px"
-            fontWeight="normal"
+            fontSize="40px"
+            fontWeight="bold"
             color="#2e2c38"
+            display="flex"
+            margin={"auto"}
           >
            Luxury Beauty Gifts from Motives
           </Text>
@@ -886,16 +917,27 @@ const Homepage = () => {
 
 
             
-      <Box  backgroundColor="#f0f1f7" mt="70px">
+      <Box   backgroundColor="#f0f1f7" mt="70px"
+       
+      >
      
-        <Box>
+        <Box 
+        width={"100%"}
+        display={"flex"}
+        justifyContent="center"
+      
+      
+        >
+
           <Text
             marginRight="800px"
             mb="50px"
             fontFamily="oswald, serif"
-            fontSize="33px"
-            fontWeight="normal"
+            fontSize="40px"
+            fontWeight="bold"
             color="#2e2c38"
+            display="flex"
+            margin={"auto"}
           >
       Lumière de Vie
           </Text>
@@ -937,8 +979,14 @@ const Homepage = () => {
           Holiday Specials
           </Text>
         </Box>
-        <HStack justifyContent="space-evenly">
-          <VStack>
+
+        <Grid 
+        templateColumns={{base:'repeat(2, 1fr)',md:'repeat(6, 1fr)'}}
+        justifyContent="space-evenly">
+          <VStack
+           templateColumns={{base:'repeat(2, 1fr)',md:'repeat(5, 1fr)'}}
+           justifyContent="space-evenly"
+          >
             <Box  cursor="pointer"  onClick={()=>GoTo("/cosmetic")}
               borderRadius="50%"
               border="10px solid #1a202c82"
@@ -1092,7 +1140,7 @@ const Homepage = () => {
               SEE ALL
             </Text>
           </VStack>
-        </HStack>
+        </Grid>
       </VStack>
 
 
@@ -1134,7 +1182,10 @@ const Homepage = () => {
             fontWeight="normal"
             color="#2e2c38"> OUR BRANDS</Text>
 
-            <HStack justifyContent="space-evenly">
+            <Grid 
+             templateColumns={{base:'repeat(2, 1fr)',md:'repeat(6, 1fr)'}}
+             gap="10px"
+            justifyContent="space-evenly">
                 <Box  cursor="pointer" onClick={()=>GoTo("/health")}  _hover={{color:"blue.300"}}>
               <VStack>
                 <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
@@ -1179,7 +1230,7 @@ const Homepage = () => {
                 <Image width="350px" height="250px"  src="https://img.shop.com/Image/280000/281900/281909/products/1935336852__800x800__.jpg" />
               </VStack>
               </Box>
-            </HStack>
+            </Grid>
 
   </vStack>
 </Box>
