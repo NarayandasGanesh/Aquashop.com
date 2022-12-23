@@ -1184,9 +1184,14 @@ const Homepage = () => {
 
             <Grid 
              templateColumns={{base:'repeat(2, 1fr)',md:'repeat(5, 1fr)'}}
+<<<<<<< HEAD
     gap="20px"
           
            >
+=======
+             gap="10px"
+            justifyContent="space-evenly">
+>>>>>>> ca6ba1f522e0f34664f1b52f328d04c0496ab7a0
                 <Box  cursor="pointer" onClick={()=>GoTo("/health")}  _hover={{color:"blue.300"}}>
               <VStack>
                 <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
