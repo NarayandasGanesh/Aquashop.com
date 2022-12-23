@@ -472,7 +472,7 @@ const Homepage = () => {
         <VStack>
           <Text fontSize="4xl">Popular Brands</Text>
           <Link>
-            <Grid templateColumns={{base:'repeat(2, 1fr)',md:'repeat(4, 1fr)'}} gap="20px">
+            <Grid templateColumns={{base:'repeat(2, 1fr)',md:'repeat(5, 1fr)'}} gap="20px">
               <Image
                 width="160px"
                 boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
@@ -1174,7 +1174,7 @@ const Homepage = () => {
         </VStack>
       </Box>
 
-<Box backgroundColor="#f0f1f7" mt="70px" mb="100px" >
+<Box  backgroundColor="#f0f1f7" mt="70px" mb="100px" >
   <vStack>
     <Text  mb="50px"
             fontFamily="oswald, serif"
@@ -1183,9 +1183,10 @@ const Homepage = () => {
             color="#2e2c38"> OUR BRANDS</Text>
 
             <Grid 
-             templateColumns={{base:'repeat(2, 1fr)',md:'repeat(6, 1fr)'}}
-             gap="10px"
-            justifyContent="space-evenly">
+             templateColumns={{base:'repeat(2, 1fr)',md:'repeat(5, 1fr)'}}
+    gap="20px"
+          
+           >
                 <Box  cursor="pointer" onClick={()=>GoTo("/health")}  _hover={{color:"blue.300"}}>
               <VStack>
                 <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
