@@ -93,6 +93,14 @@ const Navbar = () => {
   const [Data, SetData] = useState({});
   const { userData } = useSelector((store) => store.auth);
 
+const abcd=()=>{
+ 
+
+    GoTo("/clothes")
+  
+}
+
+
   useEffect(() => {
     console.log("userdata", userData);
     SetData(userData);
@@ -101,7 +109,7 @@ const Navbar = () => {
   console.log(user)
 
   return (
-    <div>
+    <div style={{marginBottom:"10px"}}>
       <Box w={"100%"} position={"fixed"} zIndex={999} top={0}>
         <Flex
           bg={useColorModeValue("white", "gray.800")}
@@ -177,7 +185,9 @@ const Navbar = () => {
                 >
                   <Input
                     placeholder="Search Here"
+                    onChange={()=>abcd()}
                     size="lg"
+                    // value=""
                     //
 
                     borderRadius={50}

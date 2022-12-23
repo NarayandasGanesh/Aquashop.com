@@ -71,8 +71,8 @@ function CartPage() {
   };
 
   return (
-    <>
-      <div>
+    <div style={{minHeight:"1000px",marginTop:"20px"}}>
+      <div >
         <h1>Cart</h1>
       </div>
       <Center>
@@ -202,7 +202,7 @@ function CartPage() {
           </Flex>
         }
       </Box>
-    </>
+    </div>
   );
 }
 export default CartPage;

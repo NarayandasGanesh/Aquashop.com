@@ -48,7 +48,7 @@ const Electronics = () => {
   if (Electronics.length === 0) return <Loading />
   
   return (
-    <div style={{ "marginTop": "100px" }}>
+    <div style={{ "marginTop": "120px" }}>
 
       <Flex>
       

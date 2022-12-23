@@ -42,7 +42,7 @@ let data;
       return <Loading/>;
     } else {
       return (
-        <div style={{ marginTop: "100px" }}>
+        <div style={{ marginTop: "120px" }}>
           <Flex>
             {/* <Sidebar setFilter={setFilter}/> */}
             <Box id="maindiv" border={"1px solid"} width={"20%"}>
@@ -86,7 +86,7 @@ let data;
                     onClick={() => setFilter("Womens")}
                     fontWeight={"bold"}
                   >
-                    Womes
+                    Womens
                   </Text>
                 </Flex>
 
