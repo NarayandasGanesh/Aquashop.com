@@ -274,7 +274,7 @@ const Navbar = () => {
               bgColor="transparent"
             >
               <FaUserCircle color="black" />
-              {user.isLogin ? `Hi ${user.firstName}` : "Sign In"}
+              {user && user.isLogin ? `Hi ${user.firstName}` : "Sign In"}
             </Button>
             <Drawer
               isOpen={isOpen}
@@ -304,7 +304,9 @@ const Navbar = () => {
                         onClick={() => {
 
                           dispatch(RemoveUserDataAfter());
+                          
                           setItem("Login",{})
+                          setItem("Login",{...user,isLogin:false})
                           GoTo("/");
                         }}
                       >
