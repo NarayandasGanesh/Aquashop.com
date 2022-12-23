@@ -62,39 +62,7 @@ export const Cartreducer = (state = initialState, { type, payload }) => {
       }
      }
     
-    //  case types.UPDATE_Cart_LOADING:{
-    //   return {
-    //     ...state,
-    //     isLoading:true
-
-    //   }
-    //  }
-    
-    //  case types.UPDATE_Cart_SUCCESS:{
-
-    //   let Updated=state.Cart.map((Cart)=>{
-    //       if(Cart.id==payload.id){
-    //        return {...Cart,payload}
-    //       }
-    //       return Cart
-    //   })
-    //   return {
-    //     ...state,
-    //     Cart:Updated
-
-
-    //   }
-    //  }
-    
-    //  case types.UPDATE_CartS_ERROR:{
-    //   return {
-    //     ...state,
-    //     isLoading:false,
-    //     isError:true
-
-
-    //   }
-    //  }
+  
     
      case types.REMOVE_Cart_LOADING:{
       return {
@@ -111,8 +79,6 @@ export const Cartreducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         Cart:removed,
-
-
       }
      }
      case types.REMOVE_Cart_ERROR:{
