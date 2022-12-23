@@ -64,6 +64,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { RemoveUserDataAfter } from "../store/Auth/auth.action";
+import { getItem, setItem } from "../utility/localStorage";
 const Navbar = () => {
   const toast = useToast();
   const navigateTo = useNavigate();
@@ -75,9 +76,13 @@ const Navbar = () => {
   const admin = () => {
     toast({
       title: "Welcome Admin.",
-      description: "please provide your Credential Here .",
+      description: `please provide your Credential Here 
+
+        Admin Username And password  ---------------------------------------------------------------
+        username : admin@admin.com  password :123456.`,
       status: "success",
       duration: 6000,
+       
       isClosable: true,
     });
     GoTo("/signin");
@@ -92,6 +97,8 @@ const Navbar = () => {
     console.log("userdata", userData);
     SetData(userData);
   }, [userData]);
+  const user=getItem("Login")
+  console.log(user)
 
   return (
     <div>
@@ -267,7 +274,7 @@ const Navbar = () => {
               bgColor="transparent"
             >
               <FaUserCircle color="black" />
-              {Data && Data.firstName ? `Hi ${Data.firstName}` : "Sign In"}
+              {user.isLogin ? `Hi ${user.firstName}` : "Sign In"}
             </Button>
             <Drawer
               isOpen={isOpen}
@@ -288,14 +295,16 @@ const Navbar = () => {
                     <Text fontWeight={"bold"}>
                       Your Consultant is AquaShop.COM
                     </Text>
-                    {Data && Data.firstName ? (
+                    {user && user.firstName ? (
                       <Box
                         display={"flex"}
                         mt={2}
                         gap={3}
                         cursor="pointer"
                         onClick={() => {
+
                           dispatch(RemoveUserDataAfter());
+                          setItem("Login",{})
                           GoTo("/");
                         }}
                       >

@@ -1183,7 +1183,7 @@ const Homepage = () => {
             color="#2e2c38"> OUR BRANDS</Text>
 
             <Grid 
-             templateColumns={{base:'repeat(2, 1fr)',md:'repeat(6, 1fr)'}}
+             templateColumns={{base:'repeat(2, 1fr)',md:'repeat(5, 1fr)'}}
              gap="10px"
             justifyContent="space-evenly">
                 <Box  cursor="pointer" onClick={()=>GoTo("/health")}  _hover={{color:"blue.300"}}>

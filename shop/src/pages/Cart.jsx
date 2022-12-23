@@ -26,6 +26,7 @@ import { Get_Cart_item, REMOVE_Cart_item } from "../store/Cart/Cart.action";
 import { DeleteIcon, Icon } from "@chakra-ui/icons";
 import { AiFillStar } from "react-icons/ai";
 import { useToast } from "@chakra-ui/react";
+import { getItem } from "../utility/localStorage";
 
 function CartPage() {
   const {
@@ -39,10 +40,11 @@ function CartPage() {
   const { Cart } = useSelector((store) => store.CartManger);
   const navigateTo = useNavigate();
   const dispatch = useDispatch();
-
+  const user=getItem("Login")
+  console.log(user)
   useEffect(() => {
     console.log("userdata", userData);
-    if (!userData || JSON.stringify(userData) === "{}") {
+    if (!user.isLogin ||user === "{}") {
       navigateTo("/signin");
       toast({
         title: "Please SignIn First.",

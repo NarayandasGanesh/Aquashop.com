@@ -1,3 +1,4 @@
+import { setItem } from "../../utility/localStorage";
 import * as types from "./auth.actionTypes";
 
 const initialState = {
@@ -15,6 +16,7 @@ export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     // user login cases
     case types.LOGIN_SET_USER_DATA: {
+      setItem("Login",{...payload,isLogin:true})
       return {
         ...state,
         userData: { ...payload },
