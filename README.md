@@ -10,7 +10,7 @@ Our mission is to deliver the most compelling shopping experience for our custom
  
   
  
-This Project  was a collaborative project buit by team of 4 members in 5 days
+This Project  was a collaborative project buit by team of 5 members in 5 days
 
 
   
