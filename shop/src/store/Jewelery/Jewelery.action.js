@@ -57,3 +57,6 @@ export const REMOVE_Jewelery_item=(id)=>async(dispatch)=>{
 
     
 }
+export const sortMyJewelery = (how) => (dispatch) => {
+    dispatch({ type: types.SORT_JEWELERY, payload: how });
+  };

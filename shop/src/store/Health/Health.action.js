@@ -57,3 +57,6 @@ export const REMOVE_Health_item=(id)=>async(dispatch)=>{
 
     
 }
+export const sortMyHealth = (how) => (dispatch) => {
+    dispatch({ type: types.SORT_HEALTH, payload: how });
+  };

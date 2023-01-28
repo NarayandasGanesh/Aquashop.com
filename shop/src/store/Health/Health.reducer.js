@@ -123,6 +123,21 @@ export const Healthreducer = (state = initialState, { type, payload }) => {
 
       }
      }
+     case types.SORT_HEALTH: {
+      if (payload == "high") {
+    
+        let sorted = state.Health.sort(
+          (a, b) => Number(a.price) - Number(b.price)
+        );
+    
+        return { ...state, Health: [...sorted] };
+      } else if (payload == "low") {
+        let sorted = state.Health.sort(
+          (a, b) => Number(b.price) - Number(a.price)
+        );
+        return { ...state, Health: [...sorted] };
+      }
+    }
 
 
 

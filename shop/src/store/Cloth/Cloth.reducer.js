@@ -125,6 +125,21 @@ export const Clothreducer = (state = initialState, { type, payload }) => {
      }
 
 
+     case types.SORT_CLOTHES: {
+      if (payload == "high") {
+    
+        let sorted = state.cloth.sort(
+          (a, b) => Number(a.price) - Number(b.price)
+        );
+    
+        return { ...state, cloth: [...sorted] };
+      } else if (payload == "low") {
+        let sorted = state.cloth.sort(
+          (a, b) => Number(b.price) - Number(a.price)
+        );
+        return { ...state, cloth: [...sorted] };
+      }
+    }
 
 
     //  case types.SORT_CLOTHES: {

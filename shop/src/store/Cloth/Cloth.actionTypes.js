@@ -17,4 +17,4 @@ export const REMOVE_Cloth_LOADING = "cloth/remove/laoding";
 export const REMOVE_Cloth_SUCCESS = "cloth/remove/success";
 export const REMOVE_Cloth_ERROR = "cloth/remove/error";
 
-// export const SORT_CLOTHES="CLOTHES/sort"
+export const SORT_CLOTHES="CLOTHES/sort"

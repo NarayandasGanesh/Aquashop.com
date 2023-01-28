@@ -123,6 +123,21 @@ export const Jeweleryreducer = (state = initialState, { type, payload }) => {
 
       }
      }
+     case types.SORT_JEWELERY: {
+      if (payload == "high") {
+    
+        let sorted = state.Jewelery.sort(
+          (a, b) => Number(a.price) - Number(b.price)
+        );
+    
+        return { ...state, Jewelery: [...sorted] };
+      } else if (payload == "low") {
+        let sorted = state.Jewelery.sort(
+          (a, b) => Number(b.price) - Number(a.price)
+        );
+        return { ...state, Jewelery: [...sorted] };
+      }
+    }
 
 
 
