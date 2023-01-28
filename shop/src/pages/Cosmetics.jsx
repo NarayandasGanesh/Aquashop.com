@@ -8,18 +8,28 @@ import { useNavigate } from "react-router-dom";
 import {setItem} from '../utility/localStorage'
 import "../index.css"
 import { useDispatch, useSelector } from "react-redux";
-import { Get_Cosmetics_item } from "../store/Cosmetics/Cosmetics.action";
+import { Get_Cosmetics_item, sortCOSMETICS } from "../store/Cosmetics/Cosmetics.action";
 import Loading from "./Loading";
 const Cosmetics = () => {
 const[filter,setFilter]=useState("Mens")
-  const [loading ,setLoading]=useState(false);
-  const [order,setOrder]=useState("")
+const [reset,setReset ]=useState(false)
   const navigate=useNavigate();
 
   const handleClick=(item)=>{
       setItem("singleproduct",item)
     navigate("/Cosmetics/singleproduct")
  }
+ const handleChange = (e) => {
+  const { value } = e.target;
+  console.log(value)
+  if(value=="reset"){
+
+    setReset((previous)=>!previous)
+    return 
+  }
+  dispatch(sortCOSMETICS(value))
+
+}
   
 
   const {Cosmetics}=useSelector((store)=>store.CosmeticsManger)
@@ -27,7 +37,7 @@ const[filter,setFilter]=useState("Mens")
   useEffect(()=>{
   
     dispatch(Get_Cosmetics_item())
-   },[]) 
+   },[reset]) 
 
    let  data=Cosmetics.filter((item)=>item.category===filter)
 
@@ -61,14 +71,13 @@ const[filter,setFilter]=useState("Mens")
 
 
   </Box>
-
   <Box id="filter">
-  <select name="" id="" onChange={(e)=>setOrder(e.target.value)}>
-     <option value="reset">Filter by Price</option>
-      <option value="high">Low to high </option>
-      <option value="low">High to low</option>
-     </select>
-  </Box>
+            <select  name="" id="" onChange={(e) => handleChange(e)}>
+             <option value="reset" >sort-by-price</option>
+              <option value="high">Low to high </option>
+              <option value="low">High to low</option>
+            </select>
+          </Box>
  
  <Box id="add" marginLeft={"0px"} textAlign={"left"} marginTop={"50px"}>
   <img src="https://img.shop.com/Image/topbrands/nmlogos_76181.gif" alt="" />

@@ -123,6 +123,22 @@ export const Cosmeticsreducer = (state = initialState, { type, payload }) => {
 
       }
      }
+     
+     case types.SORT_COSMETICS: {
+      if (payload == "high") {
+    
+        let sorted = state.Cosmetics.sort(
+          (a, b) => Number(a.price) - Number(b.price)
+        );
+    
+        return { ...state, Cosmetics: [...sorted] };
+      } else if (payload == "low") {
+        let sorted = state.Cosmetics.sort(
+          (a, b) => Number(b.price) - Number(a.price)
+        );
+        return { ...state, Cosmetics: [...sorted] };
+      }
+    }
 
 
 

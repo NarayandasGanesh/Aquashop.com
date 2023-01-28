@@ -8,18 +8,28 @@ import { useNavigate } from "react-router-dom";
 import {setItem} from '../utility/localStorage'
 import "../index.css"
 import { useDispatch, useSelector } from "react-redux";
-import { Get_Health_item } from "../store/Health/Health.action";
+import { Get_Health_item, sortMyHealth } from "../store/Health/Health.action";
 import Loading from "./Loading";
 const Health = () => {
 const[filter,setFilter]=useState("Mens")
-  const [loading ,setLoading]=useState(false);
-  const [order,setOrder]=useState("")
+const [reset,setReset ]=useState(false)
   const navigate=useNavigate();
 
   const handleClick=(item)=>{
       setItem("singleproduct",item)
     navigate("/health/singleproduct")
  }
+ const handleChange = (e) => {
+  const { value } = e.target;
+  console.log(value)
+  if(value=="reset"){
+
+    setReset((previous)=>!previous)
+    return 
+  }
+  dispatch(sortMyHealth(value))
+
+}
   
 
   const {Health}=useSelector((store)=>store.HealthManger)
@@ -27,7 +37,7 @@ const[filter,setFilter]=useState("Mens")
   useEffect(()=>{
   
     dispatch(Get_Health_item())
-   },[]) 
+   },[reset]) 
 
    let  data=Health.filter((item)=>item.category===filter)
 
@@ -63,12 +73,12 @@ const[filter,setFilter]=useState("Mens")
   </Box>
 
   <Box id="filter">
-  <select name="" id="" onChange={(e)=>setOrder(e.target.value)}>
-     <option value="reset">Filter by Price</option>
-      <option value="high">Low to high </option>
-      <option value="low">High to low</option>
-     </select>
-  </Box>
+            <select  name="" id="" onChange={(e) => handleChange(e)}>
+             <option value="reset" >sort-by-price</option>
+              <option value="high">Low to high </option>
+              <option value="low">High to low</option>
+            </select>
+          </Box>
  
  <Box id="add" marginLeft={"0px"} textAlign={"left"} marginTop={"50px"}>
   <img src="https://img.shop.com/Image/topbrands/nmlogos_76181.gif" alt="" />

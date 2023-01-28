@@ -54,6 +54,10 @@ export const REMOVE_Cosmetics_item=(id)=>async(dispatch)=>{
     } catch (error) {
         dispatch({type:types.REMOVE_Cosmetics_ERROR})        
     }
+    
 
     
 }
+export const sortCOSMETICS = (how) => (dispatch) => {
+    dispatch({ type: types.SORT_COSMETICS, payload: how });
+  };

@@ -16,3 +16,4 @@ export const UPDATE_Health_ERROR = "Health/update/error";
 export const REMOVE_Health_LOADING = "Health/remove/laoding";
 export const REMOVE_Health_SUCCESS = "Health/remove/success";
 export const REMOVE_Health_ERROR = "Health/remove/error";
+export const SORT_HEALTH="Health/sort"

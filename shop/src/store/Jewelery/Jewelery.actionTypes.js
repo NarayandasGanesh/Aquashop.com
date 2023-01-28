@@ -16,3 +16,4 @@ export const UPDATE_Jewelery_ERROR = "Jewelery/update/error";
 export const REMOVE_Jewelery_LOADING = "Jewelery/remove/laoding";
 export const REMOVE_Jewelery_SUCCESS = "Jewelery/remove/success";
 export const REMOVE_Jewelery_ERROR = "Jewelery/remove/error";
+export const SORT_JEWELERY="Health/sort"

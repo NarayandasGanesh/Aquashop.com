@@ -8,12 +8,13 @@ import { useNavigate } from "react-router-dom";
 import { setItem } from "../utility/localStorage";
 import "../index.css";
 import { useDispatch, useSelector } from "react-redux";
-import { Get_cloth_item } from "../store/Cloth/Cloth.action";
+import { Get_cloth_item, sortCLOTHES } from "../store/Cloth/Cloth.action";
 import Loading from "./Loading";
+
 const Clothes = () => {
   const [filter, setFilter] = useState("Mens");
-  const [loading, setLoading] = useState(false);
-  const [order, setOrder] = useState("");
+  const [reset,setReset ]=useState(false)
+
   const navigate = useNavigate();
   
 
@@ -22,13 +23,24 @@ const Clothes = () => {
     setItem("singleproduct", item);
     navigate("/clothes/singleproduct");
   };
+  const handleChange = (e) => {
+    const { value } = e.target;
+    console.log(value)
+    if(value=="reset"){
+
+      setReset((previous)=>!previous)
+      return 
+    }
+    dispatch(sortCLOTHES(value))
+
+  }
   
 
   const { cloth } = useSelector((store) => store.ClothManger);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(Get_cloth_item());
-  }, []);
+  }, [reset]);
 let data;
    data = cloth.filter((item) => item.category === filter);
    
@@ -109,16 +121,12 @@ let data;
               </Box>
 
               <Box id="filter">
-                <select
-                  name=""
-                  id=""
-                  onChange={(e) => setOrder(e.target.value)}
-                >
-                  <option  value="reset">Filter by Price</option>
-                  <option value="high">Low to high </option>
-                  <option value="low">High to low</option>
-                </select>
-              </Box>
+            <select  name="" id="" onChange={(e) => handleChange(e)}>
+             <option value="reset" >sort-by-price</option>
+              <option value="high">Low to high </option>
+              <option value="low">High to low</option>
+            </select>
+          </Box>
 
               <Box
                 id="add"

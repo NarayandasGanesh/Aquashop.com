@@ -16,3 +16,4 @@ export const UPDATE_Cosmetics_ERROR = "Cosmetics/update/error";
 export const REMOVE_Cosmetics_LOADING = "Cosmetics/remove/laoding";
 export const REMOVE_Cosmetics_SUCCESS = "Cosmetics/remove/success";
 export const REMOVE_Cosmetics_ERROR = "Cosmetics/remove/error";
+export const SORT_COSMETICS="COSMETIC/sort"

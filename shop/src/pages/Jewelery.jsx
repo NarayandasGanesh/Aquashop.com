@@ -8,25 +8,36 @@ import { useNavigate } from "react-router-dom";
 import {setItem} from '../utility/localStorage'
 import "../index.css"
 import { useDispatch, useSelector } from "react-redux";
-import { Get_Jewelery_item } from "../store/Jewelery/Jewelery.action";
+import { Get_Jewelery_item, sortMyJewelery } from "../store/Jewelery/Jewelery.action";
 import Loading from "./Loading";
 const Jewelery = () => {
 
-  const [order,setOrder]=useState("")
+  const [reset,setReset ]=useState(false)
+
   const navigate=useNavigate();
 
   const handleClick=(item)=>{
       setItem("singleproduct",item)
       navigate("/jewelery/singleproduct")
     }
-  
+    const handleChange = (e) => {
+      const { value } = e.target;
+      console.log(value)
+      if(value=="reset"){
+    
+        setReset((previous)=>!previous)
+        return 
+      }
+      dispatch(sortMyJewelery(value))
+    
+    }
 
     const {Jewelery}=useSelector((store)=>store.JeweleryManger)
   const dispatch=useDispatch()
   useEffect(()=>{
   
     dispatch(Get_Jewelery_item())
-   },[]) 
+   },[reset]) 
 
 
 
@@ -50,12 +61,12 @@ const Jewelery = () => {
   </Box>
 
   <Box id="filter">
-  <select name="" id="" onChange={(e)=>setOrder(e.target.value)}>
-     <option value="reset">Filter by Price</option>
-      <option value="high">Low to high </option>
-      <option value="low">High to low</option>
-     </select>
-  </Box>
+            <select  name="" id="" onChange={(e) => handleChange(e)}>
+             <option value="reset" >sort-by-price</option>
+              <option value="high">Low to high </option>
+              <option value="low">High to low</option>
+            </select>
+          </Box>
  
  <Box id="add" marginLeft={"0px"} textAlign={"left"} marginTop={"50px"}>
   <img src="https://img.shop.com/Image/topbrands/nmlogos_76181.gif" alt="" />
