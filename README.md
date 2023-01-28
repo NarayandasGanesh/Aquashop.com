@@ -17,3 +17,62 @@ This Project  was a collaborative project buit by team of 5 members in 5 days
 
 <br />
 #  Features: Home Page, Admin page, Login/Sign up Page,Navbar,Product pagees, Cart Page , Footer
+
+## Navbar:
+
+- This is the landing page of our website. Clicking an option on the Navbar will redirect to the respective page.
+<img width="50%" src="./shop/src/utility/navbar2.png">
+- 
+<img width="50%" src="./shop/src/utility/Navbar.png">
+
+## Home Page:
+
+- The images on the home page are linked to all Pages. Hence clicking on it will ensure successful redirection to the next Page.
+
+- 
+<img width="50%" src="./shop/src/utility/home.png">
+
+ 
+
+## Signup:
+
+- Here we have a Modal Function on any page when users click on signup they get a popup on the screen  .
+- User can Create account ny filling Signup Form
+- 
+<br />
+
+<img width="50%" src="./shop/src/utility/sign up.png">
+
+
+## Login page:
+
+- Here we have a Modal Function on any page when users click on Login they get a popup on the screen. If the user is registered with the website, only then he/she can log in with their respective email id & password.
+- User can Login with regestered email ID
+- 
+<br />
+<img width="50%" src="./shop/src/utility/signin.png">
+
+
+## Product Page:
+
+
+
+<img width="50%" src="./shop/src/utility/product.png">
+
+
+## Pdoduct Detailes Page:
+
+ 
+
+<img width="50%" src="./shop/src/utility/product.png">
+
+
+## Admin:
+
+- 
+
+<img width="50%" src="./shop/src/utility/admindash.png">
+ 
+
+
+
