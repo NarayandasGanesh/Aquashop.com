@@ -119,6 +119,7 @@ export default function CarouselElectronics() {
             <CardBody>
               <Image
                 // ml="20px"
+                id="hov"
                 width="250px"
                 height="200px"
                 src={el.image1}

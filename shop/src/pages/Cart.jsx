@@ -176,8 +176,8 @@ function CartPage() {
                     />
                   }
                 >
-                  {" "}
-                  Click and Get Free Delivery!{" "}
+               
+                  Click and Get Free Delivery!
                 </Button>
               )}
 
