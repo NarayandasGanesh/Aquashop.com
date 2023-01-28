@@ -118,6 +118,7 @@ export default function CarouselCosmetics() {
           <Card cursor="pointer" onClick={()=>handleClick(el)} height="460px"  maxW="sm">
             <CardBody>
               <Image
+              id="hov"
                 ml="20px"
                 width="250px"
                 height="200px"

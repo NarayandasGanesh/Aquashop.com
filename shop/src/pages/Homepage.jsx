@@ -175,6 +175,7 @@ const Homepage = () => {
         </Text>
       </Flex>
       <Image
+         id="hov"
         height="300px"
         marginTop="30px"
         src="https://img.shop.com/Image/homepage/shop-gbr-102789-holiday-hot-toys-banners-1600x300-img-min1669996056936.jpg"
@@ -211,6 +212,7 @@ const Homepage = () => {
                   backgroundColor="#545871"
                 >
                   <Image
+                     id="hov"
                     height="100px"
                     width="100px"
                     backgroundColor="rgba(0,0,0,.5)"
@@ -230,6 +232,7 @@ const Homepage = () => {
               
                 <CardBody   cursor="pointer"  onClick={()=>GoTo("/health")} height="170px" width="150px" background="#545871">
                   <Image
+                     id="hov"
                     height="100px"
                     width="100px"
                     src="https://img.shop.com/Image/departments/Health%20&%20Nutrition.jpg"
@@ -247,6 +250,7 @@ const Homepage = () => {
            
                 <CardBody   cursor="pointer"  onClick={()=>GoTo("/clothes")} height="170px" width="150px" background="#545871">
                   <Image
+                     id="hov"
                     height="100px"
                     width="100px"
                     src="https://img.shop.com/Image/departments/Clothes.jpg"
@@ -264,6 +268,7 @@ const Homepage = () => {
           
                 <CardBody   cursor="pointer"  onClick={()=>GoTo("/electronics")} height="170px" width="150px" background="#545871">
                   <Image
+                     id="hov"
                     height="100px"
                     width="100px"
                     src="https://img.shop.com/Image/departments/Electronics.jpg"
@@ -299,6 +304,7 @@ const Homepage = () => {
           
                 <CardBody   cursor="pointer"  onClick={()=>GoTo("/health")} backgroundColor="#545871">
                   <Image 
+                     id="hov"
                     height="247px"
                     backgroundColor="rgba(0,0,0,.5)"
                     src="https://img.shop.com/Image/homepage/us-eng-toryburch-hp-winter-dec221669836193393.jpeg"
@@ -340,6 +346,7 @@ const Homepage = () => {
                   backgroundColor="#545871"
                 >
                   <Image
+                     id="hov"
                     height="30px"
                     width="350px"
                     backgroundColor="rgba(0,0,0,.5)"
@@ -363,6 +370,7 @@ const Homepage = () => {
                   backgroundColor="#545871"
                 >
                   <Image
+                     id="hov"
                     height="30px"
                     width="350px"
                     src="https://img.shop.com/Image/topbrands/nmlogos_134047.gif"
@@ -385,6 +393,7 @@ const Homepage = () => {
                   backgroundColor="#545871"
                 >
                   <Image
+                     id="hov"
                     height="30px"
                     width="350px"
                     src="https://img.shop.com/Image/topbrands/nmlogos_108567.gif"
@@ -407,6 +416,7 @@ const Homepage = () => {
                   backgroundColor="#545871"
                 >
                   <Image
+                     id="hov"
                     height="30px"
                     width="350px"
                     src="https://img.shop.com/Image/topbrands/nmlogos_113138.gif"
@@ -446,6 +456,7 @@ const Homepage = () => {
             </Link>
             <Link>
               <Image
+                 id="hov"
                 marginTop="20px"
                 src="https://img.shop.com/Image/homepage/stocking-stuffers-media-300x250-img1669837197571.jpg"
               />
@@ -463,6 +474,7 @@ const Homepage = () => {
         <Link>
           <Box>
             <Image
+               id="hov"
               width="400px"
               height="420px"
               src="https://img.shop.com/Image/homepage/shop-usa-eng-96513-free-shipping-day-banners-600x600-img1670959530225.jpg"
@@ -474,30 +486,35 @@ const Homepage = () => {
           <Link>
             <Grid templateColumns={{base:'repeat(2, 1fr)',md:'repeat(5, 1fr)'}} gap="20px">
               <Image
+                 id="hov"
                 width="160px"
                 boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
                 backgroundColor="#f0f1f7"
                 src="https://img.shop.com/Image/homepage/nike_140x110-img.gif"
               />
               <Image
+                 id="hov"
                 width="160px"
                 boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
                 backgroundColor="#f0f1f7"
                 src="https://img.shop.com/Image/homepage/michaelkors_140x110-img.gif"
               />
               <Image
+                 id="hov"
                 width="160px"
                 boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
                 backgroundColor="#f0f1f7"
                 src="https://img.shop.com/Image/homepage/coach_brand7.jpg"
               />
               <Image
+                 id="hov"
                 width="160px"
                 boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
                 backgroundColor="#f0f1f7"
                 src="https://img.shop.com/Image/homepage/adidaslogo_140_1100.jpg"
               />
               <Image
+                 id="hov"
                 width="160px"
                 boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
                 backgroundColor="#f0f1f7"
@@ -508,7 +525,7 @@ const Homepage = () => {
           <Link>
             <HStack>
               <VStack>
-                <Image src="https://img.shop.com/Image/homepage/us-eng-jcpenney-50p-hp-nov221669752610403.jpeg" />
+                <Image    id="hov" src="https://img.shop.com/Image/homepage/us-eng-jcpenney-50p-hp-nov221669752610403.jpeg" />
                 <HStack>
                   <Text fontWeight={700}>2.00% </Text>
                   <AiFillDollarCircle color="teal" />
@@ -516,7 +533,7 @@ const Homepage = () => {
                 </HStack>
               </VStack>
               <VStack>
-                <Image src="https://img.shop.com/Image/homepage/us-eng-macys-20poffgifts-hp-dec221670435068951.jpeg" />
+                <Image    id="hov" src="https://img.shop.com/Image/homepage/us-eng-macys-20poffgifts-hp-dec221670435068951.jpeg" />
                 <HStack>
                   <Text fontWeight={700}>2.00% </Text>
                   <AiFillDollarCircle color="teal" />
@@ -524,7 +541,7 @@ const Homepage = () => {
                 </HStack>
               </VStack>
               <VStack>
-                <Image src="https://img.shop.com/Image/homepage/us-eng-nike-hp-dec221670866755445.jpeg" />
+                <Image    id="hov" src="https://img.shop.com/Image/homepage/us-eng-nike-hp-dec221670866755445.jpeg" />
                 <HStack>
                   <Text fontWeight={700}>2.00% </Text>
                   <AiFillDollarCircle color="teal" />
@@ -539,6 +556,7 @@ const Homepage = () => {
       <Box marginTop="50px">
         <Box>
           <Image
+             id="hov"
             width="200px"
             margin="auto"
             src="https://img.shop.com/Image/resources/homepage/shop-homepage-icon.svg"
@@ -551,7 +569,7 @@ const Homepage = () => {
           <VStack>
             <Box>
               {" "}
-              <Image src="https://img.shop.com/Image/homepage/us-eng-bbb-memorialday-media-may211670870263691.jpg" />
+              <Image    id="hov" src="https://img.shop.com/Image/homepage/us-eng-bbb-memorialday-media-may211670870263691.jpg" />
             </Box>
             <Text fontWeight={700}>25% off any Order</Text>
           </VStack>
@@ -559,7 +577,7 @@ const Homepage = () => {
         <Box boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;">
           <VStack>
             <Box>
-              <Image src="https://img.shop.com/Image/homepage/us-eng-oerstock-hp-media-dec221670968240105.png" />
+              <Image    id="hov" src="https://img.shop.com/Image/homepage/us-eng-oerstock-hp-media-dec221670968240105.png" />
             </Box>
             <HStack>
               <Text fontWeight={700}>2.00% </Text>
@@ -571,7 +589,7 @@ const Homepage = () => {
         <Box boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;">
           <VStack>
             <Box>
-              <Image src="https://img.shop.com/Image/homepage/shop-en-us-Marshalls-FreeShip-300x2501668727246227-img.jpg" />
+              <Image    id="hov" src="https://img.shop.com/Image/homepage/shop-en-us-Marshalls-FreeShip-300x2501668727246227-img.jpg" />
             </Box>
             <Text fontWeight={700}>25% off any Order</Text>
           </VStack>
@@ -579,13 +597,13 @@ const Homepage = () => {
       </HStack>
       <HStack mt="50px" justifyContent="space-evenly">
         <Box>
-          <Image src="https://img.shop.com/Image/homepage/giftsforher-media1664553609405.jpg" />
+          <Image    id="hov" src="https://img.shop.com/Image/homepage/giftsforher-media1664553609405.jpg" />
         </Box>
         <Box>
-          <Image src="https://img.shop.com/Image/homepage/giftsforhim-media1664553622036.jpg" />
+          <Image    id="hov" src="https://img.shop.com/Image/homepage/giftsforhim-media1664553622036.jpg" />
         </Box>
         <Box>
-          <Image src="https://img.shop.com/Image/homepage/giftsforteens-media1664553627912.jpg" />
+          <Image    id="hov" src="https://img.shop.com/Image/homepage/giftsforteens-media1664553627912.jpg" />
         </Box>
       </HStack>
 
@@ -615,6 +633,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="33px"
                 marginTop="22px"
                 height="135px"
@@ -640,6 +659,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="50px"
                 marginTop="30px"
                 height="125px"
@@ -665,6 +685,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="36px"
                 marginTop="25px"
                 height="135px"
@@ -691,6 +712,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="40px"
                 marginTop="30px"
                 height="125px"
@@ -716,6 +738,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="37px"
                 marginTop="35px"
                 height="125px"
@@ -741,6 +764,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="43px"
                 marginTop="30px"
                 height="125px"
@@ -762,16 +786,16 @@ const Homepage = () => {
 
       <HStack mt="90px" justifyContent="space-evenly">
         <Box>
-          <Image src="https://img.shop.com/Image/homepage/shop-usa-100086-gift-wrapping-media1669930199153.jpg" />
+          <Image    id="hov" src="https://img.shop.com/Image/homepage/shop-usa-100086-gift-wrapping-media1669930199153.jpg" />
         </Box>
         <Box>
-          <Image src="https://img.shop.com/Image/homepage/shop-usa-105054-Holiday-egift-banners-social-media-assets-media1665596337501.jpg" />
+          <Image    id="hov" src="https://img.shop.com/Image/homepage/shop-usa-105054-Holiday-egift-banners-social-media-assets-media1665596337501.jpg" />
         </Box>
         <Box>
-          <Image src="https://img.shop.com/Image/homepage/shop-usa-105045-Holiday-Curbside-Pickup-Banners-Social-Media-min1666128402917.jpg" />
+          <Image    id="hov" src="https://img.shop.com/Image/homepage/shop-usa-105045-Holiday-Curbside-Pickup-Banners-Social-Media-min1666128402917.jpg" />
         </Box>
         <Box>
-          <Image src="https://img.shop.com/Image/homepage/shop_usa_100094_eng_2022_holiday_buy_online_pickup_in_store_banner_-min1667575563985.jpg" />
+          <Image    id="hov" src="https://img.shop.com/Image/homepage/shop_usa_100094_eng_2022_holiday_buy_online_pickup_in_store_banner_-min1667575563985.jpg" />
         </Box>
       </HStack>
 
@@ -801,6 +825,7 @@ const Homepage = () => {
         >
           <Box>
             <Image
+               id="hov"
               mb="200px"
               width="400px"
               height="400px"
@@ -815,7 +840,7 @@ const Homepage = () => {
         <HStack justifyContent="space-evenly">
           <Box width="300px" height="250px">
             <VStack>
-              <Image mb="15px"
+              <Image    id="hov" mb="15px"
                 boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
                 src="https://img.shop.com/Image/homepage/us-eng-shopbop-ny-medi-fillin-hp-jan211671032078319.jpg"
               />
@@ -833,7 +858,7 @@ const Homepage = () => {
           </Box>
           <Box width="300px" height="250px">
             <VStack>
-              <Image mb="15px"
+              <Image    id="hov" mb="15px"
                 boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
                 src="https://img.shop.com/Image/homepage/us-mk-media-dec221670445967935.jpg"
               />
@@ -849,7 +874,7 @@ const Homepage = () => {
           </Box>
           <Box width="300px" height="250px">
             <VStack>
-              <Image mb="15px"
+              <Image    id="hov" mb="15px"
                 boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
                 src="https://img.shop.com/Image/homepage/us-eng-3rdlove-media-hp-dec221669846216726.jpg"
               />
@@ -865,7 +890,7 @@ const Homepage = () => {
             boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
           >
             <VStack>
-              <Image mb="20px" src="https://img.shop.com/Image/homepage/athelta-media-hp5556-14898061669846349406.jpg" />
+              <Image    id="hov" mb="20px" src="https://img.shop.com/Image/homepage/athelta-media-hp5556-14898061669846349406.jpg" />
               <Flex  >
               <Text mr="5px">2% </Text> <AiFillDollarCircle color="teal" />
                   <Text ml="5px">Cashback</Text>
@@ -901,6 +926,7 @@ const Homepage = () => {
         <HStack>
           <Box>
             <Image
+               id="hov"
               mb="200px"
               width="400px"
               height="400px"
@@ -948,6 +974,7 @@ const Homepage = () => {
        
           <Box>
             <Image
+               id="hov"
               mb="200px"
               width="400px"
               height="400px"
@@ -995,6 +1022,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="33px"
                 marginTop="22px"
                 height="135px"
@@ -1020,6 +1048,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="50px"
                 marginTop="30px"
                 height="125px"
@@ -1045,6 +1074,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="36px"
                 marginTop="25px"
                 height="135px"
@@ -1071,6 +1101,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="40px"
                 marginTop="30px"
                 height="125px"
@@ -1098,6 +1129,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="37px"
                 marginTop="35px"
                 height="125px"
@@ -1124,6 +1156,7 @@ const Homepage = () => {
               width="210px"
             >
               <Image
+                 id="hov"
                 marginLeft="43px"
                 marginTop="30px"
                 height="125px"
@@ -1149,10 +1182,10 @@ const Homepage = () => {
       <Box  backgroundColor="#f0f1f7" mt="70px">
         <HStack  justifyContent="space-evenly">
         <Box>
-          <Image boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" src="https://img.shop.com/Image/homepage/ix-us-eng-105233-digestive-health-packets-holiday-banner-med1667506965936.jpg" />
+          <Image    id="hov" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" src="https://img.shop.com/Image/homepage/ix-us-eng-105233-digestive-health-packets-holiday-banner-med1667506965936.jpg" />
         </Box>
         <Box>
-          <Image boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" src="https://img.shop.com/Image/homepage/royal-spa-usa-engsmall1666034758440.jpg" />
+          <Image  boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" src="https://img.shop.com/Image/homepage/royal-spa-usa-engsmall1666034758440.jpg" />
         </Box>
         <Box>
           <Image boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" src="https://img.shop.com/Image/homepage/isotonix-usa-105568-opc3-beauty-blend-banner-media1671109554812.jpeg" />
@@ -1183,15 +1216,20 @@ const Homepage = () => {
             color="#2e2c38"> OUR BRANDS</Text>
 
             <Grid 
-             templateColumns={{base:'repeat(2, 1fr)',md:'repeat(5, 1fr)'}}  gap="20px"  >
+             templateColumns={{base:'repeat(2, 1fr)',md:'repeat(5, 1fr)'}}
 
+    gap="20px"
           
+           >
+
+        
+
                 <Box  cursor="pointer" onClick={()=>GoTo("/health")}  _hover={{color:"blue.300"}}>
               <VStack>
                 <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
                   HEALTH AND NUTRITIONS
                 </Text>
-                <Image width="350px" height="250px" src="https://img.shop.com/Image/homepage/healthnutirtion1572880380738.jpg" />
+                <Image id="hov" width="350px" height="250px" src="https://img.shop.com/Image/homepage/healthnutirtion1572880380738.jpg" />
               </VStack>
                 </Box>
 
@@ -1200,7 +1238,7 @@ const Homepage = () => {
                <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
                 BEAUTY
                 </Text>
-                <Image width="350px" height="250px"  src="https://img.shop.com/Image/homepage/lipstick1572880828301.jpg" />
+                <Image id="hov" width="350px" height="250px"  src="https://img.shop.com/Image/homepage/lipstick1572880828301.jpg" />
               </VStack>
                </Box>
 
@@ -1209,7 +1247,7 @@ const Homepage = () => {
              <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
               JEWELRY
                 </Text>
-                <Image width="350px" height="250px"  src="https://img.shop.com/Image/280000/282000/282022/products/1954593896.jpg?plain&size=1600x1600" />
+                <Image id="hov" width="350px" height="250px"  src="https://img.shop.com/Image/280000/282000/282022/products/1954593896.jpg?plain&size=1600x1600" />
               </VStack>
              </Box>
 
@@ -1218,7 +1256,7 @@ const Homepage = () => {
             <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
             CLOTHINGS
                 </Text>
-                <Image width="350px" height="250px"  src="https://img.shop.com/Image/290000/291600/291696/products/1943601116__800x800__.jpg" />
+                <Image id="hov" width="350px" height="250px"  src="https://img.shop.com/Image/290000/291600/291696/products/1943601116__800x800__.jpg" />
               </VStack >
             </Box>
 
@@ -1227,7 +1265,7 @@ const Homepage = () => {
               <Text fontSize="1rem" lineHeight="1.65rem" fontWeight="700">
           ELECTRONICS
                 </Text>
-                <Image width="350px" height="250px"  src="https://img.shop.com/Image/280000/281900/281909/products/1935336852__800x800__.jpg" />
+                <Image id="hov" width="350px" height="250px"  src="https://img.shop.com/Image/280000/281900/281909/products/1935336852__800x800__.jpg" />
               </VStack>
               </Box>
             </Grid>
