@@ -305,7 +305,7 @@ const abcd=()=>{
                     <Text fontWeight={"bold"}>
                       Your Consultant is AquaShop.COM
                     </Text>
-                    {user && user.firstName ? (
+                    {user && user.isLogin ? (
                       <Box
                         display={"flex"}
                         mt={2}
