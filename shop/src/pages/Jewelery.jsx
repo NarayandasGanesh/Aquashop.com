@@ -28,11 +28,13 @@ const Jewelery = () => {
         setReset((previous)=>!previous)
         return 
       }
+
       dispatch(sortMyJewelery(value))
     
     }
 
     const {Jewelery}=useSelector((store)=>store.JeweleryManger)
+
   const dispatch=useDispatch()
   useEffect(()=>{
   
