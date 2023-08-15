@@ -19,6 +19,9 @@ const Clothes = () => {
   
 
 
+
+
+
   const handleClick = (item) => {
     setItem("singleproduct", item);
     navigate("/clothes/singleproduct");
