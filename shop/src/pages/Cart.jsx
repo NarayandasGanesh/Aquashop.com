@@ -35,6 +35,7 @@ function CartPage() {
     onOpen,
   } = useDisclosure({ defaultIsOpen: false });
 
+
   const toast = useToast();
   const { userData } = useSelector((store) => store.auth);
   const { Cart } = useSelector((store) => store.CartManger);
@@ -49,10 +50,12 @@ function CartPage() {
       toast({
         title: "Please SignIn First.",
 
+
         status: "success",
         duration: 6000,
         isClosable: true,
       });
+
       return;
     }
   }, [userData]);
@@ -70,11 +73,13 @@ function CartPage() {
     dispatch(REMOVE_Cart_item(id));
   };
 
+
   return (
     <div style={{minHeight:"1000px",marginTop:"20px"}}>
       <div >
         <h1>Cart</h1>
       </div>
+
       <Center>
         <Heading mt={5} marginTop={"150px"}>
           Cart
