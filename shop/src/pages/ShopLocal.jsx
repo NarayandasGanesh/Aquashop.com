@@ -6,6 +6,8 @@ const ShopLocal = () => {
   return (
     <div>
 
+
+
       <h1>Shop Local</h1>
 
     </div>
