@@ -10,6 +10,7 @@ const ShopLocal = () => {
 
       <h1>Shop Local</h1>
 
+
     </div>
   );
 };
