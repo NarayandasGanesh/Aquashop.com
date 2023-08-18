@@ -67,6 +67,7 @@ const SignIn = () => {
             navigateTo("/");
           } else {
             console.log("login creds invalid");
+
             toast({
               title: "Credential Invalid.",
               description: "",
@@ -75,6 +76,7 @@ const SignIn = () => {
               isClosable: true,
             });
           }
+
         });
     } catch (error) {
       console.log("error", error);
@@ -84,6 +86,7 @@ const SignIn = () => {
   const HandleChange = (evt) => {
     let { name, value } = evt.target;
     setFormData({
+
       ...formData,
       [name]: value,
     });
@@ -95,6 +98,7 @@ const SignIn = () => {
       align={"center"}
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
+
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
