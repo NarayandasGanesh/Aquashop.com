@@ -32,6 +32,7 @@ import "../index.css";
 import { useDispatch } from 'react-redux';
 import { ADD_Cart_item } from '../store/Cart/Cart.action';
 
+
 const Singleproduct = () => {
    const [data,setData]=useState({})
   const [curimg , setImg]=useState(data.image4)
@@ -41,10 +42,12 @@ const Singleproduct = () => {
     setData(getItem("singleproduct"))
    },[])
    console.log(data)
+
    
    useEffect(()=>{
      setImg(data.image4)
    },[data])
+
 
 const navigate=useNavigate()
    const dispatch = useDispatch()
@@ -56,6 +59,7 @@ const navigate=useNavigate()
   return (
   <SimpleGrid 
   as={Box}
+
   textAlign={'center'}
   spacing={{ base: 8, md: 14 }}
   py={{ base: 20, md: 36 }}>
@@ -67,8 +71,10 @@ const navigate=useNavigate()
      >
           <Box>
           <img onClick={()=>setImg(data.image1)}  width={"370px"}  src={data.image1} alt="" /><br />
+
           <img onClick={()=>setImg(data.image2)}  width={140}  src={data.image2} alt="" /><br />
-          <img  onClick={()=>setImg(data.image3)} width={140}  src={data.image3} alt="" /><br />
+          <img 
+ onClick={()=>setImg(data.image3)} width={140}  src={data.image3} alt="" /><br />
           </Box>
           <Box marginLeft={"70px"} >
           <Image  width={755} src={curimg} alt=""
