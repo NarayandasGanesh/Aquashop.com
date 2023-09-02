@@ -12,6 +12,7 @@ import Slider from "react-slick";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { setItem } from "../utility/localStorage";
 import { useNavigate } from "react-router";
+
 import {
   Text,
   Card,
