@@ -22,7 +22,6 @@ import {
   Flex,
 } from "@chakra-ui/react";
 
-
 // Settings for the slider
 const settings = {
   dots: true,
