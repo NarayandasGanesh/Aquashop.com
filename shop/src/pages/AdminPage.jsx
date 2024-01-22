@@ -13,9 +13,6 @@ import Health from '../components/AdminPage/Health';
 
 
 
-
- 
-
 const AdminPage = () => {
  
   const { isOpen, onOpen, onClose } = useDisclosure()
