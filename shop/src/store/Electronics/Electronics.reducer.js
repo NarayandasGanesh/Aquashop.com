@@ -15,7 +15,8 @@ export const Electronicsreducer = (state = initialState, { type, payload }) => {
         isLoading:true
 
       }
-    } 
+    }
+ 
     case types.GET_Electronics_SUCCESS:{
       return {
         ...state,
