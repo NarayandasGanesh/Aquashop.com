@@ -26,6 +26,7 @@ const [reset,setReset ]=useState(false)
 
     setReset((previous)=>!previous)
     return 
+
   }
 
   dispatch(sortCOSMETICS(value))
