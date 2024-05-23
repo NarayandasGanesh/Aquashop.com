@@ -12,6 +12,7 @@ export const UPDATE_Cosmetics_LOADING = "Cosmetics/update/laoding";
 export const UPDATE_Cosmetics_SUCCESS = "Cosmetics/update/success";
 export const UPDATE_Cosmetics_ERROR = "Cosmetics/update/error";
 
+
 // REMOVE  
 export const REMOVE_Cosmetics_LOADING = "Cosmetics/remove/laoding";
 export const REMOVE_Cosmetics_SUCCESS = "Cosmetics/remove/success";
