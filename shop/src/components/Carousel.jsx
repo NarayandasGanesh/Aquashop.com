@@ -4,6 +4,7 @@ import { Box, IconButton, useBreakpointValue,Button,Icon } from "@chakra-ui/reac
 import {  BiRightArrowAlt } from "react-icons/bi";
 import {  AiFillCaretLeft,AiFillCaretRight } from "react-icons/ai";
 import { AiFillStar } from 'react-icons/ai'
+
 // And react-slick as our Carousel Lib
 import { useState, useEffect } from "react";
 import axios from "axios";
