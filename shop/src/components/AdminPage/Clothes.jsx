@@ -9,8 +9,6 @@ import Pdoduct from './Jewelery';
  
 
 
-
-
  
 
 const Clothes = () => {
