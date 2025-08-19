@@ -6,7 +6,6 @@ import {  AiFillCaretLeft,AiFillCaretRight } from "react-icons/ai";
 import { AiFillStar } from 'react-icons/ai'
 
 
-
 // And react-slick as our Carousel Lib
 import { useState, useEffect } from "react";
 import axios from "axios";
