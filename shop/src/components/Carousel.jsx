@@ -7,7 +7,6 @@ import { AiFillStar } from 'react-icons/ai'
 
 
 
-
 // And react-slick as our Carousel Lib
 import { useState, useEffect } from "react";
 import axios from "axios";
